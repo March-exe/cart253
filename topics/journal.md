@@ -8,8 +8,8 @@ What surprised you? What is cool? What is difficult to understand? What do you h
 
 ## entries
 
-1
+1 
 
 2
 
-3
+placeholder
