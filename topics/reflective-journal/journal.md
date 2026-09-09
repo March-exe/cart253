@@ -8,4 +8,4 @@ What surprised you? What is cool? What is difficult to understand? What do you h
 
 ## entries
 
-placeholder
+[entry 1](topics/reflective-journal/journal.md)

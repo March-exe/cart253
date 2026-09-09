@@ -7,7 +7,7 @@ This is March-exe's repository for cart253 assignments and any related work
 [Instagram page](https://www.instagram.com/_march.log)
 
 
-## [Reflective Journal](topics/journal.md)
+## [Reflective Journal](topics/reflective-journal/journal.md)
 writen journal entries on the processes and prototypes while coding
 
 
