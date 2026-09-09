@@ -1,4 +1,4 @@
-# entry 1 response:
+# Entry 1 response:
 
 It was really cool to make a website on GitHub since I've never done it before. I didn't realize how easy it was to do with just a few files and folders. I always saw websites as a big coding/programming task, not this easy. I also never realized you could self-host it for free on GitHub since all the other website generators or domain purchasing requires money. I was surprised with how easy markdown is, with a very intuitive nature of use with its symbols. I also never realized that Markdown was the basis and foundation for many text editors/applications like discord use Markdown visually to indicate what is bold, italics, etc. 
 
