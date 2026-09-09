@@ -5,3 +5,5 @@ It was really cool to make a website on GitHub since I've never done it before. 
 As much as I intuitively understand programming from my notice experience, I still do not have a grasp of what script.js & style.css truly means or how they can be used/applied. As the semester goes on, I hope to have a better grasp of these file types and understand their abilities/limitations for web design and further use. JavaScript as a concept was first introduced to me through Minecraft mods so by the end of the semester, I also hope to have a proper understanding of the way they are made, both to try myself, and to have a stronger appreciation of the effort people have put into these projects.  
 
 My future aspirations are to take my website beyond basic functionality and put creative design decisions into it so that navigation is both visually and interactively interesting. 
+
+![Website prototype](../version-control/version-control-workflow/assets/images/RJ_SS_1.png)
