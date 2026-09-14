@@ -1,13 +1,17 @@
 # Cart253 - Creative Computation 1
 This is March-exe's repository for cart253 assignments and any related work
 
-![Wall action](topics/version-control/version-control-workflow//assets/images/IMG_6968(1).JPG)
+![Wall action](topics/version-control/version-control-workflow//assets/images/collage-cover.png)
 
-## other web-presences
-[Instagram page](https://www.instagram.com/_march.log)
+## Other Web-presences
+Any of my other creative practices and portfolios spread across the internet
+
+- [Instagram page](https://www.instagram.com/_march.log)
+
+## Assignments
+where you will find all my prototypes, assignments and challenges done for Cart 253
 
 
 ## [Reflective Journal](topics/reflective-journal/journal.md)
 writen journal entries on the processes and prototypes while coding
-
 
