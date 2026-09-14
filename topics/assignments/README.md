@@ -4,7 +4,8 @@ This is the main assignmnets page where you can select any and all challenges or
 
 ## Challenges
 
- - [Hello world challenge](./Challenges/hello-world-challenge/version-control/version-control-workflow/index.html)
+ - [Hello world challenge](./Challenges/hello-world-challenge/version-control/version-control-workflow/)
+ 
 
  - [Instruction Challenge](./Challenges/instruction-challenge/README.md)
 
