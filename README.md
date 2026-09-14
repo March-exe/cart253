@@ -1,7 +1,7 @@
 # Cart253 - Creative Computation 1
 This is March-exe's repository for cart253 assignments and any related work
 
-![Wall action](topics/version-control/version-control-workflow//assets/images/collage-cover.png)
+![Wall action](./images/collage-cover.png)
 
 ## Other Web-presences
 Any of my other creative practices and portfolios spread across the internet

@@ -8,4 +8,4 @@ As much as I intuitively understand programming from my notice experience, I sti
 
 My future aspirations are to take my website beyond basic functionality and put creative design decisions into it so that navigation is both visually and interactively interesting. 
 
-![Website prototype](../version-control/version-control-workflow/assets/images/RJ_SS_1.png)
+![Website prototype](./images/RJ_SS_1.png)
