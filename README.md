@@ -8,7 +8,7 @@ Any of my other creative practices and portfolios spread across the internet
 
 - [Instagram page](https://www.instagram.com/_march.log)
 
-## Assignments
+## [Assignments](./topics/assignments/README.md)
 where you will find all my prototypes, assignments and challenges done for Cart 253
 
 
