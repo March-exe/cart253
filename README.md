@@ -1,4 +1,4 @@
-[Home](README.md) / [Assignmnets](./topics/assignments/README.md) / [Reflective Journal](./topics/reflective-journal/journal.md)
+[Home](./) / [Assignmnets](./topics/assignments/README.md) / [Reflective Journal](./topics/reflective-journal/journal.md)
 
 # Cart253 - Creative Computation 1
 This is March-exe's repository for cart253 assignments and any related work
