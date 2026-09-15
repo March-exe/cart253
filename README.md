@@ -10,7 +10,7 @@ Any of my other creative practices and portfolios spread across the internet
 
 ![Wall action](./images/collage-cover.png)
 
-## [Assignments](Assignments.mdd)
+## [Assignments](Assignments.md)
 where you will find all my prototypes, assignments and challenges done for Cart 253
 
 
