@@ -2,34 +2,28 @@
  * Draw a Lanscape
  * Marciano Faugno
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Draws a lanscape with a tent, a person, a moon
+ * and birds in the sky. it uses a combination of circles, quads, 
+ * rectangles, triangles and lines to create the lanscape.
  */
 
 "use strict";
 
 /**
-
+creates a canvas, hides the cursor
 */
 function setup() {
+    // A 400x400 canvas
     createCanvas(400, 400);
+
+    // Don't show the cursor
+    noCursor();
 }
 
 /**
- * Draws the landscape with a line across the canvas
+ * Draws the dimly lit landscape featuring a tent, a person, 
+ * a moon and birds in the sky.
 */
-function setup() {
-    createCanvas(400, 400);
-}
-
-function setup() {
-    createCanvas(400, 400);
-}
-
-function setup() {
-    createCanvas(400, 400);
-}
-
 function draw() {
 
     //NIGHT SKY//
@@ -42,7 +36,7 @@ function draw() {
     //NIGHT SKY//
 
     //GROUND//
-    //like for where the ground is supposed to be
+    //line for where the ground is supposed to be
     line(0, 300, 400, 275);
     // a dark blue 'fill in coulour' for the ground
     fill(0, 0, 75)
@@ -56,6 +50,7 @@ function draw() {
     // darker colour yellowish green of tent - slightly smaller quad object 
     fill(20, 180, 85)
     quad(220, 300, 250, 240, 300, 260, 350, 300);
+
     //shadow cast behind tent in black
     fill(0, 0, 0)
     quad(200, 300, 280, 330, 425, 360, 350, 300);
@@ -82,24 +77,17 @@ function draw() {
     ellipse(192, 317, 10)
     //PERSON//
 
-    //BIRDS// since im only using black colour right now i dont need to change the fill
+    //BIRDS// 
+    // since im only using black colour right now 
+    // i dont need to change the fill
     //bird 1//
     line(100, 50, 120, 60)
     line(120, 60, 140, 50)
-
     //bird 2//
     line(120, 90, 140, 100)
     line(140, 100, 160, 90)
-
     //bird 3//
     line(180, 50, 200, 60)
     line(200, 60, 220, 50)
-
-
-    //ellipse(50,50, 50)
-
-
-
-
-
+    //BIRDS//
 }
