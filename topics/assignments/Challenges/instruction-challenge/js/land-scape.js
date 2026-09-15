@@ -66,6 +66,7 @@ function draw() {
     circle(176, 225, 15)
     // body of person 
     rect(168, 234, 16, 30)
+
     // left leg
     quad(168, 260, 174, 260, 174, 290, 168, 290)
     // right leg
@@ -73,7 +74,6 @@ function draw() {
 
     // left arm
     triangle(168, 235, 163, 250, 168, 260)
-
     // right arm
     triangle(184, 235, 189, 250, 184, 260)
 
