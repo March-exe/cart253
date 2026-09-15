@@ -9,7 +9,7 @@
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+
 */
 function setup() {
 
