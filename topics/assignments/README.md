@@ -1,3 +1,6 @@
+
+[Home](/README.md) / [Assignmnets](README.md) / [Reflective Journal](../reflective-journal/journal.md_)
+
 # Assignments
 
 This is the main assignmnets page where you can select any and all challenges or prototypes done for Cart 253
