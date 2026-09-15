@@ -1,12 +1,14 @@
+[Home](README.md) / [Assignmnets](./topics/assignments/README.md) / [Reflective Journal](./topics/reflective-journal/journal.md)
+
 # Cart253 - Creative Computation 1
 This is March-exe's repository for cart253 assignments and any related work
-
-![Wall action](./images/collage-cover.png)
 
 ## Other Web-presences
 Any of my other creative practices and portfolios spread across the internet
 
 - [Instagram page](https://www.instagram.com/_march.log)
+
+![Wall action](./images/collage-cover.png)
 
 ## [Assignments](./topics/assignments/README.md)
 where you will find all my prototypes, assignments and challenges done for Cart 253
