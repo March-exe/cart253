@@ -13,7 +13,6 @@
 // a blue guy with a circle face, two eyes, a mouth and a body. The body is made up of three ellipses. The blue guy is drawn on a pink background.
 
 
-function draw()
 function setup() {
     createCanvas(400, 400);
 }
