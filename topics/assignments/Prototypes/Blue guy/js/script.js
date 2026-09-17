@@ -1,33 +1,64 @@
 /**
- * Title of Project
- * Author Name
+ * BLUE GUY PROTOTYPE
+ * Marciano Faugno
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * This blue guy is a simple drawing of a blue character with a circle face, two eyes, a mouth and a body. 
+ * The body is made up of three ellipses. The blue guy is drawn on a pink background.
  */
 
 "use strict";
 
 
 
-// Click and drag the mouse to view the scene from different angles.
+// a blue guy with a circle face, two eyes, a mouth and a body. The body is made up of three ellipses. The blue guy is drawn on a pink background.
 
-function setup() {
-    createCanvas(400, 400, WEBGL);
-
-    describe('A white sphere on a gray background.');
-}
 
 function draw() {
-    background(200, 50, 50);
+    function setup() {
+        createCanvas(400, 400);
+    }
+
+    function draw() {
+        background(220, 150, 150);
+
+        // rectangle face is in
+        rectMode(CENTER)
+        fill(150, 220, 150)
+        square(200, 200, 250)
 
 
-    // Draw the sphere.
-    box(150, 24);
-    // Rotate around the y-axis.
-    rotateY(frameCount * 0.01);
-    rotateX(frameCount * 0.01);
+        // blue face
+        fill(0, 200, 200)
+        circle(200, 200, 200)
+
+        // right eye 
+        fill(0, 0, 0)
+        circle(125, 175, 50)
+        // right pupil
+        fill(255, 255, 255)
+        circle(125, 185, 25)
+
+        // left eye
+        fill(0, 0, 0)
+        circle(275, 175, 50)
+        // left pupil
+        fill(255, 255, 255)
+        circle(275, 185, 25)
+
+        // mouth
+        fill(0, 0, 0)
+        arc(200, 250, 100, 15, 0, PI);
+        // teeth
+        fill(255, 255, 255)
+        rect(195, 260, 5, 15)
+        rect(200, 260, 5, 15)
 
 
+        // body
+        fill(0, 200, 200)
+        ellipse(200, 350, 50, 100)
+        ellipse(250, 340, 25)
+        ellipse(150, 350, 25)
+    }
 
 }
