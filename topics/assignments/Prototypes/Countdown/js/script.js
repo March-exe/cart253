@@ -21,10 +21,11 @@ function setup() {
     //set frame rate to 60fps
     frameRate(60);
     //sets variables for counter and arc animation
-    textNum = 9
-    stopAngle = -90
+
 
 }
+let textNum = 9
+let stopAngle = -90
 
 function draw() {
     background(255, 200, 200);
