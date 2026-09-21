@@ -4,7 +4,7 @@
  * 
  * This is a p5 project made with 2d objects to animate a countdown timer for a movie. 
  * 
- //*
+/** */
 
 "use strict";
 
@@ -16,6 +16,7 @@ function setup() {
     createCanvas(400, 400);
 
     angleMode(DEGREES);
+    frameRate(60)
 }
 
 function draw() {
@@ -32,16 +33,35 @@ function draw() {
     noStroke();
     fill(200, 150, 255);
     // Updates stop angles.
-    let stopAngle = 270 + (frameCount * 5);
+    let stopAngle = -90 + (frameCount * 6);
+
     // Draw the arc.
-    arc(200, 200, 180, 180, 270, stopAngle);
-    //arc(x, y, w, h, startAngle, , [mode], [detail])
+    arc(200, 200, 180, 180, -90, stopAngle);
+    //arc(x, y, w, h, startAngle, endangle, [mode], [detail])
     pop();
+
+
+    let textNum = 9
+    let number = 0
+
+
+
+    //while (number < 9)
+    if (frameCount / 60)
+        number = number + (frameCount / 60);
+    textNum = textNum - number;
+
+
+
 
     //updates numbers for amount of rotations a second
     rectMode(CENTER);
     textSize(100)
-    text('1', 175, 225);
+    text(textNum, 170, 230);
+
+    //testing number for counter
+    text(number, 100, 100);
+
 
 
 }
