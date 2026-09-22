@@ -3,16 +3,20 @@
  * Marciano Faugno
  * 
  * This is a p5 project made with 2d objects to animate a countdown timer for a movie. 
- * 
-/** */
-
+ * i made this project following many of the guide and examples from the p5.js website; https://p5js.org/reference
+/**  */
 "use strict";
 
 
 
 // function calls for set up
 
-function setup() {
+let gif;
+
+async function setup() {
+
+    //load the gif
+    gif = await loadImage("./assets/images/Ricky.gif");
     //creates a 400x400 canvas
     createCanvas(400, 400);
 
@@ -24,6 +28,7 @@ function setup() {
 
 
 }
+//declaration of variables for countdown timer
 let textNum = 9
 let stopAngle = -90
 
@@ -55,6 +60,10 @@ function draw() {
     rectMode(CENTER);
     textSize(100);
     text(textNum, 170, 230);
+
+    if (textNum == 0)
+        //displays the gif when the countdown timer reaches 0
+        image(gif, 0, 0, 400, 400);
 
 
     //DEBUGGING TOOL: updates number for every second past based on framerate
