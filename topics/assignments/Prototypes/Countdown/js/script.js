@@ -12,11 +12,13 @@
 // function calls for set up
 
 let gif;
+let sound;
 
 async function setup() {
 
     //load the gif
     gif = await loadImage("./assets/images/Ricky.gif");
+    sound = await loadSound("./assets/sounds/NGGYU.mp3");
     //creates a 400x400 canvas
     createCanvas(400, 400);
 
@@ -64,7 +66,8 @@ function draw() {
     if (textNum == 0)
         //displays the gif when the countdown timer reaches 0
         image(gif, 0, 0, 400, 400);
-
+    // plays the sound when the countdown timer reaches 0
+    sound.play();
 
     //DEBUGGING TOOL: updates number for every second past based on framerate
     //text(frameCount/60 , 100, 100)

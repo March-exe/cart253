@@ -1,6 +1,6 @@
 # Bong in the eternal void
 
-AUTHOR NAME
+Marciano Faugno
 
 [View this project online](index.html)
 

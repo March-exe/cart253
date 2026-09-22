@@ -23,6 +23,8 @@ This bit should attribute any code, assets or other elements used taken from oth
 > - This project uses [p5.js](https://p5js.org).
 > - The screen shot is captured directly in my personal browser with all the elements produced within p5
 > - The gif at the end of the countdown is from tenor (https://tenor.com/view/rickroll-roll-rick-never-gonna-give-you-up-never-gonna-gif-22954713)
+> - youtube to mp3 (https://cnvmp3.com/v55)
+> - Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster) (https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=1s)
 
 ## License
 
