@@ -12,8 +12,8 @@ This is the main assignmnets page where you can select any and all challenges or
 
 ## Prototypes
 
- - [Blu Guy](./topics/assignments/Prototypes/Blue-guy)
+ - [Blu Guy](./topics/assignments/Prototypes/Blue-guy/README.md)
 
-- [Bong](/topics/assignments/Prototypes/Bong-in-the-void)
+- [Bong](./topics/assignments/Prototypes/Bong-in-the-void/README.md)
 
-- [Countdown](/topics/assignments/Prototypes/Countdown)
+- [Countdown](./topics/assignments/Prototypes/Countdown/README.md)

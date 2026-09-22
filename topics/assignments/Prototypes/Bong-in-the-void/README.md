@@ -2,7 +2,7 @@
 
 AUTHOR NAME
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](index.html)
 
 ## Description
 
@@ -14,7 +14,7 @@ the experience is controller via the mouse, with left click allowing the user to
 
 This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
 
-> ![Image of a clown face](./assets/images/clown.png)
+> ![Image of project in browser](./assets/images/Screenshot%202026-09-22%20111623.png)
 
 ## Attribution
 
@@ -22,7 +22,7 @@ This bit should attribute any code, assets or other elements used taken from oth
 
 > - This project uses [p5.js](https://p5js.org).
 > - the background image is sourced from here, Image #8 (https://animalia-life.club/qa/pictures/stoner-black-light-room)
-> - The barking sound effect is "single dog bark 1" by crazymonke9 from freesound.org: https://freesound.org/people/crazymonke9/sounds/418107/
+> - all elements of the bong are made within p5
 
 ## License
 
