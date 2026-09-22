@@ -16,6 +16,7 @@ the project was built as apart of the first prototyping assignment to learn more
 
 > ![Image of the site in action](./assets/images/screenshot.png)
 
+
 ## Attribution
 
 This bit should attribute any code, assets or other elements used taken from other sources. For example:

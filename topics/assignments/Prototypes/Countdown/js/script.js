@@ -10,7 +10,7 @@
 
 
 // function calls for set up
-
+//declaration of variables for gif and sound
 let gif;
 let NGGYU;
 
@@ -19,7 +19,8 @@ async function setup() {
     //load the gif
     gif = await loadImage("./assets/images/Ricky.gif");
     //load the sound
-    NGGYU = await loadSound("./assets/sounds/NGGYU.wav");
+    NGGYU = await loadSound("./assets/sounds/Csound.wav");
+
     //creates a 400x400 canvas
     createCanvas(400, 400);
 
@@ -47,7 +48,7 @@ function draw() {
     fill(200, 150, 255);
     // Updates stop angles
     if (textNum > 0)
-        //Sets the stopping angle to -90, adds 60/6 degrees creating animation
+        //Sets the stopping angle to -90, adds 60/6 degrees per frame, creating animation
         stopAngle = -90 + frameCount * 6;
 
     // Draw the arc.
@@ -64,9 +65,10 @@ function draw() {
     textSize(100);
     text(textNum, 170, 230);
 
-    if (textNum == 0)
+    if (textNum == 0 && NGGYU.isPlaying() == false) {
         // plays the sound when the countdown timer reaches 0
         NGGYU.play();
+    }
 
     if (textNum == 0)
         //displays the gif when the countdown timer reaches 0
