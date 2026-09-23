@@ -9,6 +9,9 @@ This is the main assignmnets page where you can select any and all challenges or
  
 
  - [Instruction Challenge](/topics/assignments/Challenges/instruction-challenge/index.html)
+ 
+ 
+ - [Variable Challenge](/topics/assignments/Challenges/variable-challenge/index.html)
 
 ## Prototypes
 
