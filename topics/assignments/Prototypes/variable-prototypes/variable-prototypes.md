@@ -1,4 +1,4 @@
-## Instructions prototypes
+## Variable prototypes
 
 ### 1
 

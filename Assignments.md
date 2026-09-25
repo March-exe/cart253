@@ -16,3 +16,5 @@ This is the main assignmnets page where you can select any and all challenges or
 ## Prototypes
 
 - [Instruction Prototypes](/topics/assignments/Prototypes/Instruction-prototypes/instruction-prototypes.md)
+
+- [Variable Prototypes](/topics/assignments/Prototypes/variable-prototypes/variable-prototypes.md)
