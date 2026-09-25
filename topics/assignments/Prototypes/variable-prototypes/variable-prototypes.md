@@ -2,9 +2,9 @@
 
 ### ERROR !
 
-![Screenshot of ERROR !](/topics/assignments/Prototypes/variable-prototypes/ERROR%20!/assets/images/Screenshot.png)
+![Screenshot of ERROR !](/topics/assignments/Prototypes/variable-prototypes/ERROR/assets/images/Screenshot.png)
 
-- [View online](/topics/assignments/Prototypes/variable-prototypes/ERROR%20!/index.html)
+- [View online](/topics/assignments/Prototypes/variable-prototypes/ERROR/index.html)
 
 - [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/Instruction-prototypes/Blue-guy)
 
