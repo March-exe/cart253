@@ -6,7 +6,7 @@
 
 - [View online](/topics/assignments/Prototypes/variable-prototypes/ERROR/index.html)
 
-- [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/Instruction-prototypes/Blue-guy)
+- [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/variable-prototypes/ERROR)
 
 ### 2
 
