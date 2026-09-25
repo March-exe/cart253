@@ -1,37 +1,29 @@
-# TITLE OF PROJECT
+# ERROR !
 
-AUTHOR NAME
+Marciano Faugno
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/variable-prototypes/ERROR)
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
-
-> *The Mayor of Clown Town* is a simulator experience that allows the user to control a small town populated entirely by clowns.
-
-> The experience is controlled via the mouse, with left click selecting a clown and bringing up a menu of options such as "slip of banana peel" or "get into impossible capacious clown-car."
-
-> The project is meant to give the user a sense of what it would be the mayor of a town of clowns, eventually getting the sense that clowns are not taking their civic duties seriously.
+ERROR is a 'simulated' desktop, taking insiration from old window's OS systems. after loading into the project, you will find a window displayed infront of you, when clicking to close it, it will infinitely duplicate the window across the desktop. it is supposed to bring dread and remind you of the times when you PC feels like it was hacked
 
 ## Screenshot(s)
 
-This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
-
-> ![Image of a clown face](./assets/images/clown.png)
+> ![Image of a clown face](/topics/assignments/Prototypes/variable-prototypes/ERROR/assets/images/Screenshot.png)
 
 ## Attribution
 
-This bit should attribute any code, assets or other elements used taken from other sources. For example:
-
 > - This project uses [p5.js](https://p5js.org).
 
-> - the clock is from p5 themselves https://editor.p5js.org/akshit6830/sketches/mFKPQH2vE
-> - found for fonts in the project https://editor.p5js.org/chanc245_chrissy/sketches/38M4tNTKd
-https://www.dafont.com/manaspace.font
+> - the clock is from a publically publish p5.js file, you can find it [here](https://editor.p5js.org/akshit6830/sketches/mFKPQH2vE)
+
+> - although i ended up not using the font, the file is there and i found it [here](https://editor.p5js.org/chanc245_chrissy/sketches/38M4tNTKd) from another public p5.js file 
+
+> - the font download for the specific font i thought would work is [here](https://www.dafont.com/manaspace.font)
+
+> - the inspiration and icons for the 'desktop' come from [here](https://typewritten.org/Media/) 
 
 ## License
-
-This bit should include the license you want to apply to your work. For example:
 
 > This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.

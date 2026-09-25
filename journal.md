@@ -1,4 +1,4 @@
-[Home](README.md) / [Assignmnets](Assignments.md) / [Reflective Journal](journal.md)
+[Home](README.md) / [Assignments](Assignments.md) / [Reflective Journal](journal.md)
 
 # Reflective journal
 Write a journal entry in your process journal reflecting on what you learned while making your website with Markdown and GitHub. 
