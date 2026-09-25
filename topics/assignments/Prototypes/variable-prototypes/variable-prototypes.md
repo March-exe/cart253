@@ -4,7 +4,7 @@
 
 ![Screenshot of ERROR !](/topics/assignments/Prototypes/variable-prototypes/ERROR/assets/images/Screenshot.png)
 
-- [View online](/topics/assignments/Prototypes/variable-prototypes/ERROR/)
+- [View online](cart253/topics/assignments/Prototypes/variable-prototypes/ERROR/index.html)
 
 - [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/variable-prototypes/ERROR)
 
