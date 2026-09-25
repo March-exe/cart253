@@ -1,10 +1,10 @@
 ## Variable prototypes
 
-### 1
+### ERROR !
 
-![Screenshot of my scary clown](/topics/assignments/Prototypes/Instruction-prototypes/Blue-guy/assets/images/Screenshot%202026-09-22.png)
+![Screenshot of ERROR !](/topics/assignments/Prototypes/variable-prototypes/ERROR%20!/assets/images/Screenshot.png)
 
-- [View online](/topics/assignments/Prototypes/Instruction-prototypes/Blue-guy/index.html)
+- [View online](/topics/assignments/Prototypes/variable-prototypes/ERROR%20!/index.html)
 
 - [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/Instruction-prototypes/Blue-guy)
 
