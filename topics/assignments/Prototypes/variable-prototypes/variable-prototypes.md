@@ -2,24 +2,23 @@
 
 ### ERROR !
 
-![Screenshot of ERROR !](/topics/assignments/Prototypes/variable-prototypes/ERROR/assets/images/Screenshot.png)
+![Screenshot of ERROR !](./ERROR/assets/images/Screenshot.png)
 
-- [View online](cart253/topics/assignments/Prototypes/variable-prototypes/ERROR/index.html)
+- [View online](./ERROR/index.html)
 
 - [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/variable-prototypes/ERROR)
 
 ### 2
 
-![Screenshot of my friendly clown](/topics/assignments/Prototypes/Instruction-prototypes/Bong-in-the-void/assets/images/Screenshot%202026-09-22%20111623.png)
+![Screenshot of my friendly clown]()
 
-- [View online](/topics/assignments/Prototypes/Instruction-prototypes/Bong-in-the-void/index.html)
-
-- [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/Instruction-prototypes/Bong-in-the-void)
+- [View online]()
+- [View code]()
 
 ### 3
 
-![Screenshot of my friendly cow](/topics/assignments/Prototypes/Instruction-prototypes/Countdown/assets/images/screenshot.png)
+![Screenshot of my friendly cow]()
 
-- [View online](/topics/assignments/Prototypes/Instruction-prototypes/Countdown/index.html)
+- [View online]()
 
-- [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/Instruction-prototypes/Countdown)
+- [View code]()
