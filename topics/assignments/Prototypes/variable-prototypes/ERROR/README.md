@@ -10,7 +10,7 @@ ERROR is a 'simulated' desktop, taking insiration from old window's OS systems. 
 
 ## Screenshot(s)
 
-> ![Image of a clown face](/topics/assignments/Prototypes/variable-prototypes/ERROR/assets/images/Screenshot.png)
+> ![image of ERROR](/topics/assignments/Prototypes/variable-prototypes/ERROR/assets/images/Screenshot.png)
 
 ## Attribution
 

@@ -2,7 +2,7 @@
 
 ### Blu Guy
 
-![Screenshot of my scary clown](/topics/assignments/Prototypes/Instruction-prototypes/Blue-guy/assets/images/Screenshot%202026-09-22.png)
+![Screenshot of my blue guy](/topics/assignments/Prototypes/Instruction-prototypes/Blue-guy/assets/images/Screenshot%202026-09-22.png)
 
 - [View online](/topics/assignments/Prototypes/Instruction-prototypes/Blue-guy/index.html)
 
@@ -10,7 +10,7 @@
 
 ### Bong
 
-![Screenshot of my friendly clown](/topics/assignments/Prototypes/Instruction-prototypes/Bong-in-the-void/assets/images/Screenshot%202026-09-22%20111623.png)
+![Screenshot of my bong](/topics/assignments/Prototypes/Instruction-prototypes/Bong-in-the-void/assets/images/Screenshot%202026-09-22%20111623.png)
 
 - [View online](/topics/assignments/Prototypes/Instruction-prototypes/Bong-in-the-void/index.html)
 
@@ -18,7 +18,7 @@
 
 ### Mysterious countdown
 
-![Screenshot of my friendly cow](/topics/assignments/Prototypes/Instruction-prototypes/Countdown/assets/images/screenshot.png)
+![Screenshot of my countdown](/topics/assignments/Prototypes/Instruction-prototypes/Countdown/assets/images/screenshot.png)
 
 - [View online](/topics/assignments/Prototypes/Instruction-prototypes/Countdown/index.html)
 
