@@ -1,4 +1,4 @@
-[Home](README.md) / [Assignments](Assignments.md) / [Reflective Journal](journal.md)
+[Home](./README.md) / [Assignments](./Assignments.md) / [Reflective Journal](./journal.md)
 
 ## Variable prototypes
 
