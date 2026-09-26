@@ -6,7 +6,7 @@ Marciano Faugno
 
 ## Description
 
-ERROR is a 'simulated' desktop, taking insiration from old window's OS systems. after loading into the project, you will find a window displayed infront of you, when clicking to close it, it will infinitely duplicate the window across the desktop. it is supposed to bring dread and remind you of the times when you PC feels like it was hacked
+ERROR is a 'simulated' desktop, taking insiration from old window's OS systems. after loading into the project, you will find a window displayed infront of you, when clicking to close it, it will infinitely duplicate the window across the desktop.
 
 ## Screenshot(s)
 
@@ -23,6 +23,8 @@ ERROR is a 'simulated' desktop, taking insiration from old window's OS systems. 
 > - the font download for the specific font i thought would work is [here](https://www.dafont.com/manaspace.font)
 
 > - the inspiration and icons for the 'desktop' come from [here](https://typewritten.org/Media/) 
+
+> - credits for helping me make a clickable exit button [here](https://editor.p5js.org/slow_izzm/sketches/CW49VoAiB)
 
 ## License
 
