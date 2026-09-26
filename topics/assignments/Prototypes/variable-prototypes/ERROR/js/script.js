@@ -126,11 +126,89 @@ let wdw = {
 
 }
 
+let icons = {
 
-// THE ACTUAL CANVAS //
+    inbox: {
+
+        x: 200,
+        y: 1000,
+        w: 300,
+        h: 300
+
+
+    },
+
+
+}
+let iconborder = {
+
+    vertLineCo: {
+
+        x1: icons.inbox.x + 300,
+        y1: icons.inbox.y,
+        x2: icons.inbox.x + 300,
+        y2: icons.inbox.y + 300,
+
+
+    },
+    // right: (450, 50, 450, 350)
+    // left: (150, 50, 150, 350)
 
 
 
+    horzLineCo: {
+        x1: icons.inbox.x,
+        y1: icons.inbox.y - 1,
+        x2: icons.inbox.x + 300,
+        y2: icons.inbox.y - 1
+    },
+    // top (150, 50, 450, 50)
+    // bottom: (150, 350, 450, 350)
+
+
+    gRect: {
+
+        x: icons.inbox.x + 5,
+        y: icons.inbox.y + 5,
+        w: 290,
+        h: 25
+    }
+
+    // THE ACTUAL CANVAS //
+
+}
+
+let inboxText = {
+
+    textPosition: {
+
+        x1: icons.inbox.x + 10,
+        y1: icons.inbox.y + 25,
+        x2: icons.inbox.x + 10,
+        y2: icons.inbox.y + 65,
+        x3: icons.inbox.x + 260,
+        y3: icons.inbox.y + 24,
+    },
+
+
+
+    text: {
+        one: "Inbox",
+        two: "You have no new messages.",
+        three: "_ X"
+
+
+    },
+
+    culr: {
+
+        b: 0,
+        w: 255
+
+
+    }
+
+}
 async function setup() {
 
     img = await loadImage('assets/images/start.png');
@@ -145,9 +223,75 @@ async function setup() {
 
 function draw() {
 
+    // SECRET INBOXXXXXX????
+    //drawing the inbow window
+    //grey box
+
+    if (icons.inbox.y != 1000) {
+        push();
+        noStroke();
+        fill(desktop.mColour.r, desktop.mColour.g, desktop.mColour.b);
+        rect(icons.inbox.x, icons.inbox.y, icons.inbox.w, icons.inbox.h);
+        pop();
+        //white box
+        push();
+        noStroke();
+        fill(229, 229, 228);
+        rect(icons.inbox.x + 5, icons.inbox.y + 35, icons.inbox.w - 10, icons.inbox.h - 50);
+        pop();
+        //border lines
+        push();
+        stroke(255);
+        //lines for border around clock
+        //x = 150 y = 50
+        //horizontal lines
+        // top (150, 50, 450, 50)
+        // bottom: (150, 350, 450, 350)
+        line(iconborder.horzLineCo.x1, iconborder.horzLineCo.y1, iconborder.horzLineCo.x2, iconborder.horzLineCo.y2);
+        line(iconborder.vertLineCo.x1 - 300, iconborder.vertLineCo.y1, iconborder.vertLineCo.x2 - 300, iconborder.vertLineCo.y2);
+        pop();
+        //vertical lines
+        push();
+        stroke(0);
+        // right: (450, 50, 450, 350)
+        // left: (150, 50, 150, 350)
+        line(iconborder.vertLineCo.x1, iconborder.vertLineCo.y1, iconborder.vertLineCo.x2, iconborder.vertLineCo.y2);
+        line(iconborder.horzLineCo.x1, iconborder.horzLineCo.y1 + 301, iconborder.horzLineCo.x1 + 300, iconborder.horzLineCo.y1 + 301);
+        pop();
+        // vert/horz lines: top (150, 50, 450, 50) x150,x2: right: (450, 50, 450, 350) bottom: (150, 350, 450, 350) left: (150, 50, 150, 350) 
+        push();
+        noStroke();
+        fill(129, 129, 129);
+        rect(iconborder.gRect.x, iconborder.gRect.y, iconborder.gRect.w, iconborder.gRect.h);
+        pop();
+        // INBOX text//
+        //top text
+        push();
+        fill(inboxText.culr.w);
+        noStroke();
+        //textFont(manaspace, 20);
+        textSize(20);
+        text(inboxText.text.one, inboxText.textPosition.x1, inboxText.textPosition.y1);
+        pop();
+        // bottom text
+        push();
+        fill(inboxText.culr.b);
+        noStroke();
+        //textFont(manaspace, 20);
+        textSize(20);
+        text(inboxText.text.two, inboxText.textPosition.x2, inboxText.textPosition.y2);
+        pop();
+        //middle text
+        push();
+        fill(inboxText.culr.w);
+        noStroke();
+        textSize(18);
+        text(inboxText.text.three, inboxText.textPosition.x3, inboxText.textPosition.y3);
+        pop();
+    }
+    //end of inbox //
+
     //CLOCK AND TASK BAR//
-
-
     //bottom task bar
     push();
     //grey colour
@@ -159,6 +303,8 @@ function draw() {
     //PLACES IMAGES ON THE DESKTOP // image(img, x, y, [width], [height])
     image(img, wdw.exitBox.x, wdw.exitBox.y, 95, 45);
     image(imgTwo, 25, 25, 85, 350);
+
+
 
     //time in the corner//
     push();
@@ -253,7 +399,6 @@ function draw() {
 
     pop();
 
-
 }
 // on mouse click, if the mouse is within range of the 'select box',
 // updates window position to a random number and updates all previous variables
@@ -320,26 +465,115 @@ function doubleClicked() {
 
     }
 }
-//my briefcase
+//ICONS
 function mousePressed() {
+    //my briefcase
     if (40 < mouseX && mouseX < 90 && mouseY < 370 && mouseY > 320) {
         // if (10 < mouseX && mouseX < 90 && mouseY < 961 && mouseY > 951 
 
         window.open('https://drive.google.com/file/d/1uQoQ8wFBTn9cHN-J8YbRsA4Eeb92k7U4/view?usp=drive_link', '_blank');
     }
-
+    //recycling bin
     if (40 < mouseX && mouseX < 90 && mouseY < 305 && mouseY > 265) {
         // if (10 < mouseX && mouseX < 90 && mouseY < 961 && mouseY > 951 
 
         window.open('https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/variable-prototypes/ERROR', '_blank');
     }
+
+    ////INBOXXXXXXXXXXXXXXXX OPENNNNNNNNNN ( looking for inbox icon position)
+    if (40 < mouseX && mouseX < 90 && mouseY < 200 && mouseY > 150) {
+        // if (10 < mouseX && mouseX < 90 && mouseY < 961 && mouseY > 951 
+
+        //when the icon is clicked, change the shapes position to be on the canvas
+        //so in theory the window is always off screen until you click
+        //updates y coordinates to appear on canvas - constantly loaded off sceren before
+        icons.inbox.y = 50
+
+        // mouse clicked
+        iconborder.vertLineCo.x1 = icons.inbox.x + 300
+        iconborder.vertLineCo.y1 = icons.inbox.y
+        iconborder.vertLineCo.x2 = icons.inbox.x + 300
+        iconborder.vertLineCo.y2 = icons.inbox.y + 300
+
+        //mouse clicked
+        iconborder.horzLineCo.x1 = icons.inbox.x
+        iconborder.horzLineCo.y1 = icons.inbox.y - 1
+        iconborder.horzLineCo.x2 = icons.inbox.x + 300
+        iconborder.horzLineCo.y2 = icons.inbox.y - 1
+
+        iconborder.gRect.x = icons.inbox.x + 5
+        iconborder.gRect.y = icons.inbox.y + 5
+        iconborder.gRect.w = 290
+        iconborder.gRect.h = 25
+
+
+        inboxText.textPosition.x1 = icons.inbox.x + 10
+        inboxText.textPosition.y1 = icons.inbox.y + 25
+        inboxText.textPosition.x2 = icons.inbox.x + 10
+        inboxText.textPosition.y2 = icons.inbox.y + 65
+        inboxText.textPosition.x3 = icons.inbox.x + 260
+        inboxText.textPosition.y3 = icons.inbox.y + 24
+
+
+        inbox.text.one = "Inbox"
+        inbox.text.two = "You have no new messages."
+        inbox.text.three = "_ X"
+
+    }
+    //if (icons.inbox.y < 900 && inboxText.textPosition.x3 < mouseX && mouseX < inboxText.textPosition.x3 + 100 && mouseY > inboxText.textPosition.y3 && mouseY < inboxText.textPosition.y3 + 100) {
+    //INBOX CLOSEEEEEEEEEE (looking for _ X position)
+    if (icons.inbox.y != 1000 && 460 < mouseX && mouseX < 500 && mouseY > 60 && mouseY < 80) {
+
+        push();
+        noStroke();
+        fill(0, 116, 115);
+        rect(icons.inbox.x - 1, icons.inbox.y + 1, icons.inbox.w + 1, icons.inbox.h + 1);
+        pop();
+        /** 
+            //if (wdw.selectBox.x < mouseX && mouseX < wdw.selectBox.x + 100 && mouseY > wdw.selectBox.y && mouseY < wdw.selectBox.y + 75) {
+            icons.inbox.y = 1000
+    
+            // mouse clicked
+            iconborder.vertLineCo.x1 = icons.inbox.x + 300
+            iconborder.vertLineCo.y1 = icons.inbox.y
+            iconborder.vertLineCo.x2 = icons.inbox.x + 300
+            iconborder.vertLineCo.y2 = icons.inbox.y + 300
+    
+            //mouse clicked
+            iconborder.horzLineCo.x1 = icons.inbox.x
+            iconborder.horzLineCo.y1 = icons.inbox.y - 1
+            iconborder.horzLineCo.x2 = icons.inbox.x + 300
+            iconborder.horzLineCo.y2 = icons.inbox.y - 1
+    
+            iconborder.gRect.x = icons.inbox.x + 5
+            iconborder.gRect.y = icons.inbox.y + 5
+            iconborder.gRect.w = 290
+            iconborder.gRect.h = 25
+    
+    
+            inboxText.textPosition.x1 = icons.inbox.x + 10
+            inboxText.textPosition.y1 = icons.inbox.y + 25
+            inboxText.textPosition.x2 = icons.inbox.x + 10
+            inboxText.textPosition.y2 = icons.inbox.y + 65
+            inboxText.textPosition.x3 = icons.inbox.x + 260
+            inboxText.textPosition.y3 = icons.inbox.y + 24
+    
+    
+            inboxText.text.one = "Inbox"
+            inboxText.text.two = "You have no new messages."
+            inboxText.text.three = "_ X"
+    
+    
+        }
+    
+        //inbox
+    
+        //rect(40, 20, 50, 50) my computer
+        // rect(40, 85, 50, 50) network management
+        // rect(40, 150, 50, 50) inbox
+        // rect(40, 210, 50, 50) internet explorer
+        // rect(40, 265, 50, 50) recycling bin
+        // rect(40, 320, 50, 50) my briefcase
+        */
+    }
 }
-
-//inbox
-
-//rect(40, 20, 50, 50)
-// rect(40, 85, 50, 50)
-// rect(40, 150, 50, 50)
-// rect(40, 210, 50, 50)
-// rect(40, 265, 50, 50)
-// rect(40, 320, 50, 50)

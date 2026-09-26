@@ -67,6 +67,11 @@ function draw() {
     pop();
 
 }
+//when the moving thing gets closer to the bomb, the fuze disappears behind it
+//if the fuze gets to the bomb, send back to the other page?
+//timer for how long youve held the fuze for?
+
+// when the mouse gets pressed, pause the moving thing. 
 
 function mousePressed() {
 
