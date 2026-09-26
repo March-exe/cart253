@@ -254,9 +254,6 @@ function draw() {
     pop();
 
 
-
-
-
 }
 // on mouse click, if the mouse is within range of the 'select box',
 // updates window position to a random number and updates all previous variables
@@ -308,7 +305,7 @@ function mouseClicked() {
     }
 
 }
-
+//start
 function doubleClicked() {
 
     if (wdw.exitBox.x < mouseX && mouseX < wdw.exitBox.x + 170 && mouseY < wdw.exitBox.y + 300 && mouseY > wdw.exitBox.y) {
@@ -323,5 +320,26 @@ function doubleClicked() {
 
     }
 }
+//my briefcase
+function mousePressed() {
+    if (40 < mouseX && mouseX < 90 && mouseY < 370 && mouseY > 320) {
+        // if (10 < mouseX && mouseX < 90 && mouseY < 961 && mouseY > 951 
 
+        window.open('https://drive.google.com/file/d/1uQoQ8wFBTn9cHN-J8YbRsA4Eeb92k7U4/view?usp=drive_link', '_blank');
+    }
 
+    if (40 < mouseX && mouseX < 90 && mouseY < 305 && mouseY > 265) {
+        // if (10 < mouseX && mouseX < 90 && mouseY < 961 && mouseY > 951 
+
+        window.open('https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/variable-prototypes/ERROR', '_blank');
+    }
+}
+
+//inbox
+
+//rect(40, 20, 50, 50)
+// rect(40, 85, 50, 50)
+// rect(40, 150, 50, 50)
+// rect(40, 210, 50, 50)
+// rect(40, 265, 50, 50)
+// rect(40, 320, 50, 50)
