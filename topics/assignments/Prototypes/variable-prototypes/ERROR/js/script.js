@@ -111,7 +111,7 @@ let wdw = {
     text: {
         one: "System ERROR :(",
         two: "Close",
-        three: "Please try closing this window\nand try again."
+        three: "Runtime ERROR\n press Close to quit"
 
 
     },
@@ -129,6 +129,8 @@ async function setup() {
     imgTwo = await loadImage('assets/images/icons.png');
     createCanvas(1000, 1000);
     background(0, 116, 115);
+
+
 
 }
 
@@ -168,11 +170,12 @@ function draw() {
     var currentSecond = second();
 
     var currentTime = currentHour + ':' + nf(currentMinute, 2) + ':' + nf(currentSecond, 2);
-    //manaspace = loadFont("assets/manaspace/manaspc.ttf");
+    //manaspace = loadFont("assets/manaspace/manaspc.ttf"); // left over code for trying to change the font
+    // might get around to it if i have some more time :D
     push();
     fill(255);
     noStroke();
-    //textFont(manaspace, 20);
+    //textFont(manaspace, 20); // leftovers
     textSize(20);
     text(currentTime, 900, 983);
     pop();
@@ -293,11 +296,11 @@ function mouseClicked() {
         //mouse clicked
         wdw.text.one = "System ERROR :("
         wdw.text.two = "Close"
-        wdw.text.three = "Please try closing this window\nand try again."
+        wdw.text.three = "Runtime ERROR\n press Close to quit"
 
     }
 
 }
 
 
-
+//doubleClicked(); 
