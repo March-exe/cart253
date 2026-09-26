@@ -96,6 +96,14 @@ let wdw = {
         w: 100,
         h: 35
     },
+
+    exitBox: {
+        x: 10,
+        y: 951,
+        x2: 75,
+        y2: 975
+
+    },
     textPosition: {
 
         x1: desktop.windowPosition.x + 10,
@@ -148,8 +156,8 @@ function draw() {
     rect(0, 950, 1000, 100);
     pop();
     //
-    //PLACES IMAGES ON THE DESKTOP
-    image(img, 10, 951, 95, 45);
+    //PLACES IMAGES ON THE DESKTOP // image(img, x, y, [width], [height])
+    image(img, wdw.exitBox.x, wdw.exitBox.y, 95, 45);
     image(imgTwo, 25, 25, 85, 350);
 
     //time in the corner//
@@ -224,7 +232,6 @@ function draw() {
     push();
     fill(0);
     noStroke();
-    //textFont(manaspace, 20);
     textSize(20);
     text(wdw.text.three, wdw.textPosition.x3, wdw.textPosition.y3);
     pop();
@@ -302,5 +309,19 @@ function mouseClicked() {
 
 }
 
+function doubleClicked() {
 
-//doubleClicked(); 
+    if (wdw.exitBox.x < mouseX && mouseX < wdw.exitBox.x + 170 && mouseY < wdw.exitBox.y + 300 && mouseY > wdw.exitBox.y) {
+        // if (10 < mouseX && mouseX < 90 && mouseY < 961 && mouseY > 951 
+
+        window.open('https://march-exe.github.io/cart253/topics/assignments/Prototypes/variable-prototypes/variable-prototypes.html', '_blank');
+
+
+
+        //if (0 < mouseX && mouseX < 95 && 950 < mouseY && mouseY < 100)
+        //image(img, x, y, [width], [height]) (10, 951, 95, 45);
+
+    }
+}
+
+

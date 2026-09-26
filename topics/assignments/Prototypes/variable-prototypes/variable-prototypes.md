@@ -1,3 +1,5 @@
+[Home](README.md) / [Assignments](Assignments.md) / [Reflective Journal](journal.md)
+
 ## Variable prototypes
 
 ### ERROR !
