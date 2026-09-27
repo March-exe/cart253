@@ -194,7 +194,7 @@ let inboxText = {
 
     text: {
         one: "Inbox",
-        two: "You have no new messages.",
+        two: "You do not have friends.\nOf course you have no\nnew messages.",
         three: "_ X"
 
 
@@ -516,8 +516,8 @@ function mousePressed() {
 
 
         inbox.text.one = "Inbox"
-        inbox.text.two = "You have no new messages."
-        inbox.text.three = "_ X"
+        inbox.text.two = "You do not have friends.\n Of Course you have no new messages.",
+            inbox.text.three = "_ X"
 
     }
     //if (icons.inbox.y < 900 && inboxText.textPosition.x3 < mouseX && mouseX < inboxText.textPosition.x3 + 100 && mouseY > inboxText.textPosition.y3 && mouseY < inboxText.textPosition.y3 + 100) {
@@ -527,53 +527,52 @@ function mousePressed() {
         push();
         noStroke();
         fill(0, 116, 115);
-        rect(icons.inbox.x - 1, icons.inbox.y + 1, icons.inbox.w + 1, icons.inbox.h + 1);
+        rect(icons.inbox.x - 1, icons.inbox.y - 2, icons.inbox.w + 4, icons.inbox.h + 4);
         pop();
-        /** 
-            //if (wdw.selectBox.x < mouseX && mouseX < wdw.selectBox.x + 100 && mouseY > wdw.selectBox.y && mouseY < wdw.selectBox.y + 75) {
-            icons.inbox.y = 1000
-    
-            // mouse clicked
-            iconborder.vertLineCo.x1 = icons.inbox.x + 300
-            iconborder.vertLineCo.y1 = icons.inbox.y
-            iconborder.vertLineCo.x2 = icons.inbox.x + 300
-            iconborder.vertLineCo.y2 = icons.inbox.y + 300
-    
-            //mouse clicked
-            iconborder.horzLineCo.x1 = icons.inbox.x
-            iconborder.horzLineCo.y1 = icons.inbox.y - 1
-            iconborder.horzLineCo.x2 = icons.inbox.x + 300
-            iconborder.horzLineCo.y2 = icons.inbox.y - 1
-    
-            iconborder.gRect.x = icons.inbox.x + 5
-            iconborder.gRect.y = icons.inbox.y + 5
-            iconborder.gRect.w = 290
-            iconborder.gRect.h = 25
-    
-    
-            inboxText.textPosition.x1 = icons.inbox.x + 10
-            inboxText.textPosition.y1 = icons.inbox.y + 25
-            inboxText.textPosition.x2 = icons.inbox.x + 10
-            inboxText.textPosition.y2 = icons.inbox.y + 65
-            inboxText.textPosition.x3 = icons.inbox.x + 260
-            inboxText.textPosition.y3 = icons.inbox.y + 24
-    
-    
-            inboxText.text.one = "Inbox"
-            inboxText.text.two = "You have no new messages."
-            inboxText.text.three = "_ X"
-    
-    
-        }
-    
-        //inbox
-    
-        //rect(40, 20, 50, 50) my computer
-        // rect(40, 85, 50, 50) network management
-        // rect(40, 150, 50, 50) inbox
-        // rect(40, 210, 50, 50) internet explorer
-        // rect(40, 265, 50, 50) recycling bin
-        // rect(40, 320, 50, 50) my briefcase
-        */
+
+        //if (wdw.selectBox.x < mouseX && mouseX < wdw.selectBox.x + 100 && mouseY > wdw.selectBox.y && mouseY < wdw.selectBox.y + 75) {
+        icons.inbox.y = 1000
+
+        // mouse clicked
+        iconborder.vertLineCo.x1 = icons.inbox.x + 300
+        iconborder.vertLineCo.y1 = icons.inbox.y
+        iconborder.vertLineCo.x2 = icons.inbox.x + 300
+        iconborder.vertLineCo.y2 = icons.inbox.y + 300
+
+        //mouse clicked
+        iconborder.horzLineCo.x1 = icons.inbox.x
+        iconborder.horzLineCo.y1 = icons.inbox.y - 1
+        iconborder.horzLineCo.x2 = icons.inbox.x + 300
+        iconborder.horzLineCo.y2 = icons.inbox.y - 1
+
+        iconborder.gRect.x = icons.inbox.x + 5
+        iconborder.gRect.y = icons.inbox.y + 5
+        iconborder.gRect.w = 290
+        iconborder.gRect.h = 25
+
+
+        inboxText.textPosition.x1 = icons.inbox.x + 10
+        inboxText.textPosition.y1 = icons.inbox.y + 25
+        inboxText.textPosition.x2 = icons.inbox.x + 10
+        inboxText.textPosition.y2 = icons.inbox.y + 65
+        inboxText.textPosition.x3 = icons.inbox.x + 260
+        inboxText.textPosition.y3 = icons.inbox.y + 24
+
+
+        inboxText.text.one = "Inbox"
+        inboxText.text.two = "You do not have friends.\nOf course you have no\nnew messages."
+        inboxText.text.three = "_ X"
+
+
     }
+
+    //inbox
+
+    //rect(40, 20, 50, 50) my computer
+    // rect(40, 85, 50, 50) network management
+    // rect(40, 150, 50, 50) inbox
+    // rect(40, 210, 50, 50) internet explorer
+    // rect(40, 265, 50, 50) recycling bin
+    // rect(40, 320, 50, 50) my briefcase
+
 }
