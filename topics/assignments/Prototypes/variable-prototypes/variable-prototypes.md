@@ -12,9 +12,9 @@
 
 ### 2
 
-![Screenshot of my friendly clown]()
+![Screenshot of bomb]()
 
-- [View online]()
+- [View online](./Bomb/index.html)
 - [View code]()
 
 ### 3
