@@ -272,6 +272,15 @@ function draw() {
     if (t == 1) {
         finished = true
 
+        push();
+        fill(0, 0, 0);
+        ellipse(300, 300, 900);
+        stroke(255, 0, 0);
+        fill(255, 0, 0);
+        textSize(30);
+        text("The bomb has blown up.", 100, 300)
+        pop();
+
     }
 
 }
