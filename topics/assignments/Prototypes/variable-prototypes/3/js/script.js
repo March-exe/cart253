@@ -24,24 +24,20 @@
 let elasped = 0;
 let starttime = 0;
 let timer = 0
+
 let dead = false
 let press = false
-
-function setup() {
-    createCanvas(800, 800);
-
-}
-
 
 let mouse = {
 
     position: {
-        x: mouseX,
-        y: mouseY,
+        x: 0,
+        y: 0,
     },
 
 
 }
+//aniaml / fill  rgb/ position  xy size| mouse / position / x y 
 let animal = {
 
     fill: {
@@ -52,14 +48,14 @@ let animal = {
 
     position: {
 
-        x: 0,
-        y: 0,
-        W: 0,
-        h: 0
+        x: 400,
+        y: 400,
+        size: 50,
     },
+}
 
-
-
+function setup() {
+    createCanvas(800, 800);
 
 }
 
@@ -76,47 +72,96 @@ function draw() {
     background(200, 0, 0);
 
 
-    ellipse(400, 400, 50);
+
+    mouse.position.x = mouseX
+    mouse.position.y = mouseY
 
 
-    //if the game is started and you arent dead, the circle chases you
+    push();
+    noStroke();
+    fill(255, 255, 255);
+    // animal.position.y = map(mouse.position.y, 800, 0, animal.position.y - 20, animal.position.y - 30);
+    //animal.position.x = map(mouseX, 800, 0, mouse.position.x - 20, mrFurious.x - 35);
+
+    // let eY2 = map(mouseY, 800, 0, mrFurious.y - 20, mrFurious.y - 30);
+    //let eX2 = map(mouseX, 0, 800, mrFurious.x + 20, mrFurious.x + 30);
+    //left pupil
+    pop();
+    //circle racism
+    push();
+    fill(animal.fill.r, animal.fill.g, animal.fill.b);
+    ellipse(animal.position.x, animal.position.y, animal.position.size);
+    pop();
+
+
+    //aniaml / fill  rgb/ position  xy size| mouse / position / x y 
+
+
+
+    //display timer//
+
+    //if the game isnt started and you arent dead, the circle chases you
     if (dead != true && press == false) {
+        push();
+        textSize(100);
+        text(`Click To Start `, 115, 200, 1000);
 
+        push();
+        fill(animal.fill.r, animal.fill.g, animal.fill.b);
+        //ellipse(animal.position.x, animal.position.y, animal.position.size);
+        // ellipse(animal.position.x, animal.position.y, animal.position.size);
+        //if the ball doesn not euqal != cursor position thene towards it
+        // if ()
+        animal.position.x, animal.position.y, animal.position.size
+        pop();
     }
-    //if t
+
+    //elasped timer // 
     if (frameCount % 60 == 0 && dead != true) { // if the frameCount is divisible by 60, then a second has passed and you arent dead then timer will count
 
         elasped += 1
     }
-    //let elasped = timer - starttime
-    let s = millis() / 1000;
-    let sec = second();
+
+    //EXTRA CODE // -> let elasped = timer - starttime //let s = millis() / 1000; //let sec = second();
     timer = elasped - starttime
+
+
 
     push();
     textSize(40);
-    text(`${elasped}`, 100, 100, 1000);
+    text(`elaped: ${elasped} `, 100, 100, 1000);
+    text(`${mouse.position.x}`, 400, 100, 1000);
     pop();
 
     if (press == true) {
         push();
         textSize(40);
-        text(`${timer}`, 300, 520, 1000);
+        text(`timer: ${timer} `, 300, 520, 1000);
         pop();
+
+
 
 
 
     }
 
+
+
+
+
 }
+// if (mouse not touching; if not dead and animal press is false, and )
 
 
 // Set the stroke color and weight as soon as the user clicks.
 function mouseClicked() {
 
     press = true
-    starttime = elasped
-    if (finished != true) {
+    starttime = elaspe
+
+
+    if (dead != true) {
+
 
     }
 
@@ -136,5 +181,6 @@ function mouseReleased() {
         finished = true
 
     }
-
 }
+
+
