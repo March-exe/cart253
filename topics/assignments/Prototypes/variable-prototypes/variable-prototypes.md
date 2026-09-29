@@ -12,7 +12,7 @@
 
 ### 2
 
-![Screenshot of bomb]()
+![Screenshot of bomb](./Bomb/assets/images/Screenshot%202026-09-29%20133254.png)
 
 - [View online](./Bomb/index.html)
 - [View code]()
