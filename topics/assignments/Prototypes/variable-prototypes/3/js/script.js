@@ -31,13 +31,13 @@ let press = false
 let mouse = {
 
     position: {
-        x: 0,
-        y: 0,
+        x: undefined,
+        y: undefined,
     },
 
 
 }
-//aniaml / fill  rgb/ position  xy size| mouse / position / x y 
+//aniaml / fill - rgb / position - xy size| mouse / position - x y 
 let animal = {
 
     fill: {
@@ -52,15 +52,16 @@ let animal = {
         y: 400,
         size: 50,
     },
+
 }
 
+// creates a 800x800 pixel canvas
 function setup() {
     createCanvas(800, 800);
 
 }
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
  * begining of the game: click to start the game, the cirlce will spawn on a random point on canvas
  * clicking the screen will start the game, text will disappear, timer starts
  * maybe difficulty settings: 
@@ -71,24 +72,20 @@ function setup() {
 function draw() {
     background(200, 0, 0);
 
-
-
+    //sets mouse.position.x/y to mouseX/Y since you cannot within variable
     mouse.position.x = mouseX
     mouse.position.y = mouseY
 
+    // animal.position.x = lerp(animal.position.x, mouseX, 0.05);//+ mouse.position.x / 100 + mouse.position.x / 100
+    //animal.position.y = lerp(animal.position.y, mouseY, 0.05);//+ mouse.position.y / 1000
 
-    push();
-    noStroke();
-    fill(255, 255, 255);
-    // animal.position.y = map(mouse.position.y, 800, 0, animal.position.y - 20, animal.position.y - 30);
-    //animal.position.x = map(mouseX, 800, 0, mouse.position.x - 20, mrFurious.x - 35);
+    // animal.position.x = constrain(animal.position.x, 0, mouse.position.x)
+    //animal.position.y = constrain(animal.position.y, 0, mouse.position.y)
 
-    // let eY2 = map(mouseY, 800, 0, mrFurious.y - 20, mrFurious.y - 30);
-    //let eX2 = map(mouseX, 0, 800, mrFurious.x + 20, mrFurious.x + 30);
-    //left pupil
-    pop();
+
     //circle racism
     push();
+    noStroke();
     fill(animal.fill.r, animal.fill.g, animal.fill.b);
     ellipse(animal.position.x, animal.position.y, animal.position.size);
     pop();
@@ -96,23 +93,13 @@ function draw() {
 
     //aniaml / fill  rgb/ position  xy size| mouse / position / x y 
 
-
-
-    //display timer//
-
-    //if the game isnt started and you arent dead, the circle chases you
+    //if the game isnt started and you arent dead, the circle does not chases you, program stays idle
     if (dead != true && press == false) {
+
+        //display "click to start" while game is not active
         push();
         textSize(100);
         text(`Click To Start `, 115, 200, 1000);
-
-        push();
-        fill(animal.fill.r, animal.fill.g, animal.fill.b);
-        //ellipse(animal.position.x, animal.position.y, animal.position.size);
-        // ellipse(animal.position.x, animal.position.y, animal.position.size);
-        //if the ball doesn not euqal != cursor position thene towards it
-        // if ()
-        animal.position.x, animal.position.y, animal.position.size
         pop();
     }
 
@@ -122,11 +109,10 @@ function draw() {
         elasped += 1
     }
 
-    //EXTRA CODE // -> let elasped = timer - starttime //let s = millis() / 1000; //let sec = second();
+    //EXTRA CODE - not needed // -> let elasped = timer - starttime //let s = millis() / 1000; //let sec = second();
     timer = elasped - starttime
 
-
-
+    // simply shows mouseX and elapsed time for debugging
     push();
     textSize(40);
     text(`elaped: ${elasped} `, 100, 100, 1000);
@@ -139,6 +125,8 @@ function draw() {
         text(`timer: ${timer} `, 300, 520, 1000);
         pop();
 
+        animal.position.x = lerp(animal.position.x, mouseX, 0.05);//+ mouse.position.x / 100 + mouse.position.x / 100
+        animal.position.y = lerp(animal.position.y, mouseY, 0.05);//+ mouse.position.y / 1000
 
 
 
@@ -177,8 +165,10 @@ function mouseReleased() {
 
 
 
-    if (dead == true) {
-        finished = true
+    if (mouse.position.x == animal.position.x / 2 && mouse.position.y == animal.position.y / 2) {
+
+        dead == true
+        //game over
 
     }
 }
