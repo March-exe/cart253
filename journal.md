@@ -11,3 +11,7 @@ What surprised you? What is cool? What is difficult to understand? What do you h
 ## entries
 
 [entry 1](/topics/reflective-journal/EntryOne.md)
+
+[entry 2](/topics/reflective-journal/EntryTwp.md)
+
+[entry 3](/topics/reflective-journal/EntryThree.md)
