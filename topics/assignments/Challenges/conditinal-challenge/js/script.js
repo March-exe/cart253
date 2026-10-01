@@ -67,8 +67,8 @@ function draw() {
     //just to move the puck based on the distance between the puck and user on x.
     if (overlap) {
 
-        puck.x = puck.x - user.x / 5     // + user.x / overlap//lerp(puck.x, mouseX, 0.05);//+ mouse.position.x / 100 + mouse.position.x / 100
-        puck.y = puck.y - user.y / 5 //lerp(puck.y, mouseY, 0.05);//+ mouse.position.y / 1000
+        puck.x = puck.x - user.x + lerp(puck.x, mouseX, 0.05);//+ mouse.position.x / 100 + mouse.position.x / 100
+        puck.y = puck.y - user.y + lerp(puck.y, mouseY, 0.05);//+ mouse.position.y / 1000
 
 
 
