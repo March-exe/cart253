@@ -13,7 +13,7 @@ This is the main assignmnets page where you can select any and all challenges or
  
  - [Variable Challenge](/topics/assignments/Challenges/variable-challenge/index.html)
  
-  - [Conditional Challenge](/topics/assignments/Challenges/conditional-challenge/index.html)
+  - [Conditional Challenge](/topics/assignments/Challenges/conditinal-challenge/index.html)
 
 ## Prototypes
 
