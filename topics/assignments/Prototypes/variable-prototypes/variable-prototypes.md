@@ -21,6 +21,6 @@
 
 ![Screenshot of my friendly cow]()
 
-- [View online]()
+- [View online](./3/index.html)
 
-- [View code]()
+- [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/variable-prototypes/3)
