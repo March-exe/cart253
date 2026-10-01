@@ -15,5 +15,8 @@
     - trying to add a counter for length of time you have held down the mouse
     - adding explosion or something
     -understanding belize curve n shit
+    
+I pushed myself this week to create a clickable window with variables. it took alot of trial & error to figure out how it works, making it basically check if the MouseX,Y positions are inside or outside a box. part of this was learning if statements which went ahead to the next weeks lesson. I put alot of time trying to polish it so i wasted alot of time on that over the other two. i still acomplished my goals within the projects but they feel unconventinonal and i am eager to add more interactivity. 
+
 
 ![prototype picture]()
