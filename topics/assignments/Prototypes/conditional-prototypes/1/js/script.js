@@ -12,15 +12,13 @@
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
 */
-function setup() {
-    createCanvas(1000, 700);
-    background(200, 0, 0);
-}
-
-
-/**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
-*/
+let fDoor
+let kitchen
+let bRoom
+let Lroom
+let TvRoom
+let Mroom
+let Balcony
 
 let buttons = {
 
@@ -41,7 +39,6 @@ let buttons = {
 
 
     },
-
 
     left: {
         x1: 50,
@@ -74,29 +71,134 @@ let buttons = {
 
     },
 
+    count: {
+
+        right: 0,
+        left: 0,
+        top: 0,
+        bottom: 0,
+
+    },
+
+}
+
+let aLeft = undefined
+let aRight = undefined
+let aTop = undefined
+let aBottom = undefined
+
+let bg = {
+
+    r: 200,
+    g: 0,
+    b: 0
+
+
 }
 
 
+async function setup() {
+
+    fDoor = await loadImage('/assets/images/0000.png');
+    kitchen = await loadImage('/assets/images/1000.png');
+    bRoom = await loadImage('/assets/images/0010.png');
+    Lroom = await loadImage('/assets/images/0100.png');
+    TvRoom = await loadImage('/assets/images/0200.png');
+    Mroom = await loadImage('/assets/images/0210.png');
+    Balcony = await loadImage('/assets/images/0300.png');
+
+    createCanvas(1000, 700);
 
 
+
+}
+
+let hideR = false
+let hideL = false
+let hideT = false
+let hideB = false
+
+
+/**
+ * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+*/
 function draw() {
-    //right
+    background(bg.r, bg.g, bg.b);
+
+    //numbers testing - debugging !!!
     push();
-    fill(buttons.fill.r, buttons.fill.g, buttons.fill.b);
-    triangle(buttons.right.x1, buttons.right.y1, buttons.right.x2, buttons.right.y2, buttons.right.x3, buttons.right.y3);
+    textSize(25)
+    text(buttons.count.right, 20, 20);
+    text(buttons.count.left, 20, 40);
+    text(buttons.count.top, 20, 60);
+    text(buttons.count.bottom, 20, 80);
+    pop();
+    //numbers testing
+
+
+    //ALL THE BUTTONS
+    //right
+
+    push();
+    if (hideR != true) {
+        fill(buttons.fill.r, buttons.fill.g, buttons.fill.b);
+        aRight = triangle(buttons.right.x1, buttons.right.y1, buttons.right.x2, buttons.right.y2, buttons.right.x3, buttons.right.y3);
+    }
 
     //left
-    fill(255, 255, 255);
-    triangle(buttons.left.x1, buttons.left.y1, buttons.left.x2, buttons.left.y2, buttons.left.x3, buttons.left.y3);
-
+    if (hideL != true) {
+        fill(255, 255, 255);
+        aLeft = triangle(buttons.left.x1, buttons.left.y1, buttons.left.x2, buttons.left.y2, buttons.left.x3, buttons.left.y3);
+    }
     //top
-    fill(255, 255, 255);
-    triangle(buttons.top.x1, buttons.top.y1, buttons.top.x2, buttons.top.y2, buttons.top.x3, buttons.top.y3);
-
+    if (hideT != true) {
+        fill(255, 255, 255);
+        aTop = triangle(buttons.top.x1, buttons.top.y1, buttons.top.x2, buttons.top.y2, buttons.top.x3, buttons.top.y3);
+    }
     //bottom
-    fill(255, 255, 255);
-    triangle(buttons.bottom.x1, buttons.bottom.y1, buttons.bottom.x2, buttons.bottom.y2, buttons.bottom.x3, buttons.bottom.y3);
+    if (hideB != true) {
+        fill(255, 255, 255);
+        aBottom = triangle(buttons.bottom.x1, buttons.bottom.y1, buttons.bottom.x2, buttons.bottom.y2, buttons.bottom.x3, buttons.bottom.y3);
+    }
     pop();
+    //END OF BUTTONS
+
+    //if you have clicked to the right, and all other directions are 0, move to the kitchen
+    //checks for 1000
+    if (buttons.count.right == 1 && buttons.count.left == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+        hideR = true
+        bg.b = 200
+    }
+    //if you have clicked to the left, 
+    //checks for 0100
+    if (buttons.count.left == 1 && buttons.count.right == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+
+        bg.b = 100
+    }
+    //checks for 0200
+    if (buttons.count.left == 2 && buttons.count.right == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+
+        bg.b = 200
+    }
+    if (buttons.count.left == 3 && buttons.count.right == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+
+        bg.r = bg.r - 200
+    }
+    //if you clicked the top, change colour to yellow
+    if (buttons.count.top == 1) {
+        hideL = true
+        hideR = true
+        bg.g = 200
+    }
+
+    //0000
+    //1000
+    //0010
+    //0100
+    //0110
+    //0200
+    //0210
+    //0300
 }
 //count based on each arrow individually
 //gonna want to do something like, if right is clicked 1 time (counted), 
@@ -105,50 +207,114 @@ function draw() {
 
 //THIS IF STATEMENT / FUNCTION MAKES THE AREA CLICKABLE
 function mouseClicked() {
-    //if i click the right button
+
+    //if the right button is clicked
     if (buttons.right.x1 < mouseX &&
         mouseX < buttons.right.x3 &&
         mouseY > buttons.right.y1 &&
         mouseY < buttons.right.y2) {
 
-        buttons.fill.r = buttons.fill.r - 255
-        buttons.fill.g = buttons.fill.g - 255
+        //increase count.left by 1 if left is clicked
+        //checks for 0000
+        if (buttons.count.right == 0 && buttons.count.left == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+            buttons.count.right = buttons.count.right + 1
+        }
+        //checks if code is 0100
+        if (buttons.count.right == 0 && buttons.count.left == 1 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+
+            buttons.count.left = buttons.count.left - 1
+
+            bg.b = 0
+        }
+        //checks for 0200
+        if (buttons.count.right == 0 && buttons.count.left == 2 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+            buttons.count.left = buttons.count.left - 1
+
+            bg.b = bg.b - 100
+        }
+        //checks for 0300
+        if (buttons.count.right == 0 && buttons.count.left == 3 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+            buttons.count.left = buttons.count.left - 1
+
+            bg.r = bg.r + 200
+        }
+
 
     }
-
+    //if the left button is clicked
     if (buttons.left.x1 > mouseX &&
         mouseX > buttons.left.x3 &&
         mouseY > buttons.left.y1 &&
         mouseY < buttons.left.y2) {
 
-        buttons.fill.r = buttons.fill.r - 255
-        buttons.fill.g = buttons.fill.g - 255
+
+
+
+        //checks if code is 1000
+        if (buttons.count.right == 1 && buttons.count.left == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+
+            buttons.count.right = buttons.count.right - 1
+
+            hideR = false
+            bg.b = 0
+
+        }
+        else {
+            buttons.count.left = buttons.count.left + 1
+
+        }
+
 
     }
-    // if the top bottom is clicked
+    // if the top buttons is clicked
     if (buttons.top.x1 < mouseX &&
         mouseX < buttons.top.x2 &&
         mouseY > buttons.top.y3 &&
         mouseY < buttons.top.y2) {
 
-        buttons.fill.r = buttons.fill.r - 255
-        buttons.fill.g = buttons.fill.g - 255
 
+
+        buttons.count.top = buttons.count.top + 1
     }
+
+
     // if the bottom button is clicked
     if (buttons.bottom.x1 < mouseX &&
         mouseX < buttons.bottom.x2 &&
         mouseY < buttons.bottom.y3 &&
         mouseY > buttons.bottom.y2) {
 
-        buttons.fill.r = buttons.fill.r - 255
-        buttons.fill.g = buttons.fill.g - 255
+        //checks if code is 0010
+        if (buttons.count.right == 0 && buttons.count.left == 0 && buttons.count.top == 1 && buttons.count.bottom == 0) {
+
+            buttons.count.top = buttons.count.top - 1
+            hideL = false
+            hideR = false
+            bg.g = 0
+        }
+        else {
+            //increase count.right by 1 if right is clicked
+            buttons.count.bottom = buttons.count.bottom + 1
+        }
+
 
     }
 }
+// i would redraw the whole thing without the buttons,
+// you can put the code to draw the buttons in an If statement, 
+// and check the condition to hide / unhide
+
 //updates window position x to random number from 50 to 699
 //updates window position y to random number from 50 to 499
 
 
 //updates every variable so that the elements
 //on screen stay together to create the window 
+
+//if the left button is clicked,
+//and bg is purple, minus the right button,
+//otherwise increase left by 1
+
+//another idea; base it off the imaged displayed ei.
+//if kitchen is displayed, then do that
+//if living room is displayed, then do this...
