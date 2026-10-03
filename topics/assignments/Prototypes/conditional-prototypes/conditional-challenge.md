@@ -1,12 +1,12 @@
-[Home](/README.md) / [Assignments](/Assignments.md) / [Reflective Journal](/journal.md)
+[Home](../../../../README.md) / [Assignments](../../../../Assignments.md) / [Reflective Journal](../../../../journal.md)
 
 ## Instructions prototypes
 
 ### Welcome to my Home
 
-![Screenshot of Welcome to my home](./1/assets/images/screenshot.png)
+![Screenshot of Welcome to my home](./WelcomeHome/assets/images/screenshot.png)
 
-- [View online](./1/index.html)
+- [View online](./WelcomeHome/index.html)
 
 - [View code]()
 
