@@ -95,19 +95,23 @@ let bg = {
 
 
 }
+let canvasS = {
 
+    w: 1000,
+    h: 700,
+}
 
 async function setup() {
 
-    fDoor = await loadImage('/assets/images/0000.png');
-    kitchen = await loadImage('/assets/images/1000.png');
-    bRoom = await loadImage('/assets/images/0010.png');
-    Lroom = await loadImage('/assets/images/0100.png');
-    TvRoom = await loadImage('/assets/images/0200.png');
-    Mroom = await loadImage('/assets/images/0210.png');
-    Balcony = await loadImage('/assets/images/0300.png');
+    fDoor = await loadImage('./assets/images/0000.png');
+    kitchen = await loadImage('./assets/images/1000.png');
+    bRoom = await loadImage('./assets/images/0010.png');
+    Lroom = await loadImage('./assets/images/0100.png');
+    TvRoom = await loadImage('./assets/images/0200.png');
+    Mroom = await loadImage('./assets/images/0210.png');
+    Balcony = await loadImage('./assets/images/0300.png');
 
-    createCanvas(1000, 700);
+    createCanvas(canvasS.w, canvasS.h);
 
 
 
@@ -136,9 +140,50 @@ function draw() {
     //numbers testing
 
 
+    //loads correct images based on the code given
+    //checks for 0000
+    if (buttons.count.right == 0 && buttons.count.left == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+
+        image(fDoor, 0, 0, canvasS.w, canvasS.h);
+
+    }
+    //checks for 1000
+    if (buttons.count.right == 1 && buttons.count.left == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+
+        image(kitchen, 0, 0, canvasS.w, canvasS.h);
+    }
+    //checks for 0100
+    if (buttons.count.right == 0 && buttons.count.left == 1 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+
+        image(Lroom, 0, 0, canvasS.w, canvasS.h);
+    }
+    //checks for 0010
+    if (buttons.count.right == 0 && buttons.count.left == 0 && buttons.count.top == 1 && buttons.count.bottom == 0) {
+
+        image(bRoom, 0, 0, canvasS.w, canvasS.h);
+
+    }
+    //checks for 0200
+    if (buttons.count.right == 0 && buttons.count.left == 2 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+
+        image(TvRoom, 0, 0, canvasS.w, canvasS.h);
+    }
+    //checks for 0210
+    if (buttons.count.right == 0 && buttons.count.left == 2 && buttons.count.top == 1 && buttons.count.bottom == 0) {
+
+        image(Mroom, 0, 0, canvasS.w, canvasS.h);
+    }
+    //checks for 0300
+    if (buttons.count.right == 0 && buttons.count.left == 3 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+
+        image(Balcony, 0, 0, canvasS.w, canvasS.h);
+    }
+
     //ALL THE BUTTONS
     //right
 
+
+    //checks if the hide is true or not, then creates buttons
     push();
     if (hideR != true) {
         fill(buttons.fill.r, buttons.fill.g, buttons.fill.b);
@@ -163,33 +208,87 @@ function draw() {
     pop();
     //END OF BUTTONS
 
-    //if you have clicked to the right, and all other directions are 0, move to the kitchen
-    //checks for 1000
+    //code reference : left,right,top,bottom //
+
+    //checks 0000
+    push();
+    if (buttons.count.right == 0 && buttons.count.left == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
+        hideB = true
+        hideR = false
+        hideL = false
+        hideT = false
+    }
+    else {
+        hideR = false
+        hideL = false
+        hideT = false
+        hideB = false
+    }
+    pop();
+    //checks 1000
+    push();
     if (buttons.count.right == 1 && buttons.count.left == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
         hideR = true
+        hideT = true
+        hideB = true
+        hideL = false
         bg.b = 200
     }
-    //if you have clicked to the left, 
+    pop();
     //checks for 0100
+    push();
     if (buttons.count.left == 1 && buttons.count.right == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
 
         bg.b = 100
+        hideB = true
+        hideT = true
+        hideL = false
+        hideR = false
+
     }
+    pop();
     //checks for 0200
+    push();
     if (buttons.count.left == 2 && buttons.count.right == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
 
         bg.b = 200
+        hideB = true
+        hideL = false
+        hideR = false
+        hideT = false
     }
+    pop();
+    //checks for 0300
+    push();
     if (buttons.count.left == 3 && buttons.count.right == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
 
         bg.r = bg.r - 200
+        hideL = true
+        hideT = true
+        hideB = true
+        hideR = false
     }
-    //if you clicked the top, change colour to yellow
-    if (buttons.count.top == 1) {
+    pop();
+    //checks for 0010
+    push();
+    if (buttons.count.top == 1 && buttons.count.left == 0 && buttons.count.right == 0 && buttons.count.bottom == 0) {
         hideL = true
         hideR = true
+        hideT = true
+        hideB = false
         bg.g = 200
     }
+    pop();
+    //checks for 0210
+    push();
+    if (buttons.count.top == 1 && buttons.count.left == 2 && buttons.count.right == 0 && buttons.count.bottom == 0) {
+        hideL = true
+        hideR = true
+        hideT = true
+        hideB = false
+        bg.g = 200
+    }
+    pop();
 
     //0000
     //1000
@@ -207,19 +306,24 @@ function draw() {
 
 //THIS IF STATEMENT / FUNCTION MAKES THE AREA CLICKABLE
 function mouseClicked() {
+    //all of these if statements below effectively make it so that clicking backwards is possible
 
     //if the right button is clicked
+    push();
     if (buttons.right.x1 < mouseX &&
         mouseX < buttons.right.x3 &&
         mouseY > buttons.right.y1 &&
         mouseY < buttons.right.y2) {
 
+
+
         //increase count.left by 1 if left is clicked
         //checks for 0000
+        //this moves you to 1000
         if (buttons.count.right == 0 && buttons.count.left == 0 && buttons.count.top == 0 && buttons.count.bottom == 0) {
             buttons.count.right = buttons.count.right + 1
         }
-        //checks if code is 0100
+        //checks if code is 0100 - moves 
         if (buttons.count.right == 0 && buttons.count.left == 1 && buttons.count.top == 0 && buttons.count.bottom == 0) {
 
             buttons.count.left = buttons.count.left - 1
@@ -229,24 +333,27 @@ function mouseClicked() {
         //checks for 0200
         if (buttons.count.right == 0 && buttons.count.left == 2 && buttons.count.top == 0 && buttons.count.bottom == 0) {
             buttons.count.left = buttons.count.left - 1
-
+            hideR = false
+            hideL = false
+            hideT = false
             bg.b = bg.b - 100
         }
         //checks for 0300
         if (buttons.count.right == 0 && buttons.count.left == 3 && buttons.count.top == 0 && buttons.count.bottom == 0) {
             buttons.count.left = buttons.count.left - 1
-
+            hideR = false
             bg.r = bg.r + 200
+
         }
 
 
     }
+    pop();
     //if the left button is clicked
     if (buttons.left.x1 > mouseX &&
         mouseX > buttons.left.x3 &&
         mouseY > buttons.left.y1 &&
         mouseY < buttons.left.y2) {
-
 
 
 
@@ -256,6 +363,8 @@ function mouseClicked() {
             buttons.count.right = buttons.count.right - 1
 
             hideR = false
+            hideT = false
+            hideB = false
             bg.b = 0
 
         }
@@ -275,6 +384,8 @@ function mouseClicked() {
 
 
         buttons.count.top = buttons.count.top + 1
+
+
     }
 
 
@@ -290,11 +401,22 @@ function mouseClicked() {
             buttons.count.top = buttons.count.top - 1
             hideL = false
             hideR = false
+            hideT = false
+
+            bg.g = 0
+        }
+        //checks if code is 0210
+        if (buttons.count.right == 0 && buttons.count.left == 2 && buttons.count.top == 1 && buttons.count.bottom == 0) {
+
+            buttons.count.top = buttons.count.top - 1
+            hideL = false
+            hideR = false
+            hideT = false
             bg.g = 0
         }
         else {
-            //increase count.right by 1 if right is clicked
-            buttons.count.bottom = buttons.count.bottom + 1
+            //increase count.bottom by 1 if codes do not match
+            // buttons.count.bottom = buttons.count.bottom + 1
         }
 
 
