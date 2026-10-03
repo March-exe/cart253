@@ -4,7 +4,7 @@
 
 ### Welcome to my Home
 
-![Screenshot of Welcome to my home](./WelcomeHome/assets/images/screenshot.png)
+![Screenshot of Welcome to my home](./WelcomeHome/assets/images/Screenshot.png)
 
 - [View online](./WelcomeHome/index.html)
 
