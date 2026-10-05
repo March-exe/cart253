@@ -21,6 +21,4 @@ function setup() {
 */
 function draw() {
 
-
-
 }

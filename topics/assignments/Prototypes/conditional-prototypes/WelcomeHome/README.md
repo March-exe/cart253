@@ -8,7 +8,7 @@ Marciano Faugno
 
 Welcome to my home is a click through experience of my montreal apartment. the experience is extremely straight-forward with directional buttons allowing navigation around the space. 
 
-the pictures are all meant to be lowk quality to represent a time when click through adventures used to look like this. to me its a call back to those adventures and provides a sense of nostalgia. 
+the pictures are all meant to be low quality to represent a time when click through adventures used to look like this. to me its a call back to those adventures and provides a sense of nostalgia. 
 
 ## Screenshot(s)
 
