@@ -422,6 +422,7 @@ function mouseClicked() {
 
     }
 }
+
 // i would redraw the whole thing without the buttons,
 // you can put the code to draw the buttons in an If statement, 
 // and check the condition to hide / unhide

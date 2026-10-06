@@ -1,9 +1,17 @@
 /**
- * Title of Project
- * Author Name
+ * Do Something
+ * Marciano Faugno
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * taken from pippins, the only move is not to play, 
+ * i created the direct opposite of his game experience
+ * in my version, you must complete a list of random interactions
+ * to win the game. 
+ * the list of actions are :
+ *  move your mouse
+ *  click the screen
+ *  click your keyboard
+ *  click on and off the browser
+ * after these tasks you will win the game
  */
 
 /**

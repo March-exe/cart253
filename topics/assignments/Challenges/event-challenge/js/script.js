@@ -94,10 +94,3 @@ function mouseMoved() {
 
 //checks for being off the broswer
 window.addEventListener("visibilitychange", lose)
-
-
-//lose function
-//lose on anything keyboarad
-//lose on anything mouse
-//
-//

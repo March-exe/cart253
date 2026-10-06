@@ -10,11 +10,11 @@
 
 - [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/conditional-prototypes/WelcomeHome)
 
-### 2
+### Do Something 
 
-![Screenshot of my bong]()
+![Screenshot of Do Something](./DoSomething/assets/images/Screenshot%202026-10-06%20125027.png)
 
-- [View online]()
+- [View online](./DoSomething/index.html)
 
 - [View code]()
 
