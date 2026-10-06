@@ -21,11 +21,19 @@ let score = 0;
 // Is the game over?
 let gameOver = false;
 
+//did the player complete the steps?
+let stepOne = false;
+let stepTwo = false;
+let stepThree = false;
+let stepFour = false;
+
 /**
  * Create the canvas
  */
 function setup() {
     createCanvas(400, 400);
+
+    window.addEventListener("visibilitychange", steps)
 }
 
 /**
@@ -36,8 +44,10 @@ function draw() {
 
     // Only increase the score if the game is not over
     if (!gameOver) {
-        // Score increases relatively slowly
-        score += 0.05;
+        if (stepOne != false) {
+            // Score increases relatively slowly
+            score += 0.05;
+        }
     }
     displayUI();
 }
@@ -56,7 +66,61 @@ function displayUI() {
         pop();
     }
     displayScore();
+    if (!gameOver) {
+        push();
+        textSize(40);
+        textStyle(BOLD);
+        textAlign(CENTER, CENTER);
+        text("do something else", width / 2, height / 3);
+        pop();
+
+    }
+    if (stepOne != true) {
+        push();
+        background("#87ceeb");
+        textSize(40);
+        textStyle(BOLD);
+        textAlign(CENTER, 10);
+        text("move your mouse", width / 2, height / 3);
+        pop();
+    }
+    if (stepTwo == true && stepOne == true) {
+        push();
+        background("#87ceeb");
+        textSize(40);
+        textStyle(BOLD);
+        textAlign(CENTER, 10);
+        text("Goodjob, another.", width / 2, height / 3);
+        pop();
+        displayScore();
+    }
+    if (stepThree == true && stepTwo == true && stepOne == true) {
+        push();
+        background("#87ceeb");
+        textSize(40);
+        textStyle(BOLD);
+        textAlign(CENTER, 10);
+        text("one more final task?", width / 2, height / 3);
+        pop();
+        displayScore();
+    }
+    if (stepFour == true && stepThree == true && stepTwo == true && stepOne == true) {
+        push();
+        background("#87ceeb");
+        textSize(40);
+        textStyle(BOLD);
+        textAlign(CENTER, 10);
+        text("You Won !", width / 2, height / 3);
+        pop();
+        displayScore();
+        gameOver = true;
+
+    }
 }
+
+displayScore();
+
+
 
 /**
  * Display the score
@@ -81,7 +145,7 @@ function lose() {
 //checks if you pressed the keyboard
 function keyPressed() {
 
-    lose();
+    stepTwo = true;
 
 
 }
@@ -90,18 +154,24 @@ function keyPressed() {
 //checks if you pressed the mouse
 function mousePressed() {
 
-    lose();
+    stepThree = true;
 }
 
 //checks if the mouse moved
 function mouseMoved() {
 
-    lose();
+    stepOne = true;
+
+
 }
 
+function steps() {
+    stepFour = true;
+
+}
 
 //checks for being off the broswer
-window.addEventListener("visibilitychange", lose)
+
 
 
 //instead of doing nothing, you have to do all of these tasks to win the game
