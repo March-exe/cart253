@@ -18,10 +18,10 @@
 
 - [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/conditional-prototypes/DoSomething)
 
-### 3
+### Escape the Ball 2.0
 
-![Screenshot of my countdown]()
+![Screenshot of escaping ball]()
 
-- [View online]()
+- [View online](./EscapeBall2.0/index.html)
 
-- [View code]()
+- [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/conditional-prototypes/EscapeBall2.0)
