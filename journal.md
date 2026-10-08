@@ -15,3 +15,5 @@ What surprised you? What is cool? What is difficult to understand? What do you h
 [entry 2](/topics/reflective-journal/EntryTwo.md)
 
 [entry 3](/topics/reflective-journal/EntryThree.md)
+
+[entry 4](/topics/reflective-journal/EntryFour.md)
