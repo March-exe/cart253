@@ -20,7 +20,7 @@
 
 ### Escape the Ball 2.0
 
-![Screenshot of escaping ball]()
+![Screenshot of escaping ball](./EscapeBall2.0/assets/images/Screenshot%202026-10-08%20172749.png)
 
 - [View online](./EscapeBall2.0/index.html)
 

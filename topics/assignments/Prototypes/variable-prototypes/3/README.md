@@ -1,35 +1,24 @@
-# TITLE OF PROJECT
+# Escape the ball
 
-AUTHOR NAME
+Marciano Faugno
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](https://march-exe.github.io/cart253/topics/assignments/Prototypes/variable-prototypes/3/index.html)
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
-
-> *The Mayor of Clown Town* is a simulator experience that allows the user to control a small town populated entirely by clowns.
-
-> The experience is controlled via the mouse, with left click selecting a clown and bringing up a menu of options such as "slip of banana peel" or "get into impossible capacious clown-car."
-
-> The project is meant to give the user a sense of what it would be the mayor of a town of clowns, eventually getting the sense that clowns are not taking their civic duties seriously.
+This project in its current state for variable week is unfinished. the intended experience is to move the mouse around the canvas and evade the white circle as long as possible. while i was able to acheive movement and a timer, i did not figure out how to make the game end nor add other features i had planned. this project has a 2.0 accessible within the conditional prototypes page. consider this a rough work in progress
 
 ## Screenshot(s)
 
-This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
-
-> ![Image of a clown face](./assets/images/clown.png)
+> ![Image of game](./assets/images/Screenshot%202026-10-07%20205931.png)
 
 ## Attribution
-
-This bit should attribute any code, assets or other elements used taken from other sources. For example:
 
 > - This project uses [p5.js](https://p5js.org).
 > - The clown image is a capture of the clown from the Apple emoji character set.
 > - The barking sound effect is "single dog bark 1" by crazymonke9 from freesound.org: https://freesound.org/people/crazymonke9/sounds/418107/
+> - this project was referencing various examples within the p5 reference page.
 
 ## License
-
-This bit should include the license you want to apply to your work. For example:
 
 > This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.

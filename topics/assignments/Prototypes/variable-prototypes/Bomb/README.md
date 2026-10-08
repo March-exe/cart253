@@ -1,22 +1,14 @@
-# TITLE OF PROJECT
+# Its a BOMB!
 
-AUTHOR NAME
+Marciano Faugno
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](https://march-exe.github.io/cart253/topics/assignments/Prototypes/variable-prototypes/Bomb/index.html)
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
-
-> *The Mayor of Clown Town* is a simulator experience that allows the user to control a small town populated entirely by clowns.
-
-> The experience is controlled via the mouse, with left click selecting a clown and bringing up a menu of options such as "slip of banana peel" or "get into impossible capacious clown-car."
-
-> The project is meant to give the user a sense of what it would be the mayor of a town of clowns, eventually getting the sense that clowns are not taking their civic duties seriously.
+The BOMB project was another attempt at interactivity through clicking and within a time-sensative moment. the original idea was to create a bomb with a fuze slowly moving to the base, if the fuze reaches the bottom, it blows up. it is the responsibility of the user to hold down on their mouse for as long as possible - being the hero they are meant to be and stopping the explosion. 
 
 ## Screenshot(s)
-
-This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
 
 > ![Image of the bomb](./assets/images/Screenshot%202026-09-29%20133254.png)
 
