@@ -12,4 +12,4 @@ i continously run into pathing issues across all my prototypes which is part of 
 
 Sometimes its important to take a break and come back with a fresh set of eye. coding is super overwhelming and can get exhausting after a while if you have been staring at the same thing over and over again. i need to remember to take a break, write down my ideas and try again later. 
 
-![prototype picture](/topics/assignments/Prototypes/Instruction-prototypes/Countdown/assets/images/screenshot.png)
+![prototype picture](./topics/assignments/Prototypes/Instruction-prototypes/Countdown/assets/images/screenshot.png)
