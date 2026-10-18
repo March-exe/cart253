@@ -19,8 +19,11 @@ let cnvs = {
 let clok = {
     x: cnvs.w - 200,
     y: cnvs.h - 40,
-}
-
+};
+let imgPos = {
+    x: 25,
+    y: 1300
+};
 
 let img;
 
@@ -42,6 +45,8 @@ async function setup() {
 function draw() {
     background(0, 116, 115);
     taskbar();
+    onHover();
+
 
 
 }
@@ -53,16 +58,15 @@ function desktop() {
 };
 
 function taskbar() {
+    //grey task bar at the bottom
     push();
     //grey colour
     fill(172, 172, 172);
     noStroke();
     rect(0, cnvs.h - 100, cnvs.w);
     pop();
-    //PLACES IMAGES ON THE DESKTOP 
-    //image(img, x, y, [width], [height])
-    image(img, 25, 1300, 150, 50);
-
+    //other elements inside taskbar
+    start();
     clock();
 };
 
@@ -70,17 +74,18 @@ function windows() { };
 
 function clock() {
     push();
-    stroke(80);
     //lines for border around clock
-
     //x1,y1,x2,y2
-    //vertical lines//
+    stroke(0);
     //top
     line(clok.x - 5, clok.y - 40, clok.x + 150, clok.y - 40)
+    //left
+    line(clok.x - 5, clok.y - 40, clok.x - 5, clok.y + 15)
+
+    stroke(255);
     //bottom
     line(clok.x - 5, clok.y + 15, clok.x + 150, clok.y + 15)
-    //horizontal lines
-    line(clok.x - 5, clok.y - 40, clok.x - 5, clok.y + 15)
+    //right
     line(clok.x + 150, clok.y - 40, clok.x + 150, clok.y + 15)
     pop();
     //clock
@@ -99,6 +104,30 @@ function clock() {
     text(currentTime, clok.x, clok.y);
     pop();
 };
+function start() {
+
+    //PLACES IMAGES ON THE DESKTOP 
+    //image(img, x, y, [width], [height])
+    image(img, imgPos.x, imgPos.y, 150, 50);
+    push();
+    //lines for border around clock
+
+    //x1,y1,x2,y2
+    stroke(0);
+    //top
+    line(imgPos.x - 10, imgPos.y - 5, imgPos.x + 160, imgPos.y - 5)
+    //left
+    line(imgPos.x - 10, imgPos.y - 5, imgPos.x - 10, imgPos.y + 60)
+
+    stroke(255);
+    //bottom
+    line(imgPos.x - 10, imgPos.y + 60, imgPos.x + 160, imgPos.y + 60)
+    //right
+    line(imgPos.x + 160, imgPos.y - 5, imgPos.x + 160, imgPos.y + 60)
+
+
+    pop();
+};
 
 function doubleClicked() {
     //image(img, 25, 1300, 150, 50);
@@ -113,4 +142,15 @@ function doubleClicked() {
         //image(img, x, y, [width], [height]) (10, 951, 95, 45);
 
     }
+}
+
+function onHover() {
+    if (25 < mouseX && mouseX < 200 && mouseY < 1300 + 150 && mouseY > 1300) {
+        cursor(HAND);
+    }
+    else {
+        cursor(ARROW);
+    }
+
+
 }
