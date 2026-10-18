@@ -23,4 +23,6 @@ This is the main assignmnets page where you can select any and all challenges or
 
 - [Variable Prototypes](/topics/assignments/Prototypes/variable-prototypes/variable-prototypes.md)
 
-- [Conditional Prototypes](/topics/assignments/Prototypes/conditional-prototypes/conditional-challenge.md)
+- [Conditional Prototypes](/topics/assignments/Prototypes/conditional-prototypes/conditional-prototypes.md)
+
+- [Event Prototypes](/topics/assignments/Prototypes/conditional-prototypes/event-prototypes.md)
