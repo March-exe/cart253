@@ -6,6 +6,11 @@
  * this project acts as a literal desktop of window 98 in your browser. you will find interactable applications and random things
  * sprinkled throughout the program for you to enjoy. 
  * there are also events throughout the project, meaning the more you mess around with it, the more you will find!
+ * 
+ * 
+ * P.S 
+ * My lazy ass has turned this project into spaghetti and i apologize for the hellscape that is looking at this monster. also,
+ * for some reason this project makes my laptop extremely slow...
  */
 
 "use strict";
@@ -180,6 +185,8 @@ let noodles;
 let pippin;
 
 let calGrid;
+let birthday;
+let pumpkin;
 
 let computerOpen = false;
 let informationOpen = false;
@@ -207,6 +214,9 @@ async function setup() {
     pippin = await loadImage('assets/images/noUser.png');
 
     calGrid = await loadImage('assets/images/calGrid.png');
+    birthday = await loadImage('assets/images/birthday.png');
+    pumpkin = await loadImage('assets/images/pumpkin.png');
+
 
     createCanvas(cnvs.w, cnvs.h);
 
@@ -278,38 +288,38 @@ function calendarWdw() {
     //encompassing grey box
     noStroke();
     fill(172, 172, 172);
-    rect(icons.inbox.x + calendarWdwAdj.pos.x, icons.inbox.y + calendarWdwAdj.pos.y, icons.inbox.w, icons.inbox.h);
+    rect(icons.inbox.x + calendarWdwAdj.pos.x, icons.inbox.y + calendarWdwAdj.pos.y, icons.inbox.w + calendarWdwAdj.pos.w, icons.inbox.h + calendarWdwAdj.pos.h);
     pop();
     //white description box
     push();
     noStroke();
     fill(229, 229, 228);
-    rect(icons.inbox.x + 5 + calendarWdwAdj.pos.x, icons.inbox.y + 35 + calendarWdwAdj.pos.y, icons.inbox.w - 10, icons.inbox.h - 50);
+    rect(icons.inbox.x + 5 + calendarWdwAdj.pos.x, icons.inbox.y + 35 + calendarWdwAdj.pos.y, icons.inbox.w - 10 + calendarWdwAdj.pos.w, icons.inbox.h - 50 + calendarWdwAdj.pos.h);
     pop();
     //calendar grid
-    image(calGrid, icons.inbox.x + 5 + calendarWdwAdj.pos.x, icons.inbox.y + 35 + calendarWdwAdj.pos.y, icons.inbox.w - 10, icons.inbox.h - 50)
+    image(calGrid, icons.inbox.x + 5 + calendarWdwAdj.pos.x, icons.inbox.y + 35 + calendarWdwAdj.pos.y, icons.inbox.w - 10 + calendarWdwAdj.pos.w, icons.inbox.h - 50 + calendarWdwAdj.pos.h)
 
     //border lines
 
     push();
     stroke(255);
     //top and left
-    line(iconborder.horzLineCo.x1 + calendarWdwAdj.pos.x, iconborder.horzLineCo.y1 + calendarWdwAdj.pos.y, iconborder.horzLineCo.x2 + calendarWdwAdj.pos.x, iconborder.horzLineCo.y2 + calendarWdwAdj.pos.y);
-    line(iconborder.vertLineCo.x1 - icons.inbox.w + calendarWdwAdj.pos.x, iconborder.vertLineCo.y1 + calendarWdwAdj.pos.y, iconborder.vertLineCo.x2 - icons.inbox.w + calendarWdwAdj.pos.x, iconborder.vertLineCo.y2 + calendarWdwAdj.pos.y);
+    line(iconborder.horzLineCo.x1 + calendarWdwAdj.pos.x, iconborder.horzLineCo.y1 + calendarWdwAdj.pos.y, iconborder.horzLineCo.x2 + calendarWdwAdj.pos.x + calendarWdwAdj.pos.w, iconborder.horzLineCo.y2 + calendarWdwAdj.pos.y);
+    line(iconborder.vertLineCo.x1 - icons.inbox.w + calendarWdwAdj.pos.x, iconborder.vertLineCo.y1 + calendarWdwAdj.pos.y, iconborder.vertLineCo.x2 - icons.inbox.w + calendarWdwAdj.pos.x, iconborder.vertLineCo.y2 + calendarWdwAdj.pos.y + calendarWdwAdj.pos.h);
     pop();
 
     push();
     stroke(0);
     //right and bottom
-    line(iconborder.vertLineCo.x1 + calendarWdwAdj.pos.x, iconborder.vertLineCo.y1 + calendarWdwAdj.pos.y, iconborder.vertLineCo.x2 + calendarWdwAdj.pos.x, iconborder.vertLineCo.y2 + calendarWdwAdj.pos.y);
-    line(iconborder.horzLineCo.x1 + calendarWdwAdj.pos.x, iconborder.horzLineCo.y1 + icons.inbox.h + calendarWdwAdj.pos.y, iconborder.horzLineCo.x1 + icons.inbox.w + calendarWdwAdj.pos.x, iconborder.horzLineCo.y1 + icons.inbox.w + calendarWdwAdj.pos.y);
+    line(iconborder.vertLineCo.x1 + calendarWdwAdj.pos.x + calendarWdwAdj.pos.w, iconborder.vertLineCo.y1 + calendarWdwAdj.pos.y, iconborder.vertLineCo.x2 + calendarWdwAdj.pos.x + calendarWdwAdj.pos.w, iconborder.vertLineCo.y2 + calendarWdwAdj.pos.y + calendarWdwAdj.pos.h);
+    line(iconborder.horzLineCo.x1 + calendarWdwAdj.pos.x, iconborder.horzLineCo.y1 + icons.inbox.h + calendarWdwAdj.pos.y + calendarWdwAdj.pos.h, iconborder.horzLineCo.x1 + icons.inbox.w + calendarWdwAdj.pos.x + calendarWdwAdj.pos.w, iconborder.horzLineCo.y1 + icons.inbox.w + calendarWdwAdj.pos.y + calendarWdwAdj.pos.h);
     pop();
 
     //dark grey header
     push()
     noStroke();
     fill(129, 129, 129);
-    rect(iconborder.gRect.x + calendarWdwAdj.pos.x, iconborder.gRect.y + calendarWdwAdj.pos.y, iconborder.gRect.w, iconborder.gRect.h);
+    rect(iconborder.gRect.x + calendarWdwAdj.pos.x, iconborder.gRect.y + calendarWdwAdj.pos.y, iconborder.gRect.w + calendarWdwAdj.pos.w, iconborder.gRect.h);
     pop();
 
 
@@ -323,22 +333,63 @@ function calendarWdw() {
     pop();
 
     //description text
+    /*
     push();
     fill(inboxText.culr.b);
     noStroke();
-    //textFont(manaspace, 20);
+    
     textSize(20);
     text(calendarWdwAdj.text.two, inboxText.textPosition.x2 + calendarWdwAdj.pos.x, inboxText.textPosition.y2 + calendarWdwAdj.pos.y);
     pop();
+    **/
 
     //exit and minimize "icons"
     push();
     fill(inboxText.culr.w);
     noStroke();
     textSize(18);
-    text(inboxText.text.three, inboxText.textPosition.x3 + calendarWdwAdj.pos.x, inboxText.textPosition.y3 + calendarWdwAdj.pos.y);
+    text(inboxText.text.three, inboxText.textPosition.x3 + calendarWdwAdj.pos.x + calendarWdwAdj.pos.w, inboxText.textPosition.y3 + calendarWdwAdj.pos.y);
     pop();
+
+    calendarInfo();
 }
+function calendarInfo() {
+    push();
+    fill(inboxText.culr.b);
+    noStroke();
+
+    textSize(40);
+    text("October 2026", inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 25, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 25);
+    pop();
+
+    push();
+    fill(inboxText.culr.b);
+    noStroke();
+
+    image(birthday, inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 160, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 568, 128, 127)
+
+
+    textSize(40);
+    text("1          2          3", inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 570, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 85);
+    text("4          5          6          7           8          9          10", inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 25, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 215);
+    text("11        12        13         14        15        16         17", inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 25, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 345);
+    text("18        19        20         21        22        23         24", inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 25, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 475);
+    text("25        26        27         28        29        30         31", inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 25, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 605);
+
+
+
+    pop();
+
+    image(pumpkin, inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 835, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 565, 128, 129)
+
+    push();
+    textSize(40);
+    fill(255);
+    text("31", inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 850, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 600);
+    pop();
+
+}
+
 
 
 function infoWdw() {
@@ -699,6 +750,15 @@ function mouseClicked() {
         }
     }
 
+    //calendar - exit window
+    if ((inboxText.textPosition.x3 + calendarWdwAdj.pos.x + calendarWdwAdj.pos.w) < mouseX && mouseX < (inboxText.textPosition.x3 + calendarWdwAdj.pos.x + calendarWdwAdj.pos.w + 25) && mouseY < (inboxText.textPosition.y3 + calendarWdwAdj.pos.y) && mouseY > (inboxText.textPosition.y3 + calendarWdwAdj.pos.y - 25)) {
+        if (calendarOpen == true) {
+            calendarOpen = false
+        }
+    }
+
+
+
     // friends inbox 
     if (50 < mouseX && mouseX < 125 && mouseY < 590 && mouseY > 500) {
 
@@ -709,6 +769,7 @@ function mouseClicked() {
             friendsOpen = false
         }
     }
+
     //friends inbox - exit window
     if (inboxText.textPosition.x3 < mouseX && mouseX < inboxText.textPosition.x3 + 25 && mouseY < inboxText.textPosition.y3 && mouseY > inboxText.textPosition.y3 - 25) {
         if (friendsOpen == true) {
@@ -750,14 +811,22 @@ function onHover() {
     //calendar
     if (50 < mouseX && mouseX < 125 && mouseY < 440 && mouseY > 350) { cursor(HAND); }
 
+    //calendar - window close
+    if (calendarOpen == true) {
+        if ((inboxText.textPosition.x3 + calendarWdwAdj.pos.x + calendarWdwAdj.pos.w) < mouseX && mouseX < (inboxText.textPosition.x3 + calendarWdwAdj.pos.x + calendarWdwAdj.pos.w + 25) && mouseY < (inboxText.textPosition.y3 + calendarWdwAdj.pos.y) && mouseY > (inboxText.textPosition.y3 + calendarWdwAdj.pos.y - 25)) {
+            cursor(HAND);
+        }
+    }
+
+
 
     //friends
     if (50 < mouseX && mouseX < 125 && mouseY < 590 && mouseY > 500) { cursor(HAND); }
+
     //friends inbox - window close
     if (friendsOpen == true) {
         if (inboxText.textPosition.x3 < mouseX && mouseX < inboxText.textPosition.x3 + 25 && mouseY < inboxText.textPosition.y3 && mouseY > inboxText.textPosition.y3 - 25) {
             cursor(HAND);
-
         }
     }
 
@@ -770,8 +839,6 @@ function onHover() {
 
             cursor(HAND);
         }
-
-
     }
 }
 
