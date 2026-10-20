@@ -201,6 +201,9 @@ let settingsDisplay;
 
 //friends images
 let noodles;
+let noodleChatOpen = false;
+let noodleRead = false;
+let genChat = true;
 let pippin;
 
 //calendar images
@@ -530,6 +533,7 @@ function settingWdw() {
         pop();
     }
 
+
 }
 
 
@@ -667,8 +671,20 @@ function friendInbox() {
     pop();
 
 
+    if (genChat == true) {
+        chatbox()
+    }
 
-    chatbox();
+    if (noodleChatOpen == true) {
+        noodleChat()
+        genChat = false
+    }
+    else {
+        genChat = true
+
+    }
+
+
 };
 function chatbox() {
     //chat boxes// 
@@ -694,10 +710,12 @@ function chatbox() {
     pop();
 
     //red circle for new message
-    push();
-    fill(chat.lastReply.fill.r, chat.lastReply.fill.g, chat.lastReply.fill.b)
-    circle(chat.lastReply.x, chat.lastReply.y, chat.lastReply.s)
-    pop();
+    if (noodleRead != true) {
+        push();
+        fill(chat.lastReply.fill.r, chat.lastReply.fill.g, chat.lastReply.fill.b)
+        circle(chat.lastReply.x, chat.lastReply.y, chat.lastReply.s)
+        pop();
+    }
 
     //2nd chat box
     //conversation box
@@ -754,6 +772,30 @@ function chatbox() {
     //fill(chat.lastReply.fill.r, chat.lastReply.fill.g, chat.lastReply.fill.b)
     //circle(chat.lastReply.x, chat.lastReply.y + 310, chat.lastReply.s)
     //pop();
+
+}
+
+function noodleChat() {
+
+    //conversation box
+    push();
+    noStroke()
+    rect(chat.conversationBox.x, chat.conversationBox.y, chat.conversationBox.w, chat.conversationBox.h)
+    pop();
+
+    //profile picture
+    image(noodles, chat.profileBox.x, chat.profileBox.y, 100, 100)
+
+    //name of person
+    push();
+    textSize(chat.namePerson.h1);
+    text("Noodles", chat.namePerson.x, chat.namePerson.y)
+    pop();
+    //last received/sent message
+    push();
+    textSize(chat.namePerson.h2);
+    text("Meow, meow, meow, meow, meow, meow, meow, meow...", chat.namePerson.x, chat.namePerson.y + 40)
+    pop();
 
 }
 
@@ -940,6 +982,25 @@ function mouseClicked() {
         }
     }
 
+    //noodles chat
+    if (friendsOpen == true) {
+
+
+
+        if (chat.conversationBox.x < mouseX && chat.conversationBox.y < mouseY && chat.conversationBox.x + chat.conversationBox.w > mouseX && mouseY < chat.conversationBox.y + chat.conversationBox.h) {
+
+            noodleRead = true
+
+            if (noodleChatOpen == true) {
+                noodleChatOpen = false
+            }
+            else if (noodleChatOpen == false) {
+                noodleChatOpen = true
+            }
+        }
+
+    }
+
 
     //information message - exit window
     if ((inboxText.textPosition.x3 + infoWdwAdj.pos.x) < mouseX && mouseX < (inboxText.textPosition.x3 + 25 + infoWdwAdj.pos.x) && mouseY < (inboxText.textPosition.y3 + infoWdwAdj.pos.y) && mouseY > (inboxText.textPosition.y3 - 25 + infoWdwAdj.pos.y)) {
@@ -949,6 +1010,8 @@ function mouseClicked() {
         }
     }
     //backgrounds selection
+
+    //background one
     if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 200)) {
 
         if (bgOneOpen == true) {
@@ -962,6 +1025,8 @@ function mouseClicked() {
 
 
     }
+
+    //background two
     if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 250) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 350)) {
 
         if (bgTwoOpen == true) {
@@ -975,6 +1040,8 @@ function mouseClicked() {
         }
 
     }
+
+    //background three
     if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 400) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 550)) {
         if (bgThreeOpen == true) {
             bgThreeOpen = false
@@ -983,6 +1050,14 @@ function mouseClicked() {
             bgThreeOpen = true
             bgOneOpen = false
             bgTwoOpen = false
+        }
+    }
+
+    //settings - exit window
+    if ((inboxText.textPosition.x3 + settingsWdwAdj.pos.x) < mouseX && mouseX < (inboxText.textPosition.x3 + settingsWdwAdj.pos.x + 25) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 25) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y - 15)) {
+
+        if (settingsOpen == true) {
+            settingsOpen = false
         }
     }
 
@@ -1020,7 +1095,7 @@ function onHover() {
     }
 
 
-
+    ///
     //friends
     if (50 < mouseX && mouseX < 125 && mouseY < 590 && mouseY > 500) { cursor(HAND); }
 
@@ -1030,6 +1105,17 @@ function onHover() {
             cursor(HAND);
         }
     }
+    //noodles chat
+    if (friendsOpen == true) {
+
+        if (chat.conversationBox.x < mouseX && chat.conversationBox.y < mouseY && chat.conversationBox.x + chat.conversationBox.w > mouseX && mouseY < chat.conversationBox.y + chat.conversationBox.h) {
+            cursor(HAND);
+
+        }
+
+    }
+
+    ///
 
     //information
     if (2700 < mouseX && mouseX < 2750 && mouseY < 1350 && mouseY > 1300) { cursor(HAND); }
@@ -1063,6 +1149,13 @@ function onHover() {
     }
     //  image(bgTwo, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 250, 100, 100)
     //image(bgThree, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 400, 100, 100)
+
+    //settings - exit window
+    if ((inboxText.textPosition.x3 + settingsWdwAdj.pos.x) < mouseX && mouseX < (inboxText.textPosition.x3 + settingsWdwAdj.pos.x + 25) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 15) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y - 15)) {
+
+        cursor(HAND);
+    }
+
 
 }
 
@@ -1105,4 +1198,5 @@ function debugging() {
     text(`bg 2: ${bgTwoOpen}`, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100)
     text(`bg 3: ${bgThreeOpen}`, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 300, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100)
 
+    rect(inboxText.textPosition.x3 + settingsWdwAdj.pos.x, inboxText.textPosition.y3 + settingsWdwAdj.pos.y, 50, 50)
 }
