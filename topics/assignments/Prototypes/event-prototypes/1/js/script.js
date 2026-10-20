@@ -97,6 +97,21 @@ let infoWdwAdj = {
     }
 }
 
+let calendarWdwAdj = {
+
+    pos: {
+        x: 1050,
+        y: -300,
+        h: 400,
+        w: 400,
+    },
+
+    text: {
+        one: "Calendar",
+        two: "calendar window test",
+    }
+}
+
 
 let chat = {
 
@@ -164,6 +179,8 @@ let friends;
 let noodles;
 let pippin;
 
+let calGrid;
+
 let computerOpen = false;
 let informationOpen = false;
 let recylingOpen = false;
@@ -188,6 +205,8 @@ async function setup() {
 
     noodles = await loadImage('assets/images/noodle.jpg');
     pippin = await loadImage('assets/images/noUser.png');
+
+    calGrid = await loadImage('assets/images/calGrid.png');
 
     createCanvas(cnvs.w, cnvs.h);
 
@@ -218,6 +237,10 @@ function draw() {
         infoWdw();
     }
 
+    if (calendarOpen == true) {
+        calendarWdw();
+    }
+
     crash();
 
 
@@ -246,6 +269,77 @@ function taskbar() {
 
     image(information, 2700, 1300, 50, 50);
 };
+
+function calendarWdw() {
+
+
+    push();
+
+    //encompassing grey box
+    noStroke();
+    fill(172, 172, 172);
+    rect(icons.inbox.x + calendarWdwAdj.pos.x, icons.inbox.y + calendarWdwAdj.pos.y, icons.inbox.w, icons.inbox.h);
+    pop();
+    //white description box
+    push();
+    noStroke();
+    fill(229, 229, 228);
+    rect(icons.inbox.x + 5 + calendarWdwAdj.pos.x, icons.inbox.y + 35 + calendarWdwAdj.pos.y, icons.inbox.w - 10, icons.inbox.h - 50);
+    pop();
+    //calendar grid
+    image(calGrid, icons.inbox.x + 5 + calendarWdwAdj.pos.x, icons.inbox.y + 35 + calendarWdwAdj.pos.y, icons.inbox.w - 10, icons.inbox.h - 50)
+
+    //border lines
+
+    push();
+    stroke(255);
+    //top and left
+    line(iconborder.horzLineCo.x1 + calendarWdwAdj.pos.x, iconborder.horzLineCo.y1 + calendarWdwAdj.pos.y, iconborder.horzLineCo.x2 + calendarWdwAdj.pos.x, iconborder.horzLineCo.y2 + calendarWdwAdj.pos.y);
+    line(iconborder.vertLineCo.x1 - icons.inbox.w + calendarWdwAdj.pos.x, iconborder.vertLineCo.y1 + calendarWdwAdj.pos.y, iconborder.vertLineCo.x2 - icons.inbox.w + calendarWdwAdj.pos.x, iconborder.vertLineCo.y2 + calendarWdwAdj.pos.y);
+    pop();
+
+    push();
+    stroke(0);
+    //right and bottom
+    line(iconborder.vertLineCo.x1 + calendarWdwAdj.pos.x, iconborder.vertLineCo.y1 + calendarWdwAdj.pos.y, iconborder.vertLineCo.x2 + calendarWdwAdj.pos.x, iconborder.vertLineCo.y2 + calendarWdwAdj.pos.y);
+    line(iconborder.horzLineCo.x1 + calendarWdwAdj.pos.x, iconborder.horzLineCo.y1 + icons.inbox.h + calendarWdwAdj.pos.y, iconborder.horzLineCo.x1 + icons.inbox.w + calendarWdwAdj.pos.x, iconborder.horzLineCo.y1 + icons.inbox.w + calendarWdwAdj.pos.y);
+    pop();
+
+    //dark grey header
+    push()
+    noStroke();
+    fill(129, 129, 129);
+    rect(iconborder.gRect.x + calendarWdwAdj.pos.x, iconborder.gRect.y + calendarWdwAdj.pos.y, iconborder.gRect.w, iconborder.gRect.h);
+    pop();
+
+
+    // INBOX text//
+    //window text descriptor
+    push();
+    fill(inboxText.culr.w);
+    noStroke();
+    textSize(20);
+    text(calendarWdwAdj.text.one, inboxText.textPosition.x1 + calendarWdwAdj.pos.x, inboxText.textPosition.y1 + calendarWdwAdj.pos.y);
+    pop();
+
+    //description text
+    push();
+    fill(inboxText.culr.b);
+    noStroke();
+    //textFont(manaspace, 20);
+    textSize(20);
+    text(calendarWdwAdj.text.two, inboxText.textPosition.x2 + calendarWdwAdj.pos.x, inboxText.textPosition.y2 + calendarWdwAdj.pos.y);
+    pop();
+
+    //exit and minimize "icons"
+    push();
+    fill(inboxText.culr.w);
+    noStroke();
+    textSize(18);
+    text(inboxText.text.three, inboxText.textPosition.x3 + calendarWdwAdj.pos.x, inboxText.textPosition.y3 + calendarWdwAdj.pos.y);
+    pop();
+}
+
 
 function infoWdw() {
 
@@ -595,8 +689,15 @@ function mouseClicked() {
 
 
     //calendar
-    if (50 < mouseX && mouseX < 125 && mouseY < 440 && mouseY > 350) { cursor(HAND); }
+    if (50 < mouseX && mouseX < 125 && mouseY < 440 && mouseY > 350) {
 
+        if (calendarOpen == false) {
+            calendarOpen = true
+        }
+        else {
+            calendarOpen = false
+        }
+    }
 
     // friends inbox 
     if (50 < mouseX && mouseX < 125 && mouseY < 590 && mouseY > 500) {
@@ -664,15 +765,15 @@ function onHover() {
     if (2700 < mouseX && mouseX < 2750 && mouseY < 1350 && mouseY > 1300) { cursor(HAND); }
 
     //infornation message - exit window
-    if ((inboxText.textPosition.x3 + infoWdwAdj.pos.x) < mouseX && mouseX < (inboxText.textPosition.x3 + 25 + infoWdwAdj.pos.x) && mouseY < (inboxText.textPosition.y3 + infoWdwAdj.pos.y) && mouseY > (inboxText.textPosition.y3 - 25 + infoWdwAdj.pos.y)) {
+    if (informationOpen == true) {
+        if ((inboxText.textPosition.x3 + infoWdwAdj.pos.x) < mouseX && mouseX < (inboxText.textPosition.x3 + 25 + infoWdwAdj.pos.x) && mouseY < (inboxText.textPosition.y3 + infoWdwAdj.pos.y) && mouseY > (inboxText.textPosition.y3 - 25 + infoWdwAdj.pos.y)) {
 
-        cursor(HAND);
+            cursor(HAND);
+        }
+
+
     }
-    inboxText.textPosition.x3 + infoWdwAdj.pos.x, inboxText.textPosition.y3 + infoWdwAdj.pos.y
-
-
 }
-
 
 
 //these two functions and the event listener cause a Blue screen of death when the wifi connection is lost
