@@ -98,7 +98,7 @@ let infoWdwAdj = {
 
     text: {
         one: "Information",
-        two: "Welcome to my desktop!\n\nThis is a fake desktop with very limited features but feel free\n to explore! as you can see, anything that is interactable will\n change the cursor when you hover so look out for things to click.\n\nfor a start, first check out all the applications on the left side\nof the screen :)",
+        two: "Welcome to my desktop!\n\nThis is a fake desktop with very limited features but feel free\n to explore! as you can see, anything that is interactable will\n change the cursor when you hover so look out for things to click.\n\nfor a start, try closing this window by clicking in the top right, or\n double click the icon.\nnext, check out all the applications on the left side of the screen\n:)\n\nThe task bar is double click, the apps are single",
     }
 }
 
@@ -114,6 +114,21 @@ let calendarWdwAdj = {
     text: {
         one: "Calendar",
         two: "calendar window test",
+    }
+}
+
+let settingsWdwAdj = {
+
+    pos: {
+        x: 1650,
+        y: 280,
+        h: 100,
+        w: 100,
+    },
+
+    text: {
+        one: "Settings",
+        two: "Display settings:",
     }
 }
 
@@ -172,7 +187,7 @@ let imgPos = {
 let imgSize = {
     s: 75,
 }
-
+//desktop images
 let img;
 let computer;
 let information;
@@ -180,21 +195,40 @@ let recyling;
 let calendar;
 let agent;
 let friends;
+let settings;
+let settingsDisplay;
 
+
+//friends images
 let noodles;
 let pippin;
 
+//calendar images
 let calGrid;
 let birthday;
 let pumpkin;
 
+
+//app open/close booleans
 let computerOpen = false;
-let informationOpen = false;
+let informationOpen = true;
 let recylingOpen = false;
 let calendarOpen = false;
 let agentOpen = false;
 let friendsOpen = false;
+let settingsOpen = false;
 
+//backgrounds
+let bgOne
+let bgTwo
+let bgThree
+
+let bgOneOpen = true
+let bgTwoOpen = false
+let bgThreeOpen = false
+
+
+//crash boolean
 let wifiOff = false;
 
 /*
@@ -216,11 +250,15 @@ async function setup() {
     calGrid = await loadImage('assets/images/calGrid.png');
     birthday = await loadImage('assets/images/birthday.png');
     pumpkin = await loadImage('assets/images/pumpkin.png');
+    settings = await loadImage('assets/images/settings_gear_cool-0.png');
+    settingsDisplay = await loadImage('assets/images/display_properties-0.png');
+
+    bgOne = await loadImage('assets/images/bgOne.png');
+    bgTwo = await loadImage('assets/images/xp98.jpg');
+    bgThree = await loadImage('assets/images/firelinkGIF.gif');
 
 
     createCanvas(cnvs.w, cnvs.h);
-
-
 
 }
 
@@ -232,7 +270,19 @@ async function setup() {
  * the crash function handles what happens when you lose a wifi connection.
 */
 function draw() {
-    background(0, 116, 115);
+
+    if (bgOneOpen == true) {
+        background(0, 116, 115);
+    }
+    if (bgTwoOpen == true) {
+        image(bgTwo, 0, 0, cnvs.w, cnvs.h)
+    }
+    if (bgThreeOpen == true) {
+        image(bgThree, 0, 0, cnvs.w, cnvs.h)
+    }
+
+
+
     taskbar();
     onHover();
 
@@ -250,20 +300,19 @@ function draw() {
     if (calendarOpen == true) {
         calendarWdw();
     }
+    if (settingsOpen == true) {
+        settingWdw();
+    }
 
     crash();
 
 
 
 
+    //rect(clok.x - 190, clok.y - 35, 50, 50)
 
 }
 
-
-
-function desktop() {
-
-};
 
 function taskbar() {
     //grey task bar at the bottom
@@ -387,6 +436,99 @@ function calendarInfo() {
     fill(255);
     text("31", inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 850, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 600);
     pop();
+
+}
+
+function settingWdw() {
+
+
+    push();
+
+    //encompassing grey box
+    noStroke();
+    fill(172, 172, 172);
+    rect(icons.inbox.x + settingsWdwAdj.pos.x, icons.inbox.y + settingsWdwAdj.pos.y, icons.inbox.w, icons.inbox.h);
+    pop();
+    //white description box
+    push();
+    noStroke();
+    fill(229, 229, 228);
+    rect(icons.inbox.x + 5 + settingsWdwAdj.pos.x, icons.inbox.y + 35 + settingsWdwAdj.pos.y, icons.inbox.w - 10, icons.inbox.h - 50);
+    pop();
+
+    //border lines
+
+    push();
+    stroke(255);
+    //top and left
+    line(iconborder.horzLineCo.x1 + settingsWdwAdj.pos.x, iconborder.horzLineCo.y1 + settingsWdwAdj.pos.y, iconborder.horzLineCo.x2 + settingsWdwAdj.pos.x, iconborder.horzLineCo.y2 + settingsWdwAdj.pos.y);
+    line(iconborder.vertLineCo.x1 - icons.inbox.w + settingsWdwAdj.pos.x, iconborder.vertLineCo.y1 + settingsWdwAdj.pos.y, iconborder.vertLineCo.x2 - icons.inbox.w + settingsWdwAdj.pos.x, iconborder.vertLineCo.y2 + settingsWdwAdj.pos.y);
+    pop();
+
+    push();
+    stroke(0);
+    //right and bottom
+    line(iconborder.vertLineCo.x1 + settingsWdwAdj.pos.x, iconborder.vertLineCo.y1 + settingsWdwAdj.pos.y, iconborder.vertLineCo.x2 + settingsWdwAdj.pos.x, iconborder.vertLineCo.y2 + settingsWdwAdj.pos.y);
+    line(iconborder.horzLineCo.x1 + settingsWdwAdj.pos.x, iconborder.horzLineCo.y1 + icons.inbox.h + settingsWdwAdj.pos.y, iconborder.horzLineCo.x1 + icons.inbox.w + settingsWdwAdj.pos.x, iconborder.horzLineCo.y1 + icons.inbox.w + settingsWdwAdj.pos.y);
+    pop();
+
+    //dark grey header
+    push()
+    noStroke();
+    fill(129, 129, 129);
+    rect(iconborder.gRect.x + settingsWdwAdj.pos.x, iconborder.gRect.y + settingsWdwAdj.pos.y, iconborder.gRect.w, iconborder.gRect.h);
+    pop();
+
+
+    // INBOX text//
+    //window text descriptor
+    push();
+    fill(inboxText.culr.w);
+    noStroke();
+    textSize(20);
+    text(settingsWdwAdj.text.one, inboxText.textPosition.x1 + settingsWdwAdj.pos.x, inboxText.textPosition.y1 + settingsWdwAdj.pos.y);
+    pop();
+
+    //description text
+    push();
+    fill(inboxText.culr.b);
+    noStroke();
+    //textFont(manaspace, 20);
+    textSize(20);
+    text(settingsWdwAdj.text.two, inboxText.textPosition.x2 + settingsWdwAdj.pos.x, inboxText.textPosition.y2 + settingsWdwAdj.pos.y);
+    pop();
+
+    //exit and minimize "icons"
+    push();
+    fill(inboxText.culr.w);
+    noStroke();
+    textSize(18);
+    text(inboxText.text.three, inboxText.textPosition.x3 + settingsWdwAdj.pos.x, inboxText.textPosition.y3 + settingsWdwAdj.pos.y);
+    pop();
+
+    image(bgOne, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100, 100, 100)
+    image(bgTwo, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 250, 100, 100)
+    image(bgThree, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 400, 100, 100)
+
+
+    if (bgOneOpen == true) {
+        push();
+        textSize(40);
+        text("Active", inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 300, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 160)
+        pop();
+    }
+    if (bgTwoOpen == true) {
+        push();
+        textSize(40);
+        text("Active", inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 300, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 310)
+        pop();
+    }
+    if (bgThreeOpen == true) {
+        push();
+        textSize(40);
+        text("Active", inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 300, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 460)
+        pop();
+    }
 
 }
 
@@ -702,6 +844,13 @@ function appicons() {
     text('friends', 60, 590)
     pop();
 
+    image(settings, clok.x - 200, clok.y - 45, imgSize.s, imgSize.s);
+    push();
+    fill(255);
+    noStroke();
+    text('friends', 60, 590)
+    pop();
+
 
 }
 
@@ -710,7 +859,7 @@ function doubleClicked() {
     if (25 < mouseX && mouseX < 200 && mouseY < 1300 + 150 && mouseY > 1300) {
         // if (10 < mouseX && mouseX < 90 && mouseY < 961 && mouseY > 951 
 
-        window.open('https://march-exe.github.io/cart253/topics/assignments/Prototypes/variable-prototypes/variable-prototypes.html', '_blank');
+        window.open('https://march-exe.github.io/cart253/topics/assignments/Prototypes/event-prototypes/event-prototypes.html', '_blank');
 
     }
 
@@ -719,7 +868,6 @@ function doubleClicked() {
 
 
     if (2700 < mouseX && mouseX < 2750 && mouseY < 1350 && mouseY > 1300) {
-
         if (informationOpen == false) {
             informationOpen = true
         }
@@ -727,6 +875,21 @@ function doubleClicked() {
             informationOpen = false
         }
     }
+
+
+
+
+
+    if (clok.x - 190 < mouseX && mouseX < clok.x - 140 && mouseY < clok.y && mouseY > clok.y - 35) {
+        if (settingsOpen == false) {
+            settingsOpen = true
+        }
+        else {
+            settingsOpen = false
+        }
+    }
+
+
 }
 
 function mouseClicked() {
@@ -785,8 +948,46 @@ function mouseClicked() {
             informationOpen = false
         }
     }
+    //backgrounds selection
+    if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 200)) {
+
+        if (bgOneOpen == true) {
+            bgOneOpen = false
+        }
+        else if (bgOneOpen == false) {
+            bgOneOpen = true
+            bgTwoOpen = false
+            bgThreeOpen = false
+        }
+
+
+    }
+    if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 250) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 350)) {
+
+        if (bgTwoOpen == true) {
+            bgTwoOpen = false
+
+        }
+        else if (bgTwoOpen == false) {
+            bgTwoOpen = true
+            bgOneOpen = false
+            bgThreeOpen = false
+        }
+
+    }
+    if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 400) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 550)) {
+        if (bgThreeOpen == true) {
+            bgThreeOpen = false
+        }
+        else if (bgThreeOpen == false) {
+            bgThreeOpen = true
+            bgOneOpen = false
+            bgTwoOpen = false
+        }
+    }
 
 }
+
 
 //this function changes the cursor to a hand when something on the canvas is interactabe
 function onHover() {
@@ -840,6 +1041,29 @@ function onHover() {
             cursor(HAND);
         }
     }
+
+    //settings
+    if (clok.x - 190 < mouseX && mouseX < clok.x - 140 && mouseY < clok.y && mouseY > clok.y - 35) {
+
+        cursor(HAND);
+    }
+
+    //backgrounds
+    if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 200)) {
+        cursor(HAND);
+
+    }
+    if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 250) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 350)) {
+        cursor(HAND);
+
+    }
+    if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 400) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 550)) {
+        cursor(HAND);
+
+    }
+    //  image(bgTwo, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 250, 100, 100)
+    //image(bgThree, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 400, 100, 100)
+
 }
 
 
@@ -871,3 +1095,14 @@ window.addEventListener("offline", wifiOffline);
 
 
 
+function debugging() {
+
+    image(bgOne, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100, 100, 100)
+    image(bgTwo, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 250, 100, 100)
+    image(bgThree, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 400, 100, 100)
+
+    text(`bg 1: ${bgOneOpen}`, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100)
+    text(`bg 2: ${bgTwoOpen}`, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100)
+    text(`bg 3: ${bgThreeOpen}`, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 300, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100)
+
+}
