@@ -206,6 +206,9 @@ let noodleRead = false;
 let genChat = true;
 let pippin;
 
+let fbiRead = false;
+let fbiChatOpen = false;
+
 //calendar images
 let calGrid;
 let birthday;
@@ -273,6 +276,7 @@ async function setup() {
  * the crash function handles what happens when you lose a wifi connection.
 */
 function draw() {
+
 
     if (bgOneOpen == true) {
         background(0, 116, 115);
@@ -684,6 +688,18 @@ function friendInbox() {
 
     }
 
+    if (fbiChatOpen == true) {
+        fbiChat();
+        genChat = false
+        noodleChatOpen = false;
+
+
+    }
+    else {
+        genChat = true
+
+    }
+
 
 };
 function chatbox() {
@@ -768,10 +784,14 @@ function chatbox() {
     pop();
 
     //red circle for new message
-    //push();
-    //fill(chat.lastReply.fill.r, chat.lastReply.fill.g, chat.lastReply.fill.b)
-    //circle(chat.lastReply.x, chat.lastReply.y + 310, chat.lastReply.s)
-    //pop();
+    if (fbiRead != true) {
+        push();
+        fill(chat.lastReply.fill.r, chat.lastReply.fill.g, chat.lastReply.fill.b)
+        circle(chat.lastReply.x, chat.lastReply.y + 310, chat.lastReply.s)
+        pop();
+    }
+
+
 
 }
 
@@ -780,7 +800,7 @@ function noodleChat() {
     //conversation box
     push();
     noStroke()
-    rect(chat.conversationBox.x, chat.conversationBox.y, chat.conversationBox.w, chat.conversationBox.h)
+    rect(chat.conversationBox.x, chat.conversationBox.y, chat.conversationBox.w, chat.conversationBox.h + 410)
     pop();
 
     //profile picture
@@ -791,10 +811,70 @@ function noodleChat() {
     textSize(chat.namePerson.h1);
     text("Noodles", chat.namePerson.x, chat.namePerson.y)
     pop();
-    //last received/sent message
+    //messages
     push();
+    noStroke();
+    fill(172);
+    text("20-10-26 09:01", chat.profileBox.x + 5, chat.namePerson.y + 200)
+
+    rect(chat.profileBox.x, chat.profileBox.y + 120, 180, 50);
+    rect(chat.profileBox.x, chat.profileBox.y + 180, 180, 50);
+    rect(chat.profileBox.x + 375, chat.profileBox.y + 240, 180, 50);
+    text("20-10-26 13:16", chat.profileBox.x + 375, chat.namePerson.y + 260)
+    rect(chat.profileBox.x, chat.profileBox.y + 300, 150, 200);
+    text("20-10-26 17:35", chat.profileBox.x + 5, chat.namePerson.y + 470)
+    fill(0);
+    textSize(22)
+    text("Meow, meow,\nmeow, meow,\nmeow, meow,\nmeow, meow,\nmeow, meow,\nmeow, meow,\nmeow, meow.", chat.profileBox.x + 5, chat.namePerson.y + 270)
+    text("give me wet food", chat.profileBox.x + 5, chat.namePerson.y + 160)
+
+    text("miaoooowwww", chat.profileBox.x + 5, chat.namePerson.y + 100)
+
+    text("No, you got some", chat.profileBox.x + 375, chat.namePerson.y + 220)
     textSize(chat.namePerson.h2);
     text("Meow, meow, meow, meow, meow, meow, meow, meow...", chat.namePerson.x, chat.namePerson.y + 40)
+    pop();
+
+}
+
+function fbiChat() {
+
+    //conversation box
+    push();
+    noStroke()
+    rect(chat.conversationBox.x, chat.conversationBox.y, chat.conversationBox.w, chat.conversationBox.h + 410)
+    pop();
+
+    //profile picture
+    image(agent, chat.profileBox.x, chat.profileBox.y, 100, 100)
+
+    //name of person
+    push();
+    textSize(chat.namePerson.h1);
+    text("FBI Agent", chat.namePerson.x, chat.namePerson.y)
+    pop();
+    //messages
+    push();
+    noStroke();
+    fill(172);
+    text("11-09-26 09:11", chat.profileBox.x + 5, chat.namePerson.y + 200)
+
+    rect(chat.profileBox.x, chat.profileBox.y + 120, 180, 50);
+    rect(chat.profileBox.x, chat.profileBox.y + 180, 235, 50);
+    rect(chat.profileBox.x + 375, chat.profileBox.y + 240, 180, 50);
+    text("1-10-26 11:11", chat.profileBox.x + 375, chat.namePerson.y + 260)
+    rect(chat.profileBox.x, chat.profileBox.y + 300, 220, 200);
+    text("05-10-26 19:26", chat.profileBox.x + 5, chat.namePerson.y + 470)
+    fill(0);
+    textSize(22)
+    text("Yo dude, you gotta\nget off your computer.\nHow do you play so\n much of that Finals\ngame? literally go\ntouch grass, im\nworried about you...", chat.profileBox.x + 5, chat.namePerson.y + 270)
+    text("do you do graffiti uwu?", chat.profileBox.x + 5, chat.namePerson.y + 160)
+
+    text("  heyy :-p", chat.profileBox.x + 5, chat.namePerson.y + 100)
+
+    text("leave me alone :-/", chat.profileBox.x + 375, chat.namePerson.y + 220)
+    textSize(chat.namePerson.h2);
+    text("Yo dude, you gotta get off your computer. How do you pl...", chat.namePerson.x, chat.namePerson.y + 40)
     pop();
 
 }
@@ -997,10 +1077,35 @@ function mouseClicked() {
             else if (noodleChatOpen == false) {
                 noodleChatOpen = true
             }
+
+            if (fbiChatOpen == true) {
+                fbiChatOpen = false
+                noodleChatOpen = false
+
+
+            }
+
         }
 
     }
+    //fbi chat
+    if (friendsOpen == true) {
 
+
+
+        if (chat.conversationBox.x < mouseX && chat.conversationBox.y + 310 < mouseY && chat.conversationBox.x + chat.conversationBox.w > mouseX && mouseY < chat.conversationBox.y + 310 + chat.conversationBox.h) {
+
+            fbiRead = true
+
+            if (fbiChatOpen == true) {
+                fbiChatOpen = false
+            }
+            else if (fbiChatOpen == false) {
+                fbiChatOpen = true
+            }
+        }
+
+    }
 
     //information message - exit window
     if ((inboxText.textPosition.x3 + infoWdwAdj.pos.x) < mouseX && mouseX < (inboxText.textPosition.x3 + 25 + infoWdwAdj.pos.x) && mouseY < (inboxText.textPosition.y3 + infoWdwAdj.pos.y) && mouseY > (inboxText.textPosition.y3 - 25 + infoWdwAdj.pos.y)) {
@@ -1114,7 +1219,14 @@ function onHover() {
         }
 
     }
+    //fbi chat
+    if (friendsOpen == true) {
 
+        if (chat.conversationBox.x < mouseX && chat.conversationBox.y + 310 < mouseY && chat.conversationBox.x + chat.conversationBox.w > mouseX && mouseY < chat.conversationBox.y + 310 + chat.conversationBox.h && fbiChatOpen != true) {
+            cursor(HAND);
+        }
+
+    }
     ///
 
     //information

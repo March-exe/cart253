@@ -6,6 +6,8 @@ Marciano Faugno
 
 ## Description
 
+to best experience this project, please access this on a desktop/laptop and zoom out your broswer to 50%
+
 My desktop is another iteration of my fake desktop idea where instead of simply letting you do 1 thing, it will allow for interactivity across multiple applications and browsers.
  This project builds off my first prototype ERROR!
 which will hopfully be implemented to some extent inside this project
@@ -13,7 +15,7 @@ another hope i have is to make this scablable across devices.
 
 ## Screenshot(s)
 
-> ![Image of a clown face](./assets/images/clown.png)
+> ![Image of a clown face](./assets/images/ScreenshotProject.png)
 
 ## Attribution
 

@@ -73,7 +73,7 @@ function draw() {
 
 
 
-    debugging();
+    //debugging();
 }
 
 /**
@@ -119,14 +119,11 @@ function bounceBoundry(ball) {
 
     // bounce off the roof
     if (ball.y < 0 == true) {
-        text(`y vel: ${ball.velocity.y}`, 300, 170)
+
 
         ball.velocity.y = ball.velocity.y * -1
     }
-    else {
-        text(`y vel: ${ball.velocity.y}`, 300, 170)
 
-    }
 
     // bounce off the sides
 
@@ -136,22 +133,13 @@ function bounceBoundry(ball) {
 
         ball.velocity.x = ball.velocity.x * -1
     }
-    else {
-        //  text(`right: false`, 350, 180)
 
-    }
     //left side
     if (ball.x == 0 == true) {
         //  text(`left: true`, 350, 170)
-        text(`y vel: ${ball.velocity.x}`, 300, 190)
+        //text(`y vel: ${ball.velocity.x}`, 300, 190)
 
         ball.velocity.x = ball.velocity.x * -1
-    }
-    else {
-        // text(`left: false`, 350, 180)
-        text(`y vel: ${ball.velocity.x}`, 300, 190)
-
-
     }
 
 }
@@ -163,12 +151,9 @@ function handleBounce(ball, paddle) {
 
     //bounce when it hits the paddle
     if (checkOverlap(ball, paddle) == true) {
-        text(`overlapped: true`, 300, 100)
+        // text(`overlapped: true`, 300, 100)
 
         ball.velocity.y = ball.velocity.y * -1
-    }
-    else {
-        text(`overlapped: false`, 300, 100)
     }
 
 
