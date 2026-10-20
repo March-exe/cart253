@@ -250,7 +250,7 @@ async function setup() {
     noodles = await loadImage('assets/images/noodle.jpg');
     pippin = await loadImage('assets/images/noUser.png');
 
-    calGrid = await loadImage('assets/images/Grid.png');
+    calGrid = await loadImage("assets/images/Grid.png");
     birthday = await loadImage('assets/images/birthday.png');
     pumpkin = await loadImage('assets/images/pumpkin.png');
     settings = await loadImage('assets/images/settings_gear_cool-0.png');
