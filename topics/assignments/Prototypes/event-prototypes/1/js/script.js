@@ -132,6 +132,21 @@ let settingsWdwAdj = {
     }
 }
 
+let recyclingWdwAdj = {
+
+    pos: {
+        x: 400,
+        y: -200,
+        h: 100,
+        w: 100,
+    },
+
+    text: {
+        one: "Recycling Bin",
+        two: "recycling bin test",
+    }
+}
+
 
 let chat = {
 
@@ -218,7 +233,7 @@ let pumpkin;
 //app open/close booleans
 let computerOpen = false;
 let informationOpen = true;
-let recylingOpen = false;
+let recyclingOpen = false;
 let calendarOpen = false;
 let agentOpen = false;
 let friendsOpen = false;
@@ -233,9 +248,28 @@ let bgOneOpen = true
 let bgTwoOpen = false
 let bgThreeOpen = false
 
+//recycling bin icons
+let cd;
+let no;
+let paintFile;
+let camera;
+
+let song;
+let mornings;
+let morningsSound;
+let camping;
+
+let songOpen = false;
+let morningsOpen = false;
+let campingOpen = false;
+
 
 //crash boolean
 let wifiOff = false;
+
+//secret stuff
+let spooky;
+
 
 /*
 preloads setup function so that all images are loaded in before start
@@ -263,6 +297,19 @@ async function setup() {
     bgTwo = await loadImage('assets/images/xp98.jpg');
     bgThree = await loadImage('assets/images/firelinkGIF.gif');
 
+    cd = await loadImage('assets/images/cdAudio.png');
+    no = await loadImage('assets/images/no-1.png');
+    paintFile = await loadImage('assets/images/paint_file-5.png');
+    camera = await loadImage('assets/images/Camera3.png');
+
+    song = await loadSound('assets/sounds/tango.wav');
+    mornings = await createVideo('assets/images/mornings.mp4')
+    mornings.hide()
+    camping = await loadImage('assets/images/img041.jpg');
+
+    spooky = await loadSound('assets/sounds/SpookySong.mp3');
+
+
 
     createCanvas(cnvs.w, cnvs.h);
 
@@ -288,8 +335,17 @@ function draw() {
         image(bgThree, 0, 0, cnvs.w, cnvs.h)
     }
 
+    if (morningsOpen == true) {
+        cursor(WAIT)
+        image(mornings, 1500, 100, 1200, 760);
+    }
+    if (campingOpen == true) {
 
-
+        image(camping, 200, 100, 500, 400)
+        rect(450, 350, 300, 300)
+        textSize(20)
+        text("hi its me, March. the guy that\nmade this program. Thank for\ntaking the time to\ncheck out what my program has\nto offer!\n\nI hope you enjoed the content in\nhere and keep looking!", 460, 370)
+    }
     taskbar();
     onHover();
 
@@ -310,13 +366,22 @@ function draw() {
     if (settingsOpen == true) {
         settingWdw();
     }
+    if (recyclingOpen == true) {
+        recyclingWdw();
+    }
+
 
     crash();
 
-
-
+    if (recyclingOpen && friendsOpen && settingsOpen && informationOpen && calendarOpen) {
+        drawBall(ball);
+        moveBall(ball);
+        bounceBoundry(ball);
+    }
 
     //rect(clok.x - 190, clok.y - 35, 50, 50)
+    // debugging();
+
 
 }
 
@@ -336,6 +401,7 @@ function taskbar() {
     image(information, 2700, 1300, 50, 50);
 };
 
+//calendar 
 function calendarWdw() {
 
 
@@ -438,6 +504,7 @@ function calendarInfo() {
 
     image(pumpkin, inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 835, inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 565, 128, 129)
 
+
     push();
     textSize(40);
     fill(255);
@@ -446,6 +513,7 @@ function calendarInfo() {
 
 }
 
+//settings
 function settingWdw() {
 
 
@@ -541,7 +609,7 @@ function settingWdw() {
 }
 
 
-
+//information
 function infoWdw() {
 
     push();
@@ -609,6 +677,7 @@ function infoWdw() {
     pop();
 }
 
+//friends /inbox
 function friendInbox() {
     push();
 
@@ -878,7 +947,138 @@ function fbiChat() {
     pop();
 
 }
+//recycling
+function recyclingWdw() {
+    push();
 
+    //encompassing grey box
+    noStroke();
+    fill(172, 172, 172);
+    rect(icons.inbox.x + recyclingWdwAdj.pos.x, icons.inbox.y + recyclingWdwAdj.pos.y, icons.inbox.w + recyclingWdwAdj.pos.w, icons.inbox.h + recyclingWdwAdj.pos.h);
+    pop();
+    //white description box
+    push();
+    noStroke();
+    fill(229, 229, 228);
+    rect(icons.inbox.x + 5 + recyclingWdwAdj.pos.x, icons.inbox.y + 35 + recyclingWdwAdj.pos.y, icons.inbox.w - 10 + recyclingWdwAdj.pos.w, icons.inbox.h - 50 + recyclingWdwAdj.pos.h);
+    pop();
+
+    //border lines
+
+    push();
+    stroke(255);
+    //top and left
+    line(iconborder.horzLineCo.x1 + recyclingWdwAdj.pos.x, iconborder.horzLineCo.y1 + recyclingWdwAdj.pos.y, iconborder.horzLineCo.x2 + recyclingWdwAdj.pos.x + + recyclingWdwAdj.pos.w, iconborder.horzLineCo.y2 + recyclingWdwAdj.pos.y);
+    line(iconborder.vertLineCo.x1 - icons.inbox.w + recyclingWdwAdj.pos.x, iconborder.vertLineCo.y1 + recyclingWdwAdj.pos.y, iconborder.vertLineCo.x2 - icons.inbox.w + recyclingWdwAdj.pos.x, iconborder.vertLineCo.y2 + recyclingWdwAdj.pos.y + recyclingWdwAdj.pos.h);
+    pop();
+
+    push();
+    stroke(0);
+    //right and bottom
+    line(iconborder.vertLineCo.x1 + recyclingWdwAdj.pos.x + + recyclingWdwAdj.pos.w, iconborder.vertLineCo.y1 + recyclingWdwAdj.pos.y, iconborder.vertLineCo.x2 + recyclingWdwAdj.pos.x + + recyclingWdwAdj.pos.w, iconborder.vertLineCo.y2 + recyclingWdwAdj.pos.y + recyclingWdwAdj.pos.h);
+    line(iconborder.horzLineCo.x1 + recyclingWdwAdj.pos.x, iconborder.horzLineCo.y1 + icons.inbox.h + recyclingWdwAdj.pos.y + recyclingWdwAdj.pos.w, iconborder.horzLineCo.x1 + icons.inbox.w + recyclingWdwAdj.pos.x + + recyclingWdwAdj.pos.w, iconborder.horzLineCo.y1 + icons.inbox.w + recyclingWdwAdj.pos.y + recyclingWdwAdj.pos.w);
+    pop();
+
+    //dark grey header
+    push()
+    noStroke();
+    fill(129, 129, 129);
+    rect(iconborder.gRect.x + recyclingWdwAdj.pos.x, iconborder.gRect.y + recyclingWdwAdj.pos.y, iconborder.gRect.w + recyclingWdwAdj.pos.w, iconborder.gRect.h);
+    pop();
+
+
+    // INBOX text//
+    //window text descriptor
+    push();
+    fill(inboxText.culr.w);
+    noStroke();
+    textSize(20);
+    text(recyclingWdwAdj.text.one, inboxText.textPosition.x1 + recyclingWdwAdj.pos.x, inboxText.textPosition.y1 + recyclingWdwAdj.pos.y);
+    pop();
+
+    //description text
+    //push();
+    //fill(inboxText.culr.b);
+    //noStroke();
+    //textFont(manaspace, 20);
+    //textSize(20);
+    //text(inboxText.text.two, inboxText.textPosition.x2, inboxText.textPosition.y2);
+    //pop();
+
+    //exit and minimize "icons"
+    push();
+    fill(inboxText.culr.w);
+    noStroke();
+    textSize(18);
+    text(inboxText.text.three, inboxText.textPosition.x3 + recyclingWdwAdj.pos.x + recyclingWdwAdj.pos.w, inboxText.textPosition.y3 + recyclingWdwAdj.pos.y);
+    pop();
+
+    recyclingContent();
+};
+function recyclingContent() {
+
+    //white item box
+    push();
+    noStroke();
+    //fill(229,229,228);
+
+    fill(229, 229, 228);
+    rect(icons.inbox.x + 5 + recyclingWdwAdj.pos.x, icons.inbox.y + 35 + recyclingWdwAdj.pos.y, icons.inbox.w - 10 + recyclingWdwAdj.pos.w, icons.inbox.h - 500);
+    image(cd, icons.inbox.x + 10 + recyclingWdwAdj.pos.x, icons.inbox.y + 40 + recyclingWdwAdj.pos.y, 50, 50);
+    fill(0);
+    textSize(25);
+    text("A Tango with Time By Extraterrestrial Life", icons.inbox.x + 70 + recyclingWdwAdj.pos.x, icons.inbox.y + 80 + recyclingWdwAdj.pos.y)
+    fill(172);
+    text("Downloads/Music/A Tango with Time.mp3", icons.inbox.x + 10 + recyclingWdwAdj.pos.x, icons.inbox.y + 120 + recyclingWdwAdj.pos.y)
+    pop();
+    //
+    push();
+    noStroke();
+    fill(172);
+    rect(icons.inbox.x + 5 + recyclingWdwAdj.pos.x, icons.inbox.y + 35 + recyclingWdwAdj.pos.y + 100, icons.inbox.w - 10 + recyclingWdwAdj.pos.w, icons.inbox.h - 500);
+    image(no, icons.inbox.x + 10 + recyclingWdwAdj.pos.x, icons.inbox.y + 40 + recyclingWdwAdj.pos.y + 100, 50, 50)
+    fill(0);
+    textSize(25);
+    text("ERROR - File currupted", icons.inbox.x + 70 + recyclingWdwAdj.pos.x, icons.inbox.y + 80 + recyclingWdwAdj.pos.y + 100)
+    fill(229);
+    text("Desktop/recycling bin/program.exe", icons.inbox.x + 10 + recyclingWdwAdj.pos.x, icons.inbox.y + 120 + recyclingWdwAdj.pos.y + 100)
+    pop();
+    //
+    push();
+    noStroke();
+    fill(229, 229, 228);
+    rect(icons.inbox.x + 5 + recyclingWdwAdj.pos.x, icons.inbox.y + 35 + recyclingWdwAdj.pos.y + 200, icons.inbox.w - 10 + recyclingWdwAdj.pos.w, icons.inbox.h - 500);
+    image(paintFile, icons.inbox.x + 10 + recyclingWdwAdj.pos.x, icons.inbox.y + 40 + recyclingWdwAdj.pos.y + 200, 50, 50)
+    fill(0);
+    textSize(25);
+    text("Mornings", icons.inbox.x + 70 + recyclingWdwAdj.pos.x, icons.inbox.y + 80 + recyclingWdwAdj.pos.y + 200)
+    fill(172);
+    text("Downloads/Videos/Animation/Mornings.mp4", icons.inbox.x + 10 + recyclingWdwAdj.pos.x, icons.inbox.y + 120 + recyclingWdwAdj.pos.y + 200)
+    pop();
+    //
+    push();
+    noStroke();
+    fill(172);
+    rect(icons.inbox.x + 5 + recyclingWdwAdj.pos.x, icons.inbox.y + 35 + recyclingWdwAdj.pos.y + 300, icons.inbox.w - 10 + recyclingWdwAdj.pos.w, icons.inbox.h - 500);
+    image(camera, icons.inbox.x + 10 + recyclingWdwAdj.pos.x, icons.inbox.y + 40 + recyclingWdwAdj.pos.y + 300, 50, 50)
+    fill(0);
+    textSize(25);
+    text("Film", icons.inbox.x + 70 + recyclingWdwAdj.pos.x, icons.inbox.y + 80 + recyclingWdwAdj.pos.y + 300)
+    fill(229);
+    text("Downloads/Photos/summer/img_041.png", icons.inbox.x + 10 + recyclingWdwAdj.pos.x, icons.inbox.y + 120 + recyclingWdwAdj.pos.y + 300)
+    pop();
+
+    push();
+    fill(0);
+    textSize(40);
+    textAlign(CENTER, CENTER)
+    text("The rest of your dreams were\npermanently deleted", icons.inbox.x + 340 + recyclingWdwAdj.pos.x, icons.inbox.y + 80 + recyclingWdwAdj.pos.y + 500)
+    pop();
+
+}
+
+
+//task bar
 function clock() {
     push();
     //lines for border around clock
@@ -935,7 +1135,7 @@ function start() {
 
     pop();
 };
-
+//clickable icons
 function appicons() {
     //image(img, x, y, [width], [height])
     image(computer, 50, 50, imgSize.s, imgSize.s);
@@ -1017,11 +1217,82 @@ function doubleClicked() {
 function mouseClicked() {
 
     //computer
-    if (50 < mouseX && mouseX < 125 && mouseY < 140 && mouseY > 50) { cursor(HAND); }
+    if (50 < mouseX && mouseX < 125 && mouseY < 140 && mouseY > 50) {
+        window.open('https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/event-prototypes/1', '_blank');
+    }
 
 
     //recycling bin
+    if (50 < mouseX && mouseX < 125 && mouseY < 290 && mouseY > 200) {
+        if (recyclingOpen == false) {
+            recyclingOpen = true
+        }
+        else {
+            recyclingOpen = false
+        }
+    }
+    //recycling
     if (50 < mouseX && mouseX < 125 && mouseY < 290 && mouseY > 200) { cursor(HAND); }
+
+    //recycling item 1
+    if (recyclingOpen == true) {
+        if ((icons.inbox.x + 5 + recyclingWdwAdj.pos.x) < mouseX && mouseX < (icons.inbox.x + 5 + recyclingWdwAdj.pos.x + icons.inbox.w - 10 + recyclingWdwAdj.pos.w) && mouseY < (icons.inbox.y + 35 + recyclingWdwAdj.pos.y + icons.inbox.h - 500) && mouseY > (icons.inbox.y + 35 + recyclingWdwAdj.pos.y)) {
+
+            if (song.isPlaying()) {
+                song.stop();
+            }
+            else {
+                song.play();
+            }
+        }
+
+    }
+    //recycling item 2
+    if (recyclingOpen == true) {
+        if ((icons.inbox.x + 5 + recyclingWdwAdj.pos.x) < mouseX && mouseX < (icons.inbox.x + 5 + recyclingWdwAdj.pos.x + icons.inbox.w - 10 + recyclingWdwAdj.pos.w) && mouseY < (icons.inbox.y + 35 + recyclingWdwAdj.pos.y + 100 + icons.inbox.h - 500) && mouseY > (icons.inbox.y + 35 + 100 + recyclingWdwAdj.pos.y)) { cursor(HAND); }
+    }
+    //recycling item 3
+    if (recyclingOpen == true) {
+        if ((icons.inbox.x + 5 + recyclingWdwAdj.pos.x) < mouseX && mouseX < (icons.inbox.x + 5 + recyclingWdwAdj.pos.x + icons.inbox.w - 10 + recyclingWdwAdj.pos.w) && mouseY < (icons.inbox.y + 35 + recyclingWdwAdj.pos.y + 200 + icons.inbox.h - 500) && mouseY > (icons.inbox.y + 35 + 200 + recyclingWdwAdj.pos.y)) {
+            if (morningsOpen == false) {
+                morningsOpen = true
+            }
+            else {
+                morningsOpen = false
+            }
+            if (morningsOpen == true) {
+
+                mornings.play();
+            }
+            else {
+                mornings.stop();
+            }
+
+        }
+    }
+    //recycling item 4
+    if (recyclingOpen == true) {
+        if ((icons.inbox.x + 5 + recyclingWdwAdj.pos.x) < mouseX && mouseX < (icons.inbox.x + 5 + recyclingWdwAdj.pos.x + icons.inbox.w - 10 + recyclingWdwAdj.pos.w) && mouseY < (icons.inbox.y + 35 + recyclingWdwAdj.pos.y + 300 + icons.inbox.h - 500) && mouseY > (icons.inbox.y + 35 + 300 + recyclingWdwAdj.pos.y)) {
+            if (campingOpen == false) {
+                campingOpen = true
+            }
+            else {
+                campingOpen = false
+            }
+
+        }
+    }
+    //recycling exit window
+    if (recyclingOpen == true) {
+
+        if ((inboxText.textPosition.x3 + recyclingWdwAdj.pos.x + recyclingWdwAdj.pos.w) < mouseX && mouseX < (inboxText.textPosition.x3 + recyclingWdwAdj.pos.x + recyclingWdwAdj.pos.w + 25) && mouseY < (inboxText.textPosition.y3 + recyclingWdwAdj.pos.y) && mouseY > (inboxText.textPosition.y3 + recyclingWdwAdj.pos.y - 25)) {
+            if (recyclingOpen == true) {
+                recyclingOpen = false
+            }
+        }
+    }
+
+
 
 
     //calendar
@@ -1033,6 +1304,18 @@ function mouseClicked() {
         else {
             calendarOpen = false
         }
+    }
+    //pumpkin
+    if ((inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 835) < mouseX && mouseX < (inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 835 + 128) && mouseY < (inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 700) && mouseY > (inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 565)) {
+
+        if (spooky.isPlaying()) {
+            spooky.stop();
+        }
+        else {
+            spooky.play();
+        }
+        //inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 835, 
+        // //inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 565, 128, 129)
     }
 
     //calendar - exit window
@@ -1188,6 +1471,31 @@ function onHover() {
     //recycling
     if (50 < mouseX && mouseX < 125 && mouseY < 290 && mouseY > 200) { cursor(HAND); }
 
+    //recycling item 1
+    if (recyclingOpen == true) {
+        if ((icons.inbox.x + 5 + recyclingWdwAdj.pos.x) < mouseX && mouseX < (icons.inbox.x + 5 + recyclingWdwAdj.pos.x + icons.inbox.w - 10 + recyclingWdwAdj.pos.w) && mouseY < (icons.inbox.y + 35 + recyclingWdwAdj.pos.y + icons.inbox.h - 500) && mouseY > (icons.inbox.y + 35 + recyclingWdwAdj.pos.y)) { cursor(HAND); }
+    }
+    //recycling item 2
+    if (recyclingOpen == true) {
+        if ((icons.inbox.x + 5 + recyclingWdwAdj.pos.x) < mouseX && mouseX < (icons.inbox.x + 5 + recyclingWdwAdj.pos.x + icons.inbox.w - 10 + recyclingWdwAdj.pos.w) && mouseY < (icons.inbox.y + 35 + recyclingWdwAdj.pos.y + 100 + icons.inbox.h - 500) && mouseY > (icons.inbox.y + 35 + 100 + recyclingWdwAdj.pos.y)) { cursor(HAND); }
+    }
+    //recycling item 3
+    if (recyclingOpen == true) {
+        if ((icons.inbox.x + 5 + recyclingWdwAdj.pos.x) < mouseX && mouseX < (icons.inbox.x + 5 + recyclingWdwAdj.pos.x + icons.inbox.w - 10 + recyclingWdwAdj.pos.w) && mouseY < (icons.inbox.y + 35 + recyclingWdwAdj.pos.y + 200 + icons.inbox.h - 500) && mouseY > (icons.inbox.y + 35 + 200 + recyclingWdwAdj.pos.y)) { cursor(HAND); }
+    }
+    //recycling item 4
+    if (recyclingOpen == true) {
+        if ((icons.inbox.x + 5 + recyclingWdwAdj.pos.x) < mouseX && mouseX < (icons.inbox.x + 5 + recyclingWdwAdj.pos.x + icons.inbox.w - 10 + recyclingWdwAdj.pos.w) && mouseY < (icons.inbox.y + 35 + recyclingWdwAdj.pos.y + 300 + icons.inbox.h - 500) && mouseY > (icons.inbox.y + 35 + 300 + recyclingWdwAdj.pos.y)) { cursor(HAND); }
+    }
+    //recycling exit window
+    if (recyclingOpen == true) {
+
+
+        if ((inboxText.textPosition.x3 + recyclingWdwAdj.pos.x + recyclingWdwAdj.pos.w) < mouseX && mouseX < (inboxText.textPosition.x3 + recyclingWdwAdj.pos.x + recyclingWdwAdj.pos.w + 25) && mouseY < (inboxText.textPosition.y3 + recyclingWdwAdj.pos.y) && mouseY > (inboxText.textPosition.y3 + recyclingWdwAdj.pos.y - 25)) { cursor(HAND); }
+    }
+
+
+
 
     //calendar
     if (50 < mouseX && mouseX < 125 && mouseY < 440 && mouseY > 350) { cursor(HAND); }
@@ -1198,7 +1506,14 @@ function onHover() {
             cursor(HAND);
         }
     }
+    //pumpkin
+    if ((inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 835) < mouseX && mouseX < (inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 835 + 128) && mouseY < (inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 700) && mouseY > (inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 565)) {
+        cursor(HAND);
+        console.log("Clicked spooky area");
 
+        //inboxText.textPosition.x2 + calendarWdwAdj.pos.x + 835, 
+        // //inboxText.textPosition.y2 + calendarWdwAdj.pos.y + 565, 128, 129)
+    }
 
     ///
     //friends
@@ -1247,27 +1562,35 @@ function onHover() {
     }
 
     //backgrounds
-    if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 200)) {
-        cursor(HAND);
+    if (settingsOpen == true) {
+        if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 200)) {
+            cursor(HAND);
 
+        }
     }
-    if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 250) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 350)) {
-        cursor(HAND);
+    if (settingsOpen == true) {
+        if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 250) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 350)) {
+            cursor(HAND);
 
+        }
     }
-    if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 400) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 550)) {
-        cursor(HAND);
+    if (settingsOpen == true) {
+        if ((inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100) < mouseX && mouseX < (inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 200) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 400) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 550)) {
+            cursor(HAND);
 
+        }
     }
     //  image(bgTwo, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 250, 100, 100)
     //image(bgThree, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 100, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 400, 100, 100)
 
     //settings - exit window
-    if ((inboxText.textPosition.x3 + settingsWdwAdj.pos.x) < mouseX && mouseX < (inboxText.textPosition.x3 + settingsWdwAdj.pos.x + 25) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 15) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y - 15)) {
+    if (settingsOpen == true) {
+        if ((inboxText.textPosition.x3 + settingsWdwAdj.pos.x) < mouseX && mouseX < (inboxText.textPosition.x3 + settingsWdwAdj.pos.x + 25) && mouseY < (inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 15) && mouseY > (inboxText.textPosition.y3 + settingsWdwAdj.pos.y - 15)) {
 
-        cursor(HAND);
+            cursor(HAND);
+        }
+
     }
-
 
 }
 
@@ -1311,4 +1634,91 @@ function debugging() {
     text(`bg 3: ${bgThreeOpen}`, inboxText.textPosition.x2 + settingsWdwAdj.pos.x + 300, inboxText.textPosition.y3 + settingsWdwAdj.pos.y + 100)
 
     rect(inboxText.textPosition.x3 + settingsWdwAdj.pos.x, inboxText.textPosition.y3 + settingsWdwAdj.pos.y, 50, 50)
+
+    rect(inboxText.textPosition.x3 + recyclingWdwAdj.pos.x + recyclingWdwAdj.pos.w, inboxText.textPosition.y3 + recyclingWdwAdj.pos.y - 25, 50, 50)
+    // 
+    // 
+}
+
+//secret stuff i guess
+
+const ball = {
+    x: 300,
+    y: 20,
+    width: 100,
+    height: 100,
+    velocity: {
+        x: 5,
+        y: 5,
+    }
+};
+
+function moveBall(ball) {
+
+
+    ball.x += ball.velocity.x
+    ball.y += ball.velocity.y
+
+    //ball.x = constrain(ball.x, 0, width + 10);
+    //ball.y = constrain(ball.y, 0, height + 10);
+
+    if (ball.y == 0) {
+
+        ball.velocity.y = ball.velocity.y * 1
+
+
+    }
+
+
+
+
+}
+
+function bounceBoundry(ball) {
+
+    //bottom - bounces off taskbar
+    if (ball.y > (height - 100) == true) {
+
+        //ball.y = 0
+        ball.velocity.y = ball.velocity.y * -1
+    }
+
+    // bounce off the roof
+    if (ball.y < 0 == true) {
+
+
+        ball.velocity.y = ball.velocity.y * -1
+    }
+
+
+    // bounce off the sides
+
+    //right side
+    if (ball.x > width == true) {
+        //  text(`right: true`, 350, 170)
+
+        ball.velocity.x = ball.velocity.x * -1
+    }
+
+    //left side
+    if (ball.x == 0 == true) {
+        //  text(`left: true`, 350, 170)
+        //text(`y vel: ${ball.velocity.x}`, 300, 190)
+
+        ball.velocity.x = ball.velocity.x * -1
+    }
+
+}
+function drawBall(ball) {
+    push();
+    rectMode(CENTER);
+    noStroke();
+    fill("red");
+    rect(ball.x, ball.y, ball.width, ball.height);
+    pop();
+
+    if (noodleRead == true) {
+
+        image(noodles, ball.x - 50, ball.y - 50, ball.width, ball.height)
+    }
 }

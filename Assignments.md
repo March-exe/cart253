@@ -16,6 +16,8 @@ This is the main assignmnets page where you can select any and all challenges or
   - [Conditional Challenge](/topics/assignments/Challenges/conditinal-challenge/index.html)
   
   - [Event Challenge](/topics/assignments/Challenges/event-challenge/index.html)
+  
+  - [Functions Challenge](/topics/assignments/Challenges/function-challenge/index.html)
 
 ## Prototypes
 
