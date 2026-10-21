@@ -340,11 +340,12 @@ function draw() {
         image(mornings, 1500, 100, 1200, 760);
     }
     if (campingOpen == true) {
-
+        push();
         image(camping, 200, 100, 500, 400)
         rect(450, 350, 300, 300)
         textSize(20)
         text("hi its me, March. the guy that\nmade this program. Thank for\ntaking the time to\ncheck out what my program has\nto offer!\n\nI hope you enjoed the content in\nhere and keep looking!", 460, 370)
+        pop();
     }
     taskbar();
     onHover();
@@ -1039,7 +1040,7 @@ function recyclingContent() {
     image(no, icons.inbox.x + 10 + recyclingWdwAdj.pos.x, icons.inbox.y + 40 + recyclingWdwAdj.pos.y + 100, 50, 50)
     fill(0);
     textSize(25);
-    text("ERROR - File currupted", icons.inbox.x + 70 + recyclingWdwAdj.pos.x, icons.inbox.y + 80 + recyclingWdwAdj.pos.y + 100)
+    text("ERROR - File corrupted", icons.inbox.x + 70 + recyclingWdwAdj.pos.x, icons.inbox.y + 80 + recyclingWdwAdj.pos.y + 100)
     fill(229);
     text("Desktop/recycling bin/program.exe", icons.inbox.x + 10 + recyclingWdwAdj.pos.x, icons.inbox.y + 120 + recyclingWdwAdj.pos.y + 100)
     pop();
