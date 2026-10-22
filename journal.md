@@ -18,4 +18,4 @@ What surprised you? What is cool? What is difficult to understand? What do you h
 
 [entry 4](/topics/reflective-journal/EntryFour.md)
 
-[entry 4](/topics/reflective-journal/EntryFive.md)
+[entry 5](/topics/reflective-journal/EntryFive.md)
