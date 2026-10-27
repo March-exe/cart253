@@ -15,7 +15,7 @@
 ![Screenshot of 2nd project]()
 
 - [View online](./brick-breaker/index.html)
-- [View code]()
+- [View code](./start-pause-ball/assets/images/screenshot.png)
 
 ### 3
 
@@ -23,4 +23,4 @@
 
 - [View online](./early-mornin/index.html)
 
-- [View code]()
+- [View code](./early-mornin/assets/images/screenshot.png)
