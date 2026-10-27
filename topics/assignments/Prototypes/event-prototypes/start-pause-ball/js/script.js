@@ -32,6 +32,16 @@ const ball2 = {
         y: 1,
     }
 };
+const ball3 = {
+    x: 300,
+    y: 20,
+    width: 10,
+    height: 10,
+    velocity: {
+        x: 3,
+        y: 3,
+    }
+};
 
 // Our paddle
 const paddle = {
@@ -40,6 +50,8 @@ const paddle = {
     width: 80,
     height: 10
 };
+
+let keyP = false;
 
 /**
  * Create the canvas
@@ -55,13 +67,17 @@ function setup() {
  * Move and display the ball and paddle
 */
 function draw() {
-
+    text("p to pause", 300, 150)
+    text("s to start", 300, 170)
 
 
     //movePaddle(paddle);
 
-    moveBall(ball);
-    // moveBall(ball2);
+    if (keyP == true) {
+        moveBall(ball);
+        moveBall(ball2);
+        moveBall(ball3);
+    }
 
 
     //handleBounce(ball, paddle);
@@ -69,13 +85,28 @@ function draw() {
 
     // drawPaddle(paddle);
     drawBall(ball);
-    //  drawBall(ball2);
-    bounceBoundry(ball);
-    // bounceBoundry(ball2);
+    drawBall(ball2);
+    drawBall(ball3);
 
+    bounceBoundry(ball);
+    bounceBoundry(ball2);
+    bounceBoundry(ball3);
 
 
     //debugging();
+}
+
+
+function keyPressed() {
+
+    if (key == "s") {
+        keyP = true;
+
+    }
+    else if (key == "p") {
+        keyP = false;
+
+    }
 }
 
 /**
