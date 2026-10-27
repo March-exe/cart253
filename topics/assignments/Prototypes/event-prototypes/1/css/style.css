@@ -21,3 +21,9 @@ body {
   overflow: hidden;
   /* Hide anything that goes off the window size */
 }
+
+/*sets the vanas to fit the viewport so its full screen inthe browser without zooming out*/
+canvas {
+  width: 100vw !important;
+  height: 101vh !important;
+}
