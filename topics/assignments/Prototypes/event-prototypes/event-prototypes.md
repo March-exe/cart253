@@ -14,13 +14,13 @@
 
 ![Screenshot of 2nd project]()
 
-- [View online](./2/index.html)
+- [View online](./brick-breaker/index.html)
 - [View code]()
 
 ### 3
 
 ![Screenshot of 3rd project]()
 
-- [View online](./3/index.html)
+- [View online](./early-mornin/index.html)
 
 - [View code]()

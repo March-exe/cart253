@@ -61,7 +61,7 @@ function draw() {
     //movePaddle(paddle);
 
     moveBall(ball);
-    moveBall(ball2);
+    // moveBall(ball2);
 
 
     //handleBounce(ball, paddle);
@@ -69,9 +69,9 @@ function draw() {
 
     // drawPaddle(paddle);
     drawBall(ball);
-    drawBall(ball2);
+    //  drawBall(ball2);
     bounceBoundry(ball);
-    bounceBoundry(ball2);
+    // bounceBoundry(ball2);
 
 
 
