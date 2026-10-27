@@ -16,6 +16,10 @@ let continuGate = 0
 let endingsDone = 0
 let reset = false
 
+let greenOpen = false
+let blueOpen = false
+let blackOpen = false
+
 
 
 let goToBed = false
@@ -97,7 +101,7 @@ let buttonThree = {
 let scenes = {
     one: {
         one: "you wake up from a bad nightmare, its the\nmiddle of the night and all you can hear\nis the faint hum of the city by your\nwindow. ",
-        two: "laying in bed half untucked, the glint of\nyour night-light catches the corner\nof your eye",
+        two: "laying in bed half-untucked, the glint of\nyour night-light catches the corner\nof your eye",
     },
     two: {
         one: "while staring at the ceiling of your\nshadow-cast bedroom, you contemplate your\nlife decisions for an unknown amount of\ntime.",
@@ -106,6 +110,7 @@ let scenes = {
 
 
     },
+    //3-5 is staying still
     three: {
         one: "you stay still, hoping that it would cause\nyou to drift back to bed - its not\nworking.",
         two: "you continue to lay, motionless.",
@@ -126,6 +131,36 @@ let scenes = {
         one: "after staring at the ceiling for an\nunknown amount of time, your eyes start\nto soften as you are drawn back into the\nvoid of your subconscious.",
         two: "you fear of continuing the nightmare\nbut you already forgot what it was\nabout... you fall back asleep."
 
+    },
+    seven: {
+        one: "the urge to escape the grasp of your\nunconscious becomes too strong.",
+        two: "you get out of bed and put on some Pjs.",
+        three: "even the clothes you wear can be haunting.",
+    },
+    eight: {
+        green: "you put on your green PJs, it reminds\nyour of how far youve come and the\ngrowth you still have.",
+        blue: "you put on your blue PJs, you are\nreminded of when things used to be simpler",
+        black: "you put on your black PJs, you are\nreminded of home",
+        one: "you tread quietly across the\ncreaky floorboards of your apartment.",
+        two: "as much as you try to stay silent, you\nfeel as though your movement might've\nbeen disruptive. ",
+        three: "after using the bathroom, you realize you\nhave no good reason to be awake.",
+    },
+    //smoking
+    nine: {
+        one: "thinking it will help you fall back to\nsleep, you sit down with the company of\nyour rolling tray.",
+        two: "you find bud and papers already waiting\nfor you.",
+        three: "while rolling the joint, your eyes carry\nthe weight of bad decisions.",
+        four: "after stepping onto your balcony, your\nlighter becomes a beacon in a sea of\ndarkness. ",
+        five: "you quietly enjoy the smoke.",
+        six: "the stars silently snooze a lullaby that\nplays peacfully with the moon's glare.",
+    },
+    ten: {
+
+        one: "you finish smoking and sit for a minute\nlonger, enjoying the\npeaceful night you have awoken to.",
+        two: "the stars start to twinkle.",
+        three: "you are reminded of the phrase:\n'you are the universe experiencing itself.'",
+        four: "after putting out the smoke, you sit for\na minute longer, enjoying the\npeaceful night you have awoken to.",
+
     }
 
 
@@ -138,6 +173,8 @@ async function setup() {
 
     mY = mouseY
     mX = mouseX
+
+    dialogueOption += 0
 
 }
 
@@ -231,13 +268,16 @@ function onHover(button, buttonTwo, buttonThree, buttonFour) {
 function ifHandler() {
 
 
-    sceneOne();
-    sceneTwo();
-    sceneThree();
-    sceneFour();
-    sceneFive();
-    sceneSix();
-
+    sceneOne(); //go to bed //  stay awawke
+    sceneTwo();// // 
+    sceneThree();// //
+    sceneFour();// //
+    sceneFive();// //
+    sceneSix();// //
+    sceneSven(); //get out of bed section
+    sceneEight();// //
+    sceneNine();// //
+    sceneTen();// //
 }
 
 
@@ -475,10 +515,11 @@ function sceneFive() {
     }
 }
 
+
+//first ending
 function sceneSix() {
 
-    //start here - working on scene 6
-    //-need scene for going to bed on first choice
+
     push();
     if (dialogueOption == 5) {
 
@@ -516,13 +557,257 @@ function sceneSix() {
         if (continuGate == 2) {
 
 
-            restart();
+
 
         }
 
         pop();
     }
 }
+
+//get out of bed
+function sceneSven() {
+
+
+    push();
+    if (dialogueOption == 6) {
+
+
+        //continuGate = constrain(continuGate, 0, 3)
+
+        push();
+        textFont(DTM);
+        textSize(15);
+
+        fill(255);
+
+
+        if (continuGate == 0) {
+
+            text("Continue", buttonOne.x + 165, buttonOne.y + 30)
+        }
+        else if (continuGate == 1) {
+
+            text("Continue", buttonOne.x + 165, buttonOne.y + 30)
+        }
+        else if (continuGate == 2) {
+
+            text("green PJs", buttonOne.x + 10, buttonOne.y + 30)
+            text("blue PJs", buttonOne.x + 165, buttonOne.y + 30)
+            text("black PJs", buttonOne.x + 310, buttonOne.y + 30)
+        }
+
+
+
+        if (continuGate == 0) {
+
+            text(scenes.seven.one, photoA.x + 5, photoA.y + 50)
+        }
+
+        if (continuGate == 1) {
+
+            text(scenes.seven.two, photoA.x + 5, photoA.y + 50)
+        }
+        if (continuGate == 2) {
+
+            text(scenes.seven.three, photoA.x + 5, photoA.y + 50)
+
+        }
+
+        pop();
+    }
+}
+
+
+function sceneEight() {
+
+
+
+    push();
+    if (dialogueOption == 7) {
+
+
+        //continuGate = constrain(continuGate, 0, 3)
+
+        push();
+        textFont(DTM);
+        textSize(15);
+
+        fill(255);
+
+
+        if (continuGate == 0) {
+
+            text("Continue", buttonOne.x + 165, buttonOne.y + 30)
+        }
+        else if (continuGate == 1) {
+
+            text("Continue", buttonOne.x + 165, buttonOne.y + 30)
+        }
+        else if (continuGate == 2) {
+            text("smoke", buttonOne.x + 27, buttonOne.y + 30)
+
+            text("sit down", buttonOne.x + 315, buttonOne.y + 30)
+        }
+
+
+
+        if (continuGate == 0) {
+
+            if (greenOpen == true) {
+                text(scenes.eight.green, photoA.x + 5, photoA.y + 50)
+            }
+            if (blueOpen == true) {
+                text(scenes.eight.blue, photoA.x + 5, photoA.y + 50)
+            }
+            if (blackOpen == true) {
+                text(scenes.eight.black, photoA.x + 5, photoA.y + 50)
+            }
+        }
+
+        if (continuGate == 1) {
+
+            text(scenes.eight.two, photoA.x + 5, photoA.y + 50)
+        }
+        if (continuGate == 2) {
+
+            text(scenes.eight.three, photoA.x + 5, photoA.y + 50)
+
+        }
+
+        pop();
+    }
+}
+
+function sceneNine() {
+
+
+
+    push();
+    if (dialogueOption == 8) {
+
+
+        //continuGate = constrain(continuGate, 0, 3)
+
+        push();
+        textFont(DTM);
+        textSize(15);
+
+        fill(255);
+
+
+        if (continuGate != 5) {
+
+            text("Continue", buttonOne.x + 165, buttonOne.y + 30)
+        }
+        else if (continuGate == 5) {
+
+            text("  sit\nlonger", buttonOne.x + 18, buttonOne.y + 20)
+            text("go inside", buttonOne.x + 310, buttonOne.y + 30)
+
+        }
+
+
+
+        if (continuGate == 0) {
+
+            text(scenes.nine.one, photoA.x + 5, photoA.y + 50)
+
+        }
+
+        if (continuGate == 1) {
+
+            text(scenes.nine.two, photoA.x + 5, photoA.y + 50)
+        }
+        if (continuGate == 2) {
+
+            text(scenes.nine.three, photoA.x + 5, photoA.y + 50)
+        }
+        if (continuGate == 3) {
+
+            text(scenes.nine.four, photoA.x + 5, photoA.y + 50)
+        }
+        if (continuGate == 4) {
+
+            text(scenes.nine.five, photoA.x + 5, photoA.y + 50)
+        }
+        if (continuGate == 5) {
+
+            text(scenes.nine.six, photoA.x + 5, photoA.y + 50)
+        }
+
+        pop();
+    }
+}
+
+
+function sceneTen() {
+
+
+
+    push();
+    if (dialogueOption == 9) {
+
+
+        //continuGate = constrain(continuGate, 0, 3)
+
+        push();
+        textFont(DTM);
+        textSize(15);
+
+        fill(255);
+
+
+        if (continuGate != 5) {
+
+            text("Continue", buttonOne.x + 165, buttonOne.y + 30)
+        }
+        else if (continuGate == 5) {
+
+            text("  sit\n  longer", buttonOne.x + 18, buttonOne.y + 20)
+            text("  sit\n  longer", buttonOne.x + 180, buttonOne.y + 20)
+
+        }
+
+
+
+        if (continuGate == 0) {
+
+            text(scenes.ten.one, photoA.x + 5, photoA.y + 50)
+
+        }
+
+        if (continuGate == 1) {
+
+            text(scenes.ten.two, photoA.x + 5, photoA.y + 50)
+        }
+        if (continuGate == 2) {
+
+            text(scenes.ten.three, photoA.x + 5, photoA.y + 50)
+        }
+        if (continuGate == 3) {
+
+            text(scenes.ten.four, photoA.x + 5, photoA.y + 50)
+        }
+        if (continuGate == 4) {
+
+            text(scenes.ten.five, photoA.x + 5, photoA.y + 50)
+        }
+        if (continuGate == 5) {
+
+            text(scenes.ten.six, photoA.x + 5, photoA.y + 50)
+        }
+
+        pop();
+    }
+}
+
+
+//start here - working on scene 6
+//-need scene for going to bed on first choice
+//since get out of bed is not based on a set increase, 
+//all those buttons need to direct to DialogueOption = 6 probably
+
 
 function mouseReleased() {
 
@@ -547,6 +832,9 @@ function mousePressed() {
         else if (dialogueOption == 0 && continuGate == 1) {
             continu = false;
         }
+        else if (dialogueOption == 1 && continuGate == 2) {
+            continu = false;
+        }
         else if (dialogueOption == 1 && continuGate == 3) {
             continu = false;
         }
@@ -555,6 +843,20 @@ function mousePressed() {
         }
         else if (dialogueOption == 4 && continuGate == 2) {
             continu = false;
+        }
+        else if (dialogueOption == 5 && continuGate == 2) {
+            restart();
+        }
+        else if (dialogueOption == 7 && continuGate == 2) {
+            continu = false;
+        }
+        else if (dialogueOption == 8 && continuGate == 5) {
+            continu = false;
+        }
+        else if (dialogueOption == 6 && continuGate == 2) {
+            dialogueOption += 1
+            continuGate = 0;
+            blueOpen = true
         }
         else {
             continu = true;
@@ -574,7 +876,7 @@ function mouseClicked() {
             continuGate = 0;
         }
 
-        if (continuGate == 1 && dialogueOption != 1) {
+        if (continuGate == 1 && dialogueOption != 1 && dialogueOption != 6 && dialogueOption != 7) {
             dialogueOption += 1
             continuGate = 0;
 
@@ -592,11 +894,24 @@ function mouseClicked() {
         if (continuGate == 1 && dialogueOption == 3) {
             dialogueOption += 1
             continuGate = 0;
-
-
         }
 
+        if (dialogueOption == 6 && continuGate == 2) {
+            dialogueOption += 1
+            continuGate = 0;
 
+            greenOpen = true;
+        }
+
+        if (dialogueOption == 7 && continuGate == 2) {
+            dialogueOption += 1
+            continuGate = 0;
+        }
+
+        if (dialogueOption == 8 && continuGate == 5) {
+            dialogueOption += 1
+            continuGate = 0;
+        }
         //hideFour = false
 
     }
@@ -610,10 +925,31 @@ function mouseClicked() {
     if (mouseX > buttonThree.x && mouseX < buttonThree.x + buttonThree.w && mouseY > buttonThree.y && mouseY < buttonThree.y + buttonThree.h) {
         cursor(HAND);
 
-        if (continuGate == 1 && dialogueOption != 1) {
+        push();
+
+        if (continuGate == 1 && dialogueOption == 0) {
             dialogueOption += 1
             continuGate = 0;
         }
+        if (continuGate == 0 && dialogueOption == 1) {
+            dialogueOption += 1
+            continuGate = 0;
+        }
+        if (continuGate == 1 && dialogueOption != 0 && dialogueOption != 1 && dialogueOption != 6 && dialogueOption != 7 && dialogueOption != 2) {
+            dialogueOption += 3
+            continuGate = 0;
+        }
+
+        if (continuGate == 2 && dialogueOption == 1) {
+            dialogueOption += 1
+            continuGate = 0;
+        }
+
+        if (continuGate == 1 && dialogueOption == 2) {
+            dialogueOption += 4
+            continuGate = 0;
+        }
+
         if (continuGate == 3 && dialogueOption == 1) {
             dialogueOption += 1
             continuGate = 0;
@@ -624,11 +960,21 @@ function mouseClicked() {
 
         }
         if (continuGate == 2 && dialogueOption == 4) {
-            dialogueOption += 1
+            dialogueOption += 2
             continuGate = 0;
 
         }
 
+        if (dialogueOption == 6 && continuGate == 2) {
+            dialogueOption += 1
+            continuGate = 0;
+            blackOpen = true
+        }
+
+        if (dialogueOption == 7 && continuGate == 2) {
+            dialogueOption += 1
+            continuGate = 0;
+        }
 
     }
 
@@ -655,5 +1001,11 @@ function debugging() {
     text(`Doption:${dialogueOption}`, 220, 100)
     text(`ContU?:${continu}`, 220, 120)
     text(`ConGate:${continuGate}`, 220, 140)
+
+    text(`green:${greenOpen}`, 220, 160)
+    text(`blue:${blueOpen}`, 220, 180)
+    text(`black:${blackOpen}`, 220, 200)
+
+    pop();
 
 }
