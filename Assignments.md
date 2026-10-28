@@ -18,6 +18,8 @@ This is the main assignmnets page where you can select any and all challenges or
   - [Event Challenge](/topics/assignments/Challenges/event-challenge/index.html)
   
   - [Functions Challenge](/topics/assignments/Challenges/function-challenge/index.html)
+  
+  - [Array Challenge](/topics/assignments/Challenges/array-challenge/index.html)
 
 ## Prototypes
 
