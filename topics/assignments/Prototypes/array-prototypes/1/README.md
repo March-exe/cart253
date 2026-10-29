@@ -1,18 +1,14 @@
-# TITLE OF PROJECT
+# Brick Breaker
 
-AUTHOR NAME
+Marciano Faugno
 
 [View this project online](URL_FOR_THE_RUNNING_PROJECT)
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
+This Project is a simple recreation of an old 2d game i believe is called brick breaker? the goal of the game is to remove all the bricks from the screen using the bouncing balls and the paddle. when you finished all the bricks you are able to restart.
 
-> *The Mayor of Clown Town* is a simulator experience that allows the user to control a small town populated entirely by clowns.
-
-> The experience is controlled via the mouse, with left click selecting a clown and bringing up a menu of options such as "slip of banana peel" or "get into impossible capacious clown-car."
-
-> The project is meant to give the user a sense of what it would be the mayor of a town of clowns, eventually getting the sense that clowns are not taking their civic duties seriously.
+there are bugs and issues after restart but the first run-throught works as intended
 
 ## Screenshot(s)
 

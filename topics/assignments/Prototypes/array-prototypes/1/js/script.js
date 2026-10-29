@@ -8,32 +8,22 @@
 
 "use strict";
 
+
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * 
+ * the beigging setup includes previous code from the previous challenge project
+ * 
 */
+
+//created an array to house the amount of brings shown onscreen and playing against
 const bricks = []
 
-
-function createBrick() {
-
-
-    const brick = {
-        x: x,
-        y: y,
-        height: horseImage.height,
-        tint: {
-            r: random(0, 255),
-            g: random(0, 255),
-            b: random(0, 255)
-        }
-    };
-
-    return brick;
-}
-
+// balls the user will use in-game
+// balls 3-4 will spawn in under the condition of having above 25 for ball3 and 50 for ball4
 const ball = {
     x: 300,
-    y: 20,
+    y: 300,
     width: 10,
     height: 10,
     velocity: {
@@ -44,22 +34,61 @@ const ball = {
 
 const ball2 = {
     x: 300,
-    y: 20,
+    y: 300,
     width: 10,
     height: 10,
     velocity: {
         x: 2,
-        y: 1,
+        y: 2,
     }
 };
 
-// Our paddle
+const ball3 = {
+    x: 300,
+    y: 300,
+    width: 10,
+    height: 10,
+    velocity: {
+        x: 3,
+        y: 3,
+    }
+};
+const ball4 = {
+    x: 300,
+    y: 300,
+    width: 10,
+    height: 10,
+    velocity: {
+        x: 4,
+        y: 4,
+    }
+};
+/// end of balls
+
+// Our paddle used by the player in game
 const paddle = {
     x: 300,
     y: 600,
     width: 80,
     height: 10
 };
+
+//sets the amount of bricks played against in game
+let brickNum = 135
+//counts the amount of brick left on screen for the player
+let bricksLeft = 0
+//effectively the same thing as bricksleft but counts up the bricks you destory if you retstart
+let points = 0
+//checks if you pressed the screen, otherwise youll see 'click to start'
+let press = false
+
+//counts the spacing of the bricks in the x axis
+let spacingX = 0
+
+//counts the spacing of the bricks in the Y axis
+let spacingY = 0
+
+let start = false
 
 /**
  * Create the canvas
@@ -72,30 +101,192 @@ function setup() {
 
 
 /**
- * Move and display the ball and paddle
+ * Move and display the ball, paddle, and bricks
 */
 function draw() {
     background("#87ceeb");
 
+    if (press == true) {
+
+        spawnBrick();
+    }
+
+    if (start == true) {
+        movePaddle(paddle);
+        moveBall(ball);
+        moveBall(ball2);
+
+        handleBounce(ball, paddle);
+        handleBounce(ball2, paddle);
+
+        drawPaddle(paddle);
+        drawBall(ball);
+        drawBall(ball2);
+        bounceBoundry(ball);
+        bounceBoundry(ball2);
+        if (points >= 25) {
+            drawBall(ball3);
+            moveBall(ball3);
+            handleBounce(ball3, paddle);
+            bounceBoundry(ball3);
+        }
+        if (points >= 50) {
+            drawBall(ball4);
+            moveBall(ball4);
+            handleBounce(ball4, paddle);
+            bounceBoundry(ball4);
+        }
+    }
+    else if (start == false) {
+        text("click to start", 160, 300)
+    }
+
+    //for every brick in the bricks array, draw that brick
+    //and check for an overlap with the ball, if so, remove that brick from the array
+    for (let brick of bricks) {
+        drawBrick(brick);
+        handleBrickBounceDelete(ball, brick);
+        handleBrickBounceDelete(ball2, brick);
+        handleBrickBounceDelete(ball3, brick);
+        handleBrickBounceDelete(ball4, brick);
+    }
 
 
-    movePaddle(paddle);
-    moveBall(ball);
-    moveBall(ball2);
 
-    handleBounce(ball, paddle);
-    handleBounce(ball2, paddle);
+    InterFace();
 
-    drawPaddle(paddle);
-    drawBall(ball);
-    drawBall(ball2);
-    bounceBoundry(ball);
-    bounceBoundry(ball2);
-
-
+    endGame();
+    keyPressed();
 
     //debugging();
+
 }
+
+function mouseClicked() {
+
+    press = true
+    //sets the brick number to how many bricks are left to destory
+    if (start == false) {
+
+        bricksLeft = brickNum - 15
+    }
+}
+
+function keyPressed() {
+
+    if (key == "p") {
+
+        if (start == true) {
+
+            start = false
+        }
+        else { start = true }
+    }
+
+}
+function keyPressed(event) {
+    // Code to run that uses the event.
+    console.log(event);
+}
+//this function creates bricks and places them in an array.
+//during this process, it checks to see if the bricks are off screen - if so, it will increase the spacing variables to move the bricks down in rows
+function spawnBrick() {
+
+
+    /*
+this controls the spacing variables to determine when 
+the next line of bricks should stop and drop down a row
+    ***/
+    //when the row of bricks reaches x = 400 it resets and drops to the next row
+    if ((5 + 45 * spacingX) >= 400) {
+        spacingX = 0
+        spacingY += 1
+    }
+    //when the lowest row of bricks reaches 350, it stops
+    else if ((5 + 20 * spacingY) >= 500) {
+        spacingX = 0
+        spacingY = 0
+    }
+    else {
+        spacingX += 1
+    }
+
+
+    //when the brick numebr reaches zero it stops creating bricks
+    //this way, you can set the amount of bricks you would like
+    //when it reaches zero, the paddle, and balls will spawn in.
+    if (brickNum > 0) {
+
+        createBrick(-45 + (spacingX * 45), 5 + (spacingY * 20))
+        brickNum = brickNum - 1
+    }
+    else if (brickNum == 0) {
+
+        start = true
+    }
+
+
+}
+function createBrick(x, y) {
+
+    const brick = {
+        x: x,
+        y: y,
+        height: 15,
+        width: 40,
+        fill: "#d54931"
+    };
+    bricks.push(brick)
+    return brick;
+}
+
+function drawBrick(brick) {
+    push();
+    noStroke();
+    fill(brick.fill);
+    rect(brick.x, brick.y, brick.width, brick.height);
+    pop();
+
+
+}
+
+function handleBrickBounceDelete(ball, brick) {
+
+    //bounce when it hits the paddle
+    if (checkOverlap(ball, brick) == true) {
+        // text(`overlapped: true`, 300, 100)
+
+        ball.velocity.y = ball.velocity.y * -1
+
+        let index = bricks.indexOf(brick);
+        // And now use splice to *remove* the fly at that index
+        // Remember we provide the index and the *number of elements*
+        // to remove. In this case just the one.
+        bricks.splice(index, 1);
+        points += 1
+        bricksLeft -= 1
+    }
+
+
+}
+
+function endGame() {
+
+    if (start == true) {
+        if (bricksLeft == 0) {
+
+            text("YOU WON", 160, 300)
+            start = false;
+            press = false;
+            brickNum = 135 - 15
+
+
+
+        }
+    }
+}
+
+//////////////////////////////////////////////// new code above ^^^^
 
 /**
  * Moves the paddle
@@ -227,4 +418,17 @@ function debugging() {
 
     //text(`off screen btm: true`, 300, 200)
     //text(`off screen btm: false`, 300, 220)
+
+    text(`bricks: ${bricks}`, 100, 300)
+
+    text(`Sx:${spacingX}`, 300, 50)
+    text(`brickNum:${brickNum}`, 300, 600)
+    text(`points:${points}`, 300, 620)
+    text(`bricks left:${bricksLeft}`, 300, 640)
+
+}
+function InterFace() {
+    text(`points:${points}`, 300, 620)
+    text(`bricks left:${bricksLeft}`, 300, 640)
+
 }
