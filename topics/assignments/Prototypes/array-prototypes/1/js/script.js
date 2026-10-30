@@ -1,9 +1,11 @@
 /**
- * Title of Project
- * Author Name
+ * Brick breaker
+ * Marciano faugno
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Brick breaker is a game where you have  a paddle, a ball and bricks on screen. 
+ * the goal of the game is to break all the bricks using the ball which bounces off walls and your paddle.
+ * as you break the balls, you gather points, further increasing your score.
+ * there is no end to the game as you can restart - if anything get the highest amount of point in one session
  */
 
 "use strict";
@@ -12,7 +14,9 @@
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
  * 
- * the beigging setup includes previous code from the previous challenge project
+ * the beigging setup includes previous code from the previous challenge project.
+ * create an array to hold all the brick objects created
+ * create ball and paddle objects for the player to use
  * 
 */
 
@@ -106,11 +110,13 @@ function setup() {
 function draw() {
     background("#87ceeb");
 
+    //if the user presses the screen, press becomes true. this will spawn the bricks before activting the game
     if (press == true) {
 
         spawnBrick();
     }
 
+    //all the bricks must be spawned into the game and brickNum = 0  for start to become true
     if (start == true) {
         movePaddle(paddle);
         moveBall(ball);
@@ -124,6 +130,8 @@ function draw() {
         drawBall(ball2);
         bounceBoundry(ball);
         bounceBoundry(ball2);
+
+        //handles adding more balls to the game. when you hit 25 and 50 points respectively these balls get added
         if (points >= 25) {
             drawBall(ball3);
             moveBall(ball3);
@@ -137,6 +145,7 @@ function draw() {
             bounceBoundry(ball4);
         }
     }
+    //if the game hasnt started this will appear
     else if (start == false) {
         text("click to start", 160, 300)
     }
@@ -152,11 +161,11 @@ function draw() {
     }
 
 
-
+    //shows the points and brick left counters
     InterFace();
 
+    //when the game ends, everything resets except for the points
     endGame();
-    keyPressed();
 
     //debugging();
 
@@ -172,18 +181,22 @@ function mouseClicked() {
     }
 }
 
+
 function keyPressed() {
 
     if (key == "p") {
 
         if (start == true) {
-
-            start = false
+            start = false;
+            noLoop()
         }
-        else { start = true }
+        else { start == false }
+        start = true
+        loop()
     }
 
 }
+//debugging
 function keyPressed(event) {
     // Code to run that uses the event.
     console.log(event);
