@@ -34,16 +34,30 @@ let answer = undefined
 function draw() {
     background(100, 0, 30)
 
+
     create8ball();
+    displayText();
 
     debugging();
 
     if (press == true) {
 
         generateAnswer();
-        displayanswer(answer);
+        displayAnswer(answer);
     }
 }
+function displayText() {
+
+    push();
+    fill(0);
+    textSize(25);
+    textAlign(CENTER, CENTER);
+    text("Click to generate answer\nClick twice to regenerate", 300, 100);
+    pop();
+
+}
+
+
 
 function mouseClicked() {
 
@@ -94,7 +108,7 @@ function generateAnswer() {
     }
 
 }
-function displayanswer(answer) {
+function displayAnswer(answer) {
 
     push();
     fill(255);
