@@ -23,4 +23,4 @@
 
 - [View online](./3/index.html)
 
-- [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/variable-prototypes/3)
+- [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/array-prototypes/3)
