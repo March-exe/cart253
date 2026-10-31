@@ -10,7 +10,8 @@
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * setup function is only to create the canvas, but i also create an array with all the avalible answers in it
+ * and i create two variables to handle if the mouse has been clicked, and what answer is generated/displayed
 */
 
 const answers = ["It is certain", "Reply hazy, try again", "Don’t count on it", "It is decidedly so", "Ask again later",
@@ -18,6 +19,8 @@ const answers = ["It is certain", "Reply hazy, try again", "Don’t count on it"
     "Cannot predict now", "Outlook not so good", "You may rely on it", "Concentrate and ask again",
     "Very doubtful", "As I see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes"]
 
+let press = false
+let answer = undefined
 function setup() {
     createCanvas(600, 600)
 
@@ -25,11 +28,11 @@ function setup() {
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * my draw builds the 8 ball and displays a random string based on the index of the array
+ * it also checks for press being true to display the answer given
 */
 
-let press = false
-let answer = undefined
+
 
 function draw() {
     background(100, 0, 30)
@@ -40,12 +43,23 @@ function draw() {
 
     debugging();
 
+    if (answer == undefined) {
+
+        push();
+        fill(255);
+        textSize(30);
+        textAlign(CENTER, CENTER)
+        text('8', 250, 250, 100, 100);
+        pop();
+    }
     if (press == true) {
 
         generateAnswer();
         displayAnswer(answer);
     }
 }
+
+//display instructional text for the user to play the ball
 function displayText() {
 
     push();
@@ -58,7 +72,7 @@ function displayText() {
 }
 
 
-
+//simply changes a variables based on if the player clicked or not. when the player reclicks it changes press to false and resets the answer for another question
 function mouseClicked() {
 
     if (press == false) {
