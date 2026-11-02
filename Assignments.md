@@ -30,3 +30,7 @@ This is the main assignmnets page where you can select any and all challenges or
 - [Conditional Prototypes](/topics/assignments/Prototypes/conditional-prototypes/conditional-prototypes.md)
 
 - [Event Prototypes](/topics/assignments/Prototypes/event-prototypes/event-prototypes.md)
+
+- [Function Prototypes](/topics/assignments/Prototypes/event-prototypes/event-prototypes.md)
+
+- [Array Prototypes](/topics/assignments/Prototypes/event-prototypes/event-prototypes.md)
