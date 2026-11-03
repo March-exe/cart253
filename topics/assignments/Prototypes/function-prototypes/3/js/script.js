@@ -81,12 +81,22 @@ function createBox() {
     pop();
 
 }
+
+//START HERE/////////////////////////////////////////////////////
+
+
+//need to figure out the interaction for picking up the box, can steal windows code for dat
+//need to figure out why the debugging messes with the thing
+//need to make ellipese consistently show ^ linked ^    
+
+//this doesnt work
 function makeCursor() {
 
     noCursor();
     fill(0)
     rect(mouseX, mouseY, cursor.w, cursor.h)
 }
+//doesnt do anything
 function pickUpBox(box, cursor) {
 
     if (checkOverlap(box, cursor) == true) {

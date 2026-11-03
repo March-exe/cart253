@@ -1,24 +1,52 @@
 /**
- * Title of Project
- * Author Name
+ * Lines
+ * Pippin Barr
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * A series of lines across the canvas
  */
 
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
-*/
+ * Creates the canvas
+ */
 function setup() {
-
+    createCanvas(500, 500);
 }
 
-
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
-*/
+ * Draws lines across the canvas with increasing thickness and
+ * gradually lightening colour
+ */
+
+
 function draw() {
+    background("red");
+
+    let step = 0
+
+    for (let x = 0, clr = 0; x <= width; x += 5, clr += 25) {
+
+
+        step += mouseX
+        rotate(step)
+        translate(map(x, 0, width, 0, 255)
+        )
+
+        // translate(x, y, [z])
+        //map(value, start1, stop1, start2, stop2)
+
+        stroke(clr);
+        line(x, 0, x, height);
+
+        for (let y = 0, clr = 0; y <= height; y += 25, clr += 25) {
+
+            stroke(clr);
+            line(0, y, width, y);
+
+
+        }
+
+    }
 
 }

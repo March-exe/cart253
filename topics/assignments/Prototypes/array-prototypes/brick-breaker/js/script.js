@@ -12,7 +12,6 @@
 
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
  * 
  * the beigging setup includes previous code from the previous challenge project.
  * create an array to hold all the brick objects created

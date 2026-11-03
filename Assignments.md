@@ -20,6 +20,9 @@ This is the main assignmnets page where you can select any and all challenges or
   - [Functions Challenge](/topics/assignments/Challenges/function-challenge/index.html)
   
   - [Array Challenge](/topics/assignments/Challenges/array-challenge/index.html)
+  
+   - [Loop Challenge](/topics/assignments/Challenges/loops-challenge/index.html)
+
 
 ## Prototypes
 

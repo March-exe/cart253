@@ -94,6 +94,7 @@ function bounceBall(ball) {
     }
 }
 
+
 /**
  * Draw the ball on the canvas
  */
