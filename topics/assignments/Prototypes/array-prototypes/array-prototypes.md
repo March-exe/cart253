@@ -1,25 +1,25 @@
 [Home](../../../../README.md) / [Assignments](../../../../Assignments.md) / [Reflective Journal](../../../../journal.md)
 
-## Variable prototypes
+## Array prototypes
 
 ### Brick Breaker
 
-![Screenshot of brick breaker]()
+![Screenshot of brick breaker](./brick-breaker/assets/images/Screenshot%202026-10-28%20193321.png)
 
 - [View online](./brick-breaker/index.html)
 
 - [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/array-prototypes/brick-breaker)
 
-### 2
+### Magic 8 Ball
 
-![Screenshot of bomb]()
+![Screenshot of magic 8 ball](./magic8ball/assets/images/8ball.png)
 
 - [View online](./magic8ball/index.html)
 - [View code](https://github.com/March-exe/cart253/tree/main/topics/assignments/Prototypes/array-prototypes/magic8ball)
 
-### 3
+### Hot | Cold
 
-![Screenshot of 3rd project]()
+![Screenshot of hot cold]()
 
 - [View online](./3/index.html)
 
