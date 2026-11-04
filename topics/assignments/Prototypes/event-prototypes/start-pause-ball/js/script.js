@@ -12,8 +12,8 @@
 
 // Our ball
 const ball = {
-    x: 300,
-    y: 20,
+    x: 150,
+    y: 150,
     width: 10,
     height: 10,
     velocity: {
@@ -23,8 +23,8 @@ const ball = {
 };
 
 const ball2 = {
-    x: 300,
-    y: 20,
+    x: 150,
+    y: 150,
     width: 10,
     height: 10,
     velocity: {
@@ -33,8 +33,8 @@ const ball2 = {
     }
 };
 const ball3 = {
-    x: 300,
-    y: 20,
+    x: 150,
+    y: 150,
     width: 10,
     height: 10,
     velocity: {

@@ -30,7 +30,7 @@ function draw() {
 
         step += mouseX
         rotate(step)
-        translate(map(x, 0, width, 0, 255)
+        translate(map(x, 50, width, 50, width)
         )
 
         // translate(x, y, [z])

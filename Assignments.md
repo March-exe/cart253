@@ -34,6 +34,6 @@ This is the main assignmnets page where you can select any and all challenges or
 
 - [Event Prototypes](/topics/assignments/Prototypes/event-prototypes/event-prototypes.md)
 
-- [Function Prototypes](/topics/assignments/Prototypes/event-prototypes/event-prototypes.md)
+- [Function Prototypes](/topics/assignments/Prototypes/event-prototypes/function-prototypes.md)
 
-- [Array Prototypes](/topics/assignments/Prototypes/event-prototypes/event-prototypes.md)
+- [Array Prototypes](/topics/assignments/Prototypes/event-prototypes/array-prototypes.md)
