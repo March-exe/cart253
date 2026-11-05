@@ -10,9 +10,22 @@
 
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * 
+ * set up varables,  makkine one for everything
+ * 
+ * 
+ * 
+ * moakingtarget
+ * - random to some point
+ * - clikcking soucnfd w hen actv
 */
+
+const targets = []
+
 function setup() {
-    createCanvas(600, 700)
+    createCanvas(700, 700);
+
+
 
 }
 
@@ -20,125 +33,133 @@ function setup() {
 /**
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
-
-let x = 0;
-
-async function setup() {
-    createCanvas(500, 500);
-    angleMode(DEGREES); // Switch to degrees
-    frameRate(15);
-    breathe();
-    drawSinWave();
-
-
-
-}
-
-
-let fill1 = 0
-let fill2 = 255
-
-count = 100
-
-let circles = []
-
 function draw() {
-
-    background('skyblue')
-
-    breathe();
+    background(155, 0, 0);
 
 
 
+    for (let trgt of targets) {
 
-    while (count != 0) {
-
-        createCircle();
-        count = count - 1
-
-
-        for (let i of circles) {
-
-
-
-
-        }
-
-
-
+        drawTarget(trgt);
     }
 
-    debugging();
+    debugging();//if debugging isnt here then it doesnt work
 }
 
+function mousePressed() {
 
-function createCircle() {
-
-    const circle = {
-        colour: fill(fill1, fill2),
-        x: 50,
-        y: 50,
-        size: 100,
-
-    }
-
-    circles.push(circle)
-    return circle
-}
-
-// visualize the sin wave ... a continuous oscillating wave
-// it oscillates between (-1 and 1) as the input angle increases 
-// you can change the height of the wave by scaling the y value
-
-// it is a repeating wave that has a height (amplitude)
-// it has a period: this is the horizontal distance or time 
-// it takes for the wave to complete one full cycle before it starts repeating.
-
-function drawSinWave() {
-    //let x =0;
-    for (let i = 0; i < 360; i += .15) {
-        if (x < width) {
-            x += .15;
-        }
-
-        //run the for loop from 0-360 degrees
-        let yvalue = sin(i) * 100; //scale to -100 or 100
-        //you will see that as i increments the sin(i) will change
-        //console.log(yvalue) 
-        //fill(255,0,0)
-        noFill()
-
-        ellipse(x, yvalue + 250, 2, 2)
-        // center of y is 250 
-        //sin() will increase from 250 and then decrease from 250 down 
-
-    }
+    createTarget();
 
 }
 
-let angle = 0;
-let amplitude = 125;
+function createTarget() {
 
 
+    const target = {
+        x: random(50, 650),
+        y: random(50, 650),
+        height: random(15, 50),
+        width: random(15, 50),
+        fill: "#0000"
+    };
 
-
-
-function breathe() {
-    // if you change the angle speed it will go faster/slower
-    //if you change the amplitude it will go bigger/smaller
-    angle += 1;
-    // if you change the 
-    let scaleValue = sin(angle) * amplitude;
-    ellipse(width / 2, height / 2, scaleValue, scaleValue);
-
+    //pushes to array and returns the object
+    targets.push(target)
+    return target;
 }
-function debugging() {
 
-
+function drawTarget(target) {
     push();
-    textSize(50);
-    text(`X;${mouseX}`, 100, 100)
-    text(`array;${circles}`, 100, 100)
+    noStroke();
+    fill(target.fill);
+    rect(target.x, target.y, target.height, target.width);
     pop();
 
+
 }
+
+
+
+// function createBox() {
+
+//     const box = {
+//         x: 450,
+//         y: 450,
+//         height: 50,
+//         width: 50,
+//         fill: "#0000"
+//     }
+
+//     return box
+
+// }
+// function drawBox(box) {
+
+//     push();
+//     fill(box.fill);
+//     noStroke();
+//     rect(box.x, box.y, box.width, box.height)
+//     pop();
+
+
+// }
+
+// //START HERE/////////////////////////////////////////////////////
+
+
+// //need to figure out the interaction for picking up the box, can steal windows code for dat
+// //need to figure out why the debugging messes with the thing
+// //need to make ellipese consistently show ^ linked ^    
+
+
+// let test = false
+// function pickUpBox(box, cursor) {
+
+//     if (checkOverlap(box, cursor) == true) {
+
+//         test = true
+//         text('overlap: ${test}', 300, 300);
+
+//     }
+
+// }
+
+
+function checkOverlap(rectA, rectB) {
+    return (rectA.x + rectA.width / 2 > rectB.x - rectB.width / 2 &&
+        rectA.x - rectA.width / 2 < rectB.x + rectB.width / 2 &&
+        rectA.y + rectA.height / 2 > rectB.y - rectB.height / 2 &&
+        rectA.y - rectA.height / 2 < rectB.y + rectB.height / 2);
+}
+
+
+function debugging() {
+
+    text(`targets: ${targets}`, 50, 100)
+
+}
+/**
+ * 
+ * 
+ * make target array
+ * 
+ * 
+ * taget = x y w h
+ * 
+ * 
+ * create targets
+ * 
+ * spawn targets/pick target?
+ * 
+ * colour mapping - distance ball and box
+ * 
+ * create box
+ * 
+ * move box
+ * 
+ * mouse pressed/mouse release - pick up drop box
+ * 
+ * 
+ * 
+ * 
+ */
