@@ -7,7 +7,7 @@
  * the goal of the game is to collect points by finding the 
  * hotspots around the canvas. 
  * these spots spawn in as you go from one to the next
- * if you get 20 points, you win the game
+ * if you get 15 points, you win the game
  */
 
 "use strict";
