@@ -47,6 +47,7 @@ let points = 0
 
 function setup() {
     createCanvas(700, 700);
+    InterFace();
 }
 
 
@@ -77,7 +78,6 @@ function draw() {
 
 
     //displays instructions, points and the start game button
-    InterFace();
     //after 20 points you get text telling you youve won
     Win();
 
@@ -206,13 +206,7 @@ function InterFace() {
         button.mousePressed(createTarget);
     }
 
-    //text displays points
-    text(`points: ${points}`, width / 2 - 30, height / 2)
-    //text displays instructions
-    push();
-    textAlign(LEFT, LEFT);
-    text(`how to play:\nclick and drag\nthe box to find the\n'hotspot', find 15\nto win`, width - 100, 20)
-    pop();
+
 }
 
 //when the distance between the box and trgt are less than 25, you gain a point
@@ -228,6 +222,12 @@ function handlePoints() {
 
         }
     }
+    //text displays points
+    text(`points: ${points}`, width / 2 - 30, height / 2)
+    //text displays instructions
+    push();
+    text(`how to play:\nclick and drag\nthe box to find the\n'hotspot', find 15\nto win`, width - 100, 20)
+    pop();
 
 }
 
