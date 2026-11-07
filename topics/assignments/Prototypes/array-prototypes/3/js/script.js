@@ -27,10 +27,14 @@ const box = {
     y: 450,
     height: 50,
     width: 50,
-    fill: "#0000"
+    fill: { r: 255, g: 0, b: 255 }
 }
 
+let test = 0
+let c = 0
 
+let drag = false
+let holding = false
 
 
 function setup() {
@@ -39,17 +43,16 @@ function setup() {
 
 
 }
-let index = 0
+
 
 /**
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-    background(155, 0, 0);
+    background("#a40000");
 
 
-
-    rect(box.x, box.y, box.width, box.height);
+    drawBox();
 
     if (targets.length > 0) {
         for (let trgt of targets) {
@@ -58,28 +61,22 @@ function draw() {
         }
 
     }
-
     moveBox(box);
 
+    handlePoints();
 
-
-    debugging();//if debugging isnt here then it doesnt work
-}
-let mX = 0
-let mY = 0
-function mousePressed() {
-    createTarget();
-
-
-
+    InterFace();
+    Win();
+    //debugging();//if debugging isnt here then it doesnt work
 
 }
+
+
 // then for the mouseDragged
 // if boolean is true, do moveBox
 // then have a mouseReleased()
 // which sets the boolean to false
-let drag = false
-let holding = false
+
 function mouseDragged() {
 
     if (mouseX > box.x && mouseX < box.x + box.width && mouseY > box.y && mouseY < box.y + box.height) {
@@ -111,12 +108,10 @@ function createTarget() {
         y: random(50, 650),
         height: random(15, 50),
         width: random(15, 50),
-        fill: "#111111"
+        fill: "#a40000" // change to black or otherwise to view while debugging
     };
 
-    // if (checkOverlap(box, target) == true) {
-    //     target.fill = "#e6b402"
-    // }
+
     //pushes to array and returns the object
     targets.push(target)
     return target;
@@ -139,7 +134,7 @@ function moveBox(box) {
 
     if (mouseX > box.x && mouseX < box.x + box.width && mouseY > box.y && mouseY < box.y + box.height) {
         holding = true
-        text("hello world", 100, 400)
+
 
 
 
@@ -154,58 +149,73 @@ function moveBox(box) {
     }
 
 }
-//not in use currently
-function Hotspot(box, target) {
-
-    //bounce when it hits the paddle
-    if (checkOverlap(box, target) == true) {
-        // text(`overlapped: true`, 300, 100)
 
 
 
-        let index = targets.indexOf(target);
-        // And now use splice to *remove* the fly at that index
-        // Remember we provide the index and the *number of elements*
-        // to remove. In this case just the one.
-        targets.splice(index, 1);
+function drawBox() {
+
+    //creates box on screen and sets the fill to red as default 
+    push();
+    fill(box.fill.r, box.fill.g, box.fill.b);
+    rect(box.x, box.y, box.width, box.height);
+
+    pop();
+
+    //controls changing colour from red to blue as you get close to the target
+    for (let t of targets) {
+
+        //checks the distance from the current target
+        test = dist(t.x, t.y, box.x, box.y)
+
+
+
     }
+    //maps the colour to the distance the box is from the target
+    c = map(test, 400, 0, 0, 255)
+    box.fill.r = c
+    box.fill.b = 255 - c
 
 
 }
 
+function InterFace() {
+
+    let button = createButton('Start Game');
+    button.position(width / 2, height / 2);
+
+    if (targets == 0) {
+        button.mousePressed(createTarget);
+    }
 
 
-// function drawBox(box) {
+    text(`points: ${points}`, 290, height / 2)
+    push();
+    textAlign(LEFT, LEFT);
+    text(`how to play:\nclick and drag\nthe box to find the\n'hotspot', find 20\nto win`, width - 100, 20)
+    pop();
+}
+let points = 0
+function handlePoints() {
 
-//     push();
-//     fill(box.fill);
-//     noStroke();
-//     rect(box.x, box.y, box.width, box.height)
-//     pop();
+    if (test != 0) {
+        if (test <= 25) {
+            points += 1
+            test -= test
+            targets.splice(0, 1)
+            createTarget();
 
+        }
+    }
 
-// }
+}
 
-// //START HERE/////////////////////////////////////////////////////
+function Win() {
 
-
-// //need to figure out the interaction for picking up the box, can steal windows code for dat
-// //need to figure out why the debugging messes with the thing
-// //need to make ellipese consistently show ^ linked ^    
-
-
-// let test = false
-// function pickUpBox(box, cursor) {
-
-//     if (checkOverlap(box, cursor) == true) {
-
-//         test = true
-//         text('overlap: ${test}', 300, 300);
-
-//     }
-
-// }
-
+    if (points == 15) {
+        textSize(15)
+        text('You are a true champion of this game,\nthere is nothing more for me to offer.\ncontinue to play infinitely if you like', 100, 100)
+    }
+}
 
 function checkOverlap(rectA, rectB) {
     return (rectA.x + rectA.width / 2 > rectB.x - rectB.width / 2 &&
@@ -215,14 +225,14 @@ function checkOverlap(rectA, rectB) {
 }
 
 
+
 function debugging() {
 
     text(`targets: ${targets}`, 50, 100)
     text(`targets: ${targets.length}`, 50, 120)
     text(`targets: ${targets.length}`, 50, 120)
 
-    text(`x: ${mX}`, 250, 350)
-    text(`y: ${mY}`, 250, 260)
+
 
     text(`x: ${mouseX}`, 250, 400)
     text(`y: ${mouseY}`, 250, 410)
@@ -259,6 +269,10 @@ function debugging() {
 
         text(`up`, 30, 320)
     }
+
+
+    text(`dis(box->trgt): ${test}`, 300, 500)
+    text(`red: ${c}`, 300, 510)
 }
 /**
  * 
