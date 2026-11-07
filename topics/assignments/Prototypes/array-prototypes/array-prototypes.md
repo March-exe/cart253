@@ -19,7 +19,7 @@
 
 ### Hot | Cold
 
-![Screenshot of hot cold]()
+![Screenshot of hot cold](./3/assets/images/Screenshot%202026-11-07%20173634.png)
 
 - [View online](./3/index.html)
 
