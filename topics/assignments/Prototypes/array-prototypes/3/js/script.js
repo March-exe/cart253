@@ -199,7 +199,7 @@ function InterFace() {
 
     //creates a start button in the center of the screen
     let button = createButton('Start Game');
-    button.position(width / 2, height / 2);
+    button.position(windowWidth / 2 - 50, windowHeight / 2 - 50);
 
     //button only works when targets is equal to zero
     if (targets == 0) {
@@ -207,11 +207,11 @@ function InterFace() {
     }
 
     //text displays points
-    text(`points: ${points}`, 290, height / 2)
+    text(`points: ${points}`, width / 2 - 30, height / 2)
     //text displays instructions
     push();
     textAlign(LEFT, LEFT);
-    text(`how to play:\nclick and drag\nthe box to find the\n'hotspot', find 20\nto win`, width - 100, 20)
+    text(`how to play:\nclick and drag\nthe box to find the\n'hotspot', find 15\nto win`, width - 100, 20)
     pop();
 }
 
